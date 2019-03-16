@@ -1,5 +1,5 @@
 
-# JQuery Tutorials
+# JQuery Note
 
 menu
 
