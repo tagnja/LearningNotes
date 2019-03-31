@@ -18,6 +18,7 @@ FrontEnd
 - HTML, CSS, JavaScript
 - MVVM Framework(Vue.js, Augular.js, React.js
 - Node.js, webpack
+- Mini Program, Wechat Official account.
 	
 DepOps
 	
