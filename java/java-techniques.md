@@ -7,7 +7,7 @@
 - JVM
 	- Sepcification, Implementation, GC
 	- memory Track
-	- JVM & GC OPT)
+	- JVM & GC OPT
 - Concurrency Pragramming
 	- API, Thread Pool.
 	- Synchronize, volatile.
