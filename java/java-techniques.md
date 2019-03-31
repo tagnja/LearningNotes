@@ -3,7 +3,7 @@
 
 - Java SE
 	- Basics, Class, Library, Container
-	- Advanced(Exception, Reflect, Generics)
+	- Advanced(Exception, Reflect, Generics
 - JVM
 	- Sepcification, Implementation, GC
 	- memory Track
