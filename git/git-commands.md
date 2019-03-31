@@ -17,6 +17,7 @@
 
 
 <h3 id="gss"># git status</h3>
+
 > 查看暂存区
 
 ```shell
@@ -24,6 +25,8 @@ $ git status  //查看暂存区，未提交的文件
 ```
 
 [`back to content`](#content)
+
+
 
 <h3 id="gdf"># git diff</h3>
 
@@ -55,6 +58,7 @@ $ git add *        //添加该目录下所有文件
 <h3 id="gct"># git commit</h3>
 
 > 将本地暂存区的代码提交到本地版本库
+
 ```shell
 $ git commit -m "description...." //提交到本地版本库，并添加描述 
 ```
@@ -85,7 +89,9 @@ $ git reset HEAD~1
 [`back to content`](#content)
 
 
+
 <h3 id="gcn"># git clean</h3>
+
 > 删除 untracked files
 
 ```shell
@@ -98,6 +104,7 @@ $ git clean -xfd   //连 gitignore 的untrack 文件/目录也一起删掉 （�
 
 
 <h3 id="grm"># git rm</h3>
+
 > git rm 是删除文件和版本记录。rm 是删除文件，没有删除版本库的记录，提交后文件依然存在版本库。
 
 ```shell
@@ -107,7 +114,10 @@ $ git rm <filename>
 
 [`back to content`](#content)
 
+
+
 <h3 id="gce"># git clone</h3>
+
 > 将远程仓库代码克隆到本地
 
 ```shell
@@ -119,6 +129,7 @@ $ git clone <url>
 
 
 <h3 id="gph"># git push</h3>
+
 > 将本地版本库代码同步到远程仓库中。即github中
 
 ```shell
@@ -131,7 +142,8 @@ $ git push origin master //push到指定远程仓库。origin master 分支为�
 
 
 
-<h3 id="gce"># git fetch, git merge</h3>
+<h3 id="gfh"># git fetch, git merge</h3>
+
 > git fetch 将远程仓库代码更新到本地。不会自动merge
 
 git fetch 比较本地与远程仓库的区别
