@@ -16,7 +16,7 @@ Software Architecture
 FrontEnd
 
 - HTML, CSS, JavaScript
-- MVVM Framework(Vue.js, Augular.js, React.js)
+- MVVM Framework(Vue.js, Augular.js, React.js
 - Node.js, webpack
 	
 DepOps
