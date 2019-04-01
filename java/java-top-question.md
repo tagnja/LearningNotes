@@ -209,6 +209,16 @@ Thread Safety
 - StringBuffer is thread safe and synchronized whereas StringBuilder is not. StringBuilder is more faster than StringBuffer.
 - non-multi threaded environment uses StringBuilder better than StringBuffer.
 
+References:
+
+<https://www.journaldev.com/538/string-vs-stringbuffer-vs-stringbuilder>
+
+
+
+[`back to content`](#content)
+
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
