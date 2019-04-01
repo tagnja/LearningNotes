@@ -15,10 +15,12 @@
   - [Package access](#pa)
   - [instanceof in Polymorphism](#iip)
   - [Polymorphism function calling](#pfc)
+  - [Process of Object instance  in extends](#poo)
   - [Nested Exception Run Sequence](#ner)
 - Container
 - Library
 - Advanced
+  - synchronized
   - Thread-deadlock
   - Multiple-Thread Development
   - Common Design Patterns(Composite, Strategy, Decorator, Abstract Factory, Bridge, )
@@ -346,6 +348,68 @@ Son type and son object - b: (1)First find in son, then find in super. (2)Find j
 
 
 
+<h3 id="poo">#Process of Object instance  in extends</h3>
+
+
+
+```java
+public class Parent {
+	private String name = "parent";
+	public Parent()
+	{
+		System.out.println("Parent constructor...");
+		print();
+	}
+	
+	public void print()
+	{
+		System.out.println("Parent print...");
+		System.out.println("name=" + name);
+	}
+}
+
+public class Son extends Parent{
+	private String name = "son";
+	
+	public Son()
+	{
+		System.out.println("Son constructor..");
+	}
+	
+	public void print()
+	{
+		System.out.println("Son print..");
+		System.out.println("name=" + this.name);
+	}
+}
+
+public static void main(String[] args)
+{
+    Parent parent = new Son();
+}
+```
+
+What is the main function print result?
+
+```java
+Parent Constructor...
+
+Son print...
+
+name=null   // When son print() execute by Polymorphism, but instance variales are not initialize and the Son contructor not execute. 
+
+Son Constructor...
+```
+
+
+
+
+
+
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -409,6 +473,60 @@ finally
 [`back to content`](#content)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Advanced
+
+<h3 id="sync">synchronized</h3>
+
+synchronized:
+
+- 被synchronized修饰的代码，多个线程使用相同的synchronized锁，只能同时被一个线程执行。
+- 同步锁，可以是类级别的（调用一个类的静态方法互斥），可以是对象级别的（调用同一个对象的方法互斥）。
+
+```java
+public class Demo{
+    // this static method can be executed by one thread execute at a time. The lock is Demo.class.
+    public synchronized static void foo(){
+        
+    }
+}
+
+public class Demo {
+    // this instatnce method can be executed by one thread execute at a time when multiple thread using same object. The lock is this.
+    public synchronized void foo(){
+        
+    }
+}
+
+public class Test implements Runnable{
+    @Override
+    public void run(){
+        synchronized (Demo.class){
+            Demo.foo(); // when one thread execute this line, get the lock, Other thread can't enter synchronized block.
+        }
+    }
+} 
+
+public class Test implements Runnable{
+    private Demo demo;
+    
+    public Test(Demo demo)
+    {
+        this.demo = demo;
+    }
+    
+    @Override
+    public void run()
+    {
+        synchronized (demo){
+            demo.foo(); // when one thread execute this line, get the lock, Other thread uses same demo object, can't enter synchronized block.
+        }
+    }
+}
+
+```
+
+
 
 
 
