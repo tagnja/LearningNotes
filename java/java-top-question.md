@@ -8,7 +8,7 @@
   - [int vs Integer?](#ivi)
   - [equals vs == in String](#ev=)
   - [Function value passing or reference passing](#fvp)
-  - String, StringBuider, StringBuffer
+  - [String, StringBuider, StringBuffer](#sss)
 - Classes
   - Object-oriented design principles?
   - Java Object Creation Process in run-time memory.
@@ -195,6 +195,21 @@ __Reference passing: array, Object (Exclude String, WrapperClass)__
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+<h3 id="sss"># String, StringBuider, StringBuffer</h3>
+
+
+immutable
+
+- Their accomplishment all are  by char array.
+- String is immutable whereas StringBuffer and StringBuilder are mutable classes. 
+- String concat operation uses StringBuilder or StringBuffer better than String.
+
+Thread Safety
+
+- StringBuffer is thread safe and synchronized whereas StringBuilder is not. StringBuilder is more faster than StringBuffer.
+- non-multi threaded environment uses StringBuilder better than StringBuffer.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -401,7 +416,6 @@ JVM Class Loader loading bytecode to memory, Byte Code Verifier verifying byteco
 Most Computer languages use the "compile-link-execute" format.
 
 [`back to content`](#content)
-
 
 
 
