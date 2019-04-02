@@ -3,7 +3,15 @@
 
 - Java SE
   - Basics, Class, Library, Container
-  - Advanced(Exception, Reflect, Generics)
+  - Advanced(Exception, Reflect, Generics, Thread, JVM, Socket)
+- Java EE
+
+  - Servlet/JSP
+  - Contexts and Dependency Injection
+  - Java Persistence
+  - Java API for RESTful Web Services
+  - Java EE Security API
+  - Web Socket
 - JVM
   - Sepcification, Implementation, GC
   - Class Loading Mechanism. 
