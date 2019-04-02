@@ -20,9 +20,9 @@
 
 Referece:
 
-<https://github.com/tagnja/learning-notes/blob/master/java/articles/Java-Versions-Features-and-History.md>
+<https://github.com/tagnja/learning-notes/blob/master/java/references/Java-Versions-Features-and-History.md>
 
-<https://github.com/tagnja/learning-notes/blob/master/java/articles/Java-Version-wise-Features-History.md>
+<https://github.com/tagnja/learning-notes/blob/master/java/references/Java-Version-wise-Features-History.md>
 
 ###  Java SE 9
 
