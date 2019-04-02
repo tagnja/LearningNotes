@@ -37,15 +37,15 @@
 - Traverse Map can't add or remove elements. It will throw Exception "java.util.ConcurrentModificationException". For example. You can traverse map save you need remove key of key-value, then remove them by key.
 
 ```java
-		for (String s : myMap.keySet())
-		{
-			if (myMap.get("2") != null)
-			{
-				myMap.remove("2");
-			}
-			if (myMap.get("3") == null)
-				myMap.put("3","c");
-		}
+        for (String s : myMap.keySet())
+        {
+            if (myMap.get("2") != null)
+            {
+                myMap.remove("2");
+            }
+            if (myMap.get("3") == null)
+                myMap.put("3","c");
+        }
 ```
 
 
@@ -55,19 +55,19 @@
 - Auto close IO stream.
 
 ```java
-	try
-    (
-        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-    )
-    {
-        for (String line : text)
+        try
+        (
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        )
         {
-            writer.write(line + "\r\n");
+            for (String line : text)
+            {
+                writer.write(line + "\r\n");
+            }
         }
-    }
-    catch (IOException e)
-    {
-        e.printStackTrace();
-    }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
 ```
 
