@@ -17,7 +17,7 @@
 - Initializing Array
 
 ```java
-		private static final List<String> myList = new ArrayList<>(Arrays.asList("a","b"));
+        private static final List<String> myList = new ArrayList<>(Arrays.asList("a","b"));
 ```
 
 - Initializing Map
