@@ -20,16 +20,19 @@
 - Container
 - Library
 - Advanced
-  - synchronized
-  - Thread-deadlock
-  - Multiple-Thread Development
-  - Common Design Patterns(Composite, Strategy, Decorator, Abstract Factory, Bridge, )
+  - 
+- Design Pattern
+  - [Common Design Patterns](#cdp)
 - JVM
   - [How java works?](#hjw)
   - Java Run-time memory
   - JVM Specification concepts?
   - JVM configurations?
   - JVM Optimizations?
+- Concurrency
+  - [synchronized](#sync)
+  - [Thread Pool](#tp)
+  - [Thread Deadlock](#tdk)
 
 ### Main
 
@@ -476,7 +479,70 @@ finally
 
 ### Advanced
 
-<h3 id="sync">synchronized</h3>
+
+
+
+### JVM
+
+
+
+<h3 id="hjw"># How Java Works</h3>
+
+Javac convert source code => bytecode file
+
+JVM Class Loader loading bytecode to memory, Byte Code Verifier verifying bytecode, Execution Engine convert bytecode file => machine code
+
+Most Computer languages use the "compile-link-execute" format.
+
+[`back to content`](#content)
+
+
+
+### Design Patterns
+
+<h3 id="cdp"># Common Design Patterns</h3>
+
+(Composite, Strategy, Decorator, Abstract Factory, Bridge, )
+
+- Create Patterns
+
+  - __Abstract Factory__
+  - __Builder__
+  - __Factory Method__
+  - Prototype
+  - __Singleton__
+
+- structural Patterns
+
+  - Adapter
+  - __Bridge__
+  - __Composite__
+  - __Decorator__
+  - Facade
+  - Flyweight
+  - __Proxy__
+
+- Behavioral patterns
+
+  - Chain of Responsibility
+  - Command
+  - Interpreter
+  - Iterator
+  - Mediator
+  - Memento
+  - Observer
+  - State
+  - __Strategy__
+  - Template Method
+  - Visitor
+
+  
+
+### Concurrency
+
+### 
+
+<h3 id="sync"># synchronized</h3>
 
 synchronized:
 
@@ -528,25 +594,227 @@ public class Test implements Runnable{
 
 
 
+<h3 id="tp"># Thread Pool</h3>
+
+What is Thread Pool
+
+- It manages the pool of worker threads.
+- It contains a queue that keeps tasks waiting to get executed.
+
+Why use thread pool
+
+- Focus on the tasks. you want the thread to perform instead of thread mechanics.
+- Easy to manage tasks to perform.
+- Solution for the problem of thread cycle overhead. (Repeating create and destroy thread)
+- Solution for the problem of resource thrashing(if every request create a new thread, too many threads cause system to run out of memory).
+
+How to use thread pool
+
+- Java provides the Executor framework which is centered around the Executor interface.
+
+```java
+java.lang
+		class-Thread
+		interface-Runnable
+java.util.concurrent
+        interface-Executor
+            interface-ExecutorService
+                *class-AbstractExecutorService
+                    class-ThreadPoolExecutor
+                        class-ScheduleThreadPoolExecutor
+                    class-ForkJoinPool
+                interface-ScheduleExecutorService
+                        class-ScheduleThreadPoolExecutor
+        
+        class-Executors
+		interface-Future
+			*class-ForkJoinTask
+				*class-RecursiveTask
+		interface-Callable
+```
+
+- Executor 
+
+its sub-interface-ExecutorService, class-ThreadPoolExecutor, class-ScheduledThreadPoolExecutor.
+
+- Executors 
+
+It is a utility class that provices useful methods to work with ExecutorService, ScheduleExecutorService, ThreadFactory, and Callable classes through various factory methods.
+
+```java
+class-Executors methods
+    public static ExecutorService newSingleThreadExecutor() {
+        return new FinalizableDelegatedExecutorService
+            (new ThreadPoolExecutor(1, 1,
+                                    0L, TimeUnit.MILLISECONDS,
+                                    new LinkedBlockingQueue<Runnable>()));
+    }
+    public static ExecutorService newFixedThreadPool(int nThreads) {
+        return new ThreadPoolExecutor(nThreads, nThreads,
+                                      0L, TimeUnit.MILLISECONDS,
+                                      new LinkedBlockingQueue<Runnable>());
+    }
+    public static ExecutorService newCachedThreadPool() {
+        return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+                                      60L, TimeUnit.SECONDS,
+                                      new SynchronousQueue<Runnable>());
+    }
+    public ScheduledThreadPoolExecutor(int corePoolSize) {
+        super(corePoolSize, Integer.MAX_VALUE, 0, NANOSECONDS,
+              new DelayedWorkQueue());
+    }
+class-ThreadPoolExecutor
+    public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, 
+    	long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue)
+	{
+    	this(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue,
+             Executors.defaultThreadFactory(), defaultHandler);
+	}
+```
+
+- Callable
+
+It java 5 introduced java.util.concurrenct.Callable interface. It is similar to Runnable interface, but it can return any Object and able to throw Exception.
+
+- Future
+
+Java Callable tasks return java.utl.concurrent.Future object. It provide get() method get the Callable task return Object.
+
+Using Example
+
+Single Thread Pool by Executor Example
+
+```java
+    Executor executor = Executors.newSingleThreadExecutor();
+    executor.execute(() -> System.out.println("Hello World")); // Runnable
+	executor.shutdown();
+```
 
 
 
-### JVM
+Fixed Thread Pool by Executors Example
+
+```java
+    ExecutorService executor = Executors.newFixedThreadPool(5);
+    for (int i=0; i < 10; i++)
+    {
+        executor.execute(new Runnable()
+        {
+            @Override
+            public void run(){
+                System.out.println(Thread.currentThread().getName() + " start...");
+                Thread.sleep(3000);
+                System.out.println(Thread.currentThread().getName() + " end");
+            }
+        });
+    }
+    executor.shutdown();
+    while (! executor.isTerminated()) {
+    }
+    System.out.println("Finished all threads");
+```
+
+Fixed Thread Pool by ThreadPoolExecutor Example
+
+```java
+    ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10,
+        0L, TimeUnit.MILLISECONDS,
+        new LinkedBlockingQueue<Runnable>());
+    for (int i=0; i < 10; i++)
+    {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("hh");
+            }
+        });
+    }
+    executor.shutdown();
+    while (! executor.isTerminated()) {
+    }
+    System.out.println("Finished all threads");
+```
+
+Callable & Future Example
+
+```java
+    ExecutorService executor = Executors.newFixedThreadPool(10);
+    Callable<String> callable = new Callable<String>(){
+        @Override
+        public String call() throws Exception {
+            Thread.sleep(1000);
+            return Thread.currentThread().getName();
+        }
+    };
+    for (int i=0; i < 100; i++){
+        Future<String> future = executor.submit(callable);
+        System.out.println(future.get());
+    }
+    executor.shutdown();
+    while (! executor.isTerminated()){
+    }
+    System.out.println("Finished all threads");
+
+ 	ExecutorService executorService = Executors.newFixedThreadPool(10);
+    Future<String> future = executorService.submit(() -> "Hello World"); //Callable
+    String result = future.get();
+	executor.shutdown();
+```
 
 
-
-<h3 id="hjw"># How Java Works</h3>
-
-Javac convert source code => bytecode file
-
-JVM Class Loader loading bytecode to memory, Byte Code Verifier verifying bytecode, Execution Engine convert bytecode file => machine code
-
-Most Computer languages use the "compile-link-execute" format.
 
 [`back to content`](#content)
 
 
 
+<h3 id="tdk">Thread Deadlock</h3>
 
+What is deadlock
+
+A situation where two or more threads are blocked forever, waiting for each other.
+
+```java
+	static Object lock1 = new Object();
+	static Object lock2 = new Object();
+	public static void main(String[] args) throws InterruptedException, ExecutionException
+	{
+		new Thread(new Runnable() {
+			@Override
+			public void run()
+			{
+				synchronized(lock1)
+				{
+					System.out.println(Thread.currentThread().getName() + "hold lock1...");
+					sleep();
+					synchronized(lock2)
+					{
+						System.out.println(Thread.currentThread().getName() + "hold lock2...");
+						sleep();
+					}
+				}
+			}
+		}).start();
+		new Thread(new Runnable() {
+			@Override
+			public void run()
+			{
+				synchronized(lock2)
+				{
+					System.out.println(Thread.currentThread().getName() + "hold lock2...");
+					sleep();
+					synchronized(lock1)
+					{
+						System.out.println(Thread.currentThread().getName() + "hold lock1...");
+						sleep();
+					}
+				}
+			}
+		}).start();
+	}
+```
+
+
+
+[`back to content`](#content)
 
 --END--
