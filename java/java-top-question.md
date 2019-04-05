@@ -2,41 +2,41 @@
 
 <h3 id="content">Content</h3>
 
-- Basics
+- I. Basics
   - [Differences between JDK, JRE and JVM?](#dbj)
   - Java every version features?
   - [int vs Integer?](#ivi)
   - [equals vs == in String](#ev=)
   - [Function value passing or reference passing](#fvp)
   - [String, StringBuider, StringBuffer](#sss)
-- Classes
+- II. Classes
   - Object-oriented design principles?
-  - Java Object Creation Process in run-time memory.
   - [Package access](#pa)
   - [instanceof in Polymorphism](#iip)
-  - [Polymorphism function calling](#pfc)
-  - [Process of Object instance  in extends](#poo)
+  - [Function Calling in Polymorphism](#pfc)
+  - [Object Instantiating in Polymorphism](#poo)
   - [Nested Exception Run Sequence](#ner)
-- Container
-- Library
-- Advanced
-  - 
-- Design Pattern
-  - [Common Design Patterns](#cdp)
-- JVM
+- III. Library & Advanced
+  - IO
+  - Container
+- IV. JVM
   - [How java works?](#hjw)
-  - Java Run-time memory
-  - JVM Specification concepts?
-  - JVM configurations?
-  - JVM Optimizations?
-- Concurrency
+  - [Class Loading](#clg)
+  - [Java Object Creation Process](#joc)
+  - [Java Run-time memory](#jrm)
+  - [JVM Optimizations](#jos)
+- V. Concurrency
   - [synchronized](#sync)
   - [Thread Pool](#tp)
   - [Thread Deadlock](#tdk)
+- VI. Design Pattern
+  - [Common Design Patterns](#cdp)
 
 ### Main
 
-### Basic
+
+
+### I. Basic
 
 
 
@@ -226,9 +226,13 @@ References:
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+---
 
 
-### Classes
+
+### II. Classes
+
+
 
 
 <h3 id="pa"> # Package Access</h3>
@@ -273,7 +277,7 @@ System.out.println(obj instanceof A); // true
 
 
 
-<h3 id="pfc"># Polymorphism function calling</h3>
+<h3 id="pfc"># Function Calling in Polymorphism </h3>
 
 ```java
 public class A {
@@ -351,7 +355,7 @@ Son type and son object - b: (1)First find in son, then find in super. (2)Find j
 
 
 
-<h3 id="poo">#Process of Object instance  in extends</h3>
+<h3 id="poo"># Object Instantiating in Polymorphism</h3>
 
 
 
@@ -403,10 +407,6 @@ name=null   // When son print() execute by Polymorphism, but instance variales a
 
 Son Constructor...
 ```
-
-
-
-
 
 
 
@@ -477,12 +477,20 @@ finally
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Advanced
+---
+
+
+
+### III. Library & Advanced
 
 
 
 
-### JVM
+
+
+
+
+### IV. JVM
 
 
 
@@ -490,57 +498,119 @@ finally
 
 Javac convert source code => bytecode file
 
-JVM Class Loader loading bytecode to memory, Byte Code Verifier verifying bytecode, Execution Engine convert bytecode file => machine code
+JVM Class Loader loading bytecode to memory, `Byte Code Verifier` verifying bytecode, `Execution Engine` convert bytecode file => machine code
 
 Most Computer languages use the "compile-link-execute" format.
 
 [`back to content`](#content)
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<h3 id="clg"># Class Loading</h3>
+
+Process of Class Loading
+
+- JVM Loading
+
+- JVM Linking
+
+- JVM Initialization
+
+__类加载过程__
+
+①加载阶段。是指把类的.class文件中的二进制数据读入内存中，把它存放在运行时数据区的方法区内，然后在堆区创建一个java.lang.Class对象，用来封装类在方法区内的数据结构。
+
+②连接阶段。包括验证、准备和解析类的二进制
+
+③初始化阶段。给类的静态变量赋予正确的初始值，若有显示赋值，则把值赋给变量，若没有，则取默认值，然后，执行静态代码块。
+
+__类加载的时机__
+
+java虚拟机只有在程序首次主动使用一个类和接口时才会初始化它。
+
+下例6种程序对类或接口的主动使用
+
+①创建类的实例：用new语句创建实例，或者通过反射、克隆及反序列化手段来创建实例。
+
+②调用类的静态方法。
+
+③访问类和接口的静态变量或者为该静态变量赋值。
+
+④调用java API中某些反射方法，Class.forName("Worker");
+
+⑤初始化一个类的子类。
+
+⑥java虚拟机启动时被标明为启动类的类。
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<h3 id="joc"># Java Object Creation Process in run-time memory</h3>
+
+__对象创建过程__
+
+①为对象在堆中分配内存空间
+
+②将对象的实例变量自动初始化为默认值。若实例变量在声明时被显式的初始化，则把相应的值赋给变量。然后，运行构造代码块
+
+③调用构造方法
+
+④返回对象的引用（Sample s=new Sample（）表示将对象的引用赋给s引用变量）
+
+（注：若该类有父类，则先初始化父类的实例变量、执行父类构造代码块，调用父类的构造方法。再初始化该类的实例变量，执行构造代码块，调用构造方法）
 
 
-### Design Patterns
 
-<h3 id="cdp"># Common Design Patterns</h3>
+[`back to content`](#content)
 
-(Composite, Strategy, Decorator, Abstract Factory, Bridge, )
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-- Create Patterns
 
-  - __Abstract Factory__
-  - __Builder__
-  - __Factory Method__
-  - Prototype
-  - __Singleton__
+<h3 id="jrm">Java Run-time memory</h3>
 
-- structural Patterns
+java运行时内存分配
 
-  - Adapter
-  - __Bridge__
-  - __Composite__
-  - __Decorator__
-  - Facade
-  - Flyweight
-  - __Proxy__
+①程序计数器
 
-- Behavioral patterns
+程序计数器是一块较小的区域，它的作用可以看做是当前线程所执行的字节码的行号指示器。在虚拟机的模型里，字节码指示器就是通过改变程序计数器的值来指定下一条需要执行的指令。分支，循环等基础功能就是依赖程序计数器来完成的。
 
-  - Chain of Responsibility
-  - Command
-  - Interpreter
-  - Iterator
-  - Mediator
-  - Memento
-  - Observer
-  - State
-  - __Strategy__
-  - Template Method
-  - Visitor
+②堆
 
-  
+堆是Java虚拟机所管理的内存中最大的一块。堆是所有线程共享的一块区域，在虚拟机启动时创建。堆的唯一目的是存放对象实例，几乎所有的对象实例都在这里分配
 
-### Concurrency
+③方法区
 
-### 
+法区也是线程共享的区域，用于存储已经被虚拟机加载的类信息，常量，静态变量和即时编译器（JIT）编译后的代码等数据。
+
+④运行时常量池
+
+运行时常量池是方法区的一部分，Class文件中除了有类的版本，字段，方法，接口等信息以外，还有一项信息是常量池用于存储编译器生成的各种字面量和符号引用，这部分信息将在类加载后存放到方法区的运行时常量池中。
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+<h3 id="jos">JVM Optimizations</h3>
+
+
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+### V. Concurrency
+
+
+
+
+
 
 <h3 id="sync"># synchronized</h3>
 
@@ -591,6 +661,10 @@ public class Test implements Runnable{
 }
 
 ```
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -659,17 +733,23 @@ class-Executors methods
                                       60L, TimeUnit.SECONDS,
                                       new SynchronousQueue<Runnable>());
     }
-    public ScheduledThreadPoolExecutor(int corePoolSize) {
-        super(corePoolSize, Integer.MAX_VALUE, 0, NANOSECONDS,
-              new DelayedWorkQueue());
-    }
+
+```
+
+- ThreadPoolExecutor
+
+```java
 class-ThreadPoolExecutor
-    public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, 
+	public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, 
     	long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue)
 	{
     	this(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue,
              Executors.defaultThreadFactory(), defaultHandler);
 	}
+	public ScheduledThreadPoolExecutor(int corePoolSize) {
+        super(corePoolSize, Integer.MAX_VALUE, 0, NANOSECONDS,
+              new DelayedWorkQueue());
+    }
 ```
 
 - Callable
@@ -765,6 +845,8 @@ Callable & Future Example
 
 [`back to content`](#content)
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 <h3 id="tdk">Thread Deadlock</h3>
@@ -772,6 +854,15 @@ Callable & Future Example
 What is deadlock
 
 A situation where two or more threads are blocked forever, waiting for each other.
+
+__How to avoid deadlock__
+
+- don't use multiple threads
+- don't hold several locks at once. If you do, always acquire the locks in the same order.
+- don't execute foreign code while holding a lock.
+- use interruptible locks.
+
+Deadlock Example
 
 ```java
 	static Object lock1 = new Object();
@@ -794,19 +885,14 @@ A situation where two or more threads are blocked forever, waiting for each othe
 				}
 			}
 		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run()
+		new Thread(() -> {
+			synchronized(lock2)
 			{
-				synchronized(lock2)
+				System.out.println(Thread.currentThread().getName() + "hold lock2...");
+				sleep();
+				synchronized(lock1)
 				{
-					System.out.println(Thread.currentThread().getName() + "hold lock2...");
-					sleep();
-					synchronized(lock1)
-					{
-						System.out.println(Thread.currentThread().getName() + "hold lock1...");
-						sleep();
-					}
+					System.out.println(Thread.currentThread().getName() + "hold lock1...");
 				}
 			}
 		}).start();
@@ -816,5 +902,51 @@ A situation where two or more threads are blocked forever, waiting for each othe
 
 
 [`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+### VI. Design Patterns
+
+
+
+
+
+<h3 id="cdp"># Common Design Patterns</h3>
+
+(Composite, Strategy, Decorator, Abstract Factory, Bridge, )
+
+- Create Patterns
+  - __Abstract Factory__
+  - __Builder__
+  - __Factory Method__
+  - Prototype
+  - __Singleton__
+- structural Patterns
+  - Adapter
+  - __Bridge__
+  - __Composite__
+  - __Decorator__
+  - Facade
+  - Flyweight
+  - __Proxy__
+- Behavioral patterns
+  - Chain of Responsibility
+  - Command
+  - Interpreter
+  - Iterator
+  - Mediator
+  - Memento
+  - Observer
+  - State
+  - __Strategy__
+  - Template Method
+  - Visitor
+
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --END--
