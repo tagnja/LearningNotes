@@ -548,12 +548,13 @@ write byte[]/char to stream
 
 ```java
 try (
-		BufferedInputStream bis = new BufferedInputStream(new FileInputStream("D:/test.txt"));
-		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("D:/test2.txt"));
+	BufferedInputStream bis = new BufferedInputStream(new FileInputStream("D:/test.txt"));
+	BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("D:/test2.txt"));
 )
 {
 	StringBuilder sb = new StringBuilder();
-	// one line IO
+	
+	// byte[] IO
 	byte[] buf = new byte[20];
 	int len = -1;
 	while ((len = bis.read(buf)) != -1)
