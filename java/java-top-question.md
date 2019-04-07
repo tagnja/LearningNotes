@@ -550,10 +550,10 @@ write byte[]/char to stream
 try (
 		BufferedInputStream bis = new BufferedInputStream(new FileInputStream("D:/test.txt"));
 		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("D:/test2.txt"));
-	)
+)
 {
 	StringBuilder sb = new StringBuilder();
-	// byte[] IO
+	// one line IO
 	byte[] buf = new byte[20];
 	int len = -1;
 	while ((len = bis.read(buf)) != -1)
@@ -564,7 +564,7 @@ try (
 	}
 	
 	
-	// one character IO
+	// char IO
 	/*int ch = -1;
 	char[] c = new char[1];
 	while ((ch = bis.read()) != -1)
@@ -636,10 +636,16 @@ read object from stream
 write object to stream
 
 ```java
-ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("D:/object.txt"));
-oos.writeObject(new Draft());
-ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D:/object.txt"));
-Draft obj = (Draft) ois.readObject();
+try (
+	ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("D:/object.txt"));
+	ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D:/object.txt"));
+)
+{
+	oos.writeObject(new Draft());
+	Draft obj = (Draft) ois.readObject();
+} catch (ClassNotFoundException e) {
+	e.printStackTrace();
+}
 ```
 
 
