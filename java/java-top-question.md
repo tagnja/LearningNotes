@@ -1,36 +1,41 @@
-# Top Java Questions You Must Know
+# Java Top Questions You Must Know
 
 <h3 id="content">Content</h3>
 
 - I. Basics
   - [Differences between JDK, JRE and JVM?](#dbj)
-  - Java every version features?
+  - [ ] Java every version features?
   - [int vs Integer?](#ivi)
   - [equals vs == in String](#ev=)
   - [Function value passing or reference passing](#fvp)
   - [String, StringBuider, StringBuffer](#sss)
 - II. Classes
-  - Object-oriented design principles?
+  - [ ] Object-oriented design principles?
   - [Package access](#pa)
   - [instanceof in Polymorphism](#iip)
   - [Function Calling in Polymorphism](#pfc)
   - [Object Instantiating in Polymorphism](#poo)
-  - [Nested Exception Run Sequence](#ner)
 - III. Library & Advanced
-  - IO
-  - Container
+  - [ ] [Common Exceptions](#ces)
+  - [Nested Exception Run Sequence](#ner)
+  - [ ] [Common IO Stream](#cis)
+  - [ ] IO Common Operations
+  - [ ] Common Container Class
+  - [ ] Thread Safe Container  and Thread-Safe 
 - IV. JVM
   - [How java works?](#hjw)
-  - [Class Loading](#clg)
+  - [Class Loading Process](#clp)
   - [Java Object Creation Process](#joc)
   - [Java Run-time memory](#jrm)
-  - [JVM Optimizations](#jos)
+  - [JVM Configurations](#jcs)
+  - [ ] [JVM Optimizations](#jos)
 - V. Concurrency
   - [synchronized](#sync)
   - [Thread Pool](#tp)
+  - [ ] Thread Class Common Methods
   - [Thread Deadlock](#tdk)
 - VI. Design Pattern
-  - [Common Design Patterns](#cdp)
+  - [ ] [Common Design Patterns](#cdp)
 
 ### Main
 
@@ -262,11 +267,18 @@ class C extends A{}
 class D extends B{}
 
 A obj = new D();
-System.out.println(obj instanceof B); // true
-System.out.println(obj instanceof C); // false
-System.out.println(obj instanceof D); // true
-System.out.println(obj instanceof A); // true
+System.out.println(obj instanceof B); 
+System.out.println(obj instanceof C); 
+System.out.println(obj instanceof D); 
+System.out.println(obj instanceof A); 
 
+/* 
+result:
+    true
+    false
+    true
+    true
+*/
 ```
 
 [`back to content`](#content)
@@ -335,7 +347,7 @@ public class Test {
 9--A and D
 ```
 
-Match Sequence
+__Consequences__
 
 ```java
 A a1 = new A();
@@ -414,6 +426,19 @@ Son Constructor...
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+---
+
+
+
+### III. Library & Advanced
+
+
+<h3 id="ces"># Common Exceptions</h3>
+
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 <h3 id="ner"># Nested Exception Run Sequence</h3>
@@ -467,6 +492,8 @@ finally
  */
 ```
 
+__Consequences__
+
 `try` - `try` execute until the last executable line.
 
 `catch` - It can execute outside `catch` block if inside `catch` can't catch the exception.
@@ -477,17 +504,169 @@ finally
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+
+
+<h3 id="cis"># Common IO Stream</h3>
+
+| classify | function       | byte input           | byte output          | char reader         | char writer         |
+| -------- | -------------- | -------------------- | -------------------- | ------------------- | ------------------- |
+|          | 抽象基类       | InputStream          | OutputStream         | Reader              | Writer              |
+| 节点流   | 访问文件       | FileInputSream       | FileOutputStream     | FileReader          | FileWriter          |
+|          | 访问数值       | ByteArrayInputStream | ByteArrayOutStream   | **CharArrayReader** | **CharArrayWriter** |
+|          | 访问管道       | PipedInputStream     | **PipedOutStream**   | **PipedReader**     | **PipedWriter**     |
+|          | 访问字符串     |                      |                      | **StringReader**    | **StringWriter**    |
+| 处理流   | 缓冲流         | BufferedInputStream  | BufferedOutputStream | BufferedReader      | BufferedWriter      |
+|          | 转换流         |                      |                      | InputStreamReader   | OutputStreamWriter  |
+|          | 对象流         | ObjectInputStream    | ObjectOutputStream   |                     |                     |
+|          | (过滤)抽象基类 | FilterInputStream    | *FilterOutputStream* | *FilterReader*      | *FilterWriter*      |
+|          | 打印流         |                      | PrintStream          |                     | PrintWriter         |
+|          | 退回输入流     | PushBackInputStream  |                      | PushbackReader      |                     |
+|          | 特殊流         | DataInputStream      | DataOutputStream     |                     |                     |
+
+__Consequences__
+
+1. Java IO是采用的是装饰模式，即采用**处理流**来包装**节点流**的方式，来达到代码通用性。
+
+2. 处理流和节点流的区分方法，**节点流**在新建时需要一个数据源（文件、网络）作为参数，而**处理流**需要一个节点流作为参数。
+
+3. **处理流**的作用就是提高代码通用性，编写代码的便捷性，提高性能。
+
+4. **节点流**都是对应抽象基类的实现类，它们都实现了抽象基类的基础读写方法。其中read（）方法如果返回-1，代表已经读到数据源末尾。
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+<h3 id=""># IO Common Operations</h3>
+
+read byte/char from stream
+
+write byte[]/char to stream
+
+```java
+try (
+		BufferedInputStream bis = new BufferedInputStream(new FileInputStream("D:/test.txt"));
+		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("D:/test2.txt"));
+	)
+{
+	StringBuilder sb = new StringBuilder();
+	// byte[] IO
+	byte[] buf = new byte[20];
+	int len = -1;
+	while ((len = bis.read(buf)) != -1)
+	{
+		bos.write(buf, 0, len);
+		bos.flush();
+		sb.append(new String(buf, 0, len, StandardCharsets.UTF_8));
+	}
+	
+	
+	// one character IO
+	/*int ch = -1;
+	char[] c = new char[1];
+	while ((ch = bis.read()) != -1)
+	{
+		bos.write(ch);
+		bos.flush();
+		c[0] = (char)ch;
+		sb.append(c);
+	}*/
+	
+	System.out.println(sb.toString());
+} catch (FileNotFoundException e) {
+	e.printStackTrace();
+} catch (IOException e) {
+	e.printStackTrace();
+}
+```
+
+read char from stream 
+
+write char to stream
+
+```java
+try (
+	BufferedReader br = new BufferedReader(new FileReader("D:/test.txt"));
+	BufferedWriter bw = new BufferedWriter(new FileWriter("D:/test2.txt"));
+)
+{
+	StringBuilder sb = new StringBuilder();
+	
+	// string io
+	/*String buf = null;
+	while ((buf = br.readLine()) != null)
+	{
+		buf += "\r\n";
+		bw.write(buf);
+		sb.append(buf);
+	}*/
+	
+	// char[] IO
+	char[] buf = new char[1024];
+	int len = 0;
+	while ((len = br.read(buf)) != -1)
+	{
+		bw.write(buf, 0, len);
+		sb.append(buf, 0, len);
+	}
+	
+	// char IO
+	/*int c = -1;
+	char[] str = new char[1];
+	while ((c = br.read()) != -1)
+	{
+		bw.write(c);
+		str[0] = (char) c;
+		sb.append(str);
+	}*/
+	
+	System.out.println(sb.toString());
+} catch (FileNotFoundException e) {
+	e.printStackTrace();
+} catch (IOException e) {
+	e.printStackTrace();
+}
+```
+
+read object from stream
+
+write object to stream
+
+```java
+ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("D:/object.txt"));
+oos.writeObject(new Draft());
+ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D:/object.txt"));
+Draft obj = (Draft) ois.readObject();
+```
+
+
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+<h3 id=""># Common Container Class</h3>
+
+
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+<h3 id=""># Thread Safe Container  and Thread-Safe</h3>
+
+
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ---
-
-
-
-### III. Library & Advanced
-
-
-
-
-
-
 
 
 ### IV. JVM
@@ -506,7 +685,7 @@ Most Computer languages use the "compile-link-execute" format.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-<h3 id="clg"># Class Loading</h3>
+<h3 id="clg"># Class Loading Process</h3>
 
 Process of Class Loading
 
@@ -592,6 +771,69 @@ java运行时内存分配
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+<h3 id="jcs">JVM Configurations</h3>
+
+- Heap Memory
+- Garbage Collection (choosing of right Garbage Collection algorithm is critical)
+- GC Logging  (Checking  the JVM’s *Garbage Collection* performance by logging the *GC* activity in human readable format)
+- Handling Out of Memory (dump heap memory into a physical file)
+- 32/64 bit
+- Misc
+
+__Heap__
+
+`-Xms<heap size>[unit]`
+
+`-Xmx<heap size>[unit]`
+
+unit g for GB, m for MB and k for KB.
+
+For Example, assign minimum 2 GB and maximum 5 GB to JVM.
+
+`Xms2GB -Xmx5G`
+
+__Garbage Collection__
+
+```java
+-XX:+UseSerialGC
+-XX:+UseParallelGC
+-XX:+USeParNewGC
+-XX:+UseG1GC
+```
+
+__GC Logging__
+
+```
+-XX:+UseGCLogFileRotation  
+-XX:NumberOfGCLogFiles=10
+-XX:GCLogFileSize=50M 
+-Xloggc:/home/user/log/gc.log
+```
+
+__Handling Out of Memory__
+
+```java
+-XX:+HeapDumpOnOutOfMemoryError 
+-XX:HeapDumpPath=./java_pid<pid>.hprof
+-XX:OnOutOfMemoryError="< cmd args >;< cmd args >" 
+-XX:+UseGCOverheadLimit
+```
+
+__32/64 bit__
+In the OS environment where both 32 and 64-bit packages are installed, the JVM automatically chooses 32-bit environmental packages.
+If we want to set the environment to 64 bit manually, we can do so using below parameter:
+
+`-d<OS bit>`
+
+
+
+
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 <h3 id="jos">JVM Optimizations</h3>
 
 
@@ -599,6 +841,8 @@ java运行时内存分配
 [`back to content`](#content)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
@@ -907,9 +1151,11 @@ Deadlock Example
 
 
 
+
+
+
+
 ### VI. Design Patterns
-
-
 
 
 
@@ -917,33 +1163,29 @@ Deadlock Example
 
 (Composite, Strategy, Decorator, Abstract Factory, Bridge, )
 
-- Create Patterns
-  - __Abstract Factory__
-  - __Builder__
-  - __Factory Method__
-  - Prototype
-  - __Singleton__
-- structural Patterns
-  - Adapter
-  - __Bridge__
-  - __Composite__
-  - __Decorator__
-  - Facade
-  - Flyweight
-  - __Proxy__
-- Behavioral patterns
-  - Chain of Responsibility
-  - Command
-  - Interpreter
-  - Iterator
-  - Mediator
-  - Memento
-  - Observer
-  - State
-  - __Strategy__
-  - Template Method
-  - Visitor
+- Abstract Factory
+- Factory Method
+- Singleton
+- Proxy
+- Strategy
 
+__Abstract Factory__
+
+__1.Intent__
+
+__2.Functions__
+
+__2.Implementation__
+
+
+
+__Factory Method__
+
+__Singleton__
+
+__Proxy__
+
+__Strategy__
 
 [`back to content`](#content)
 
