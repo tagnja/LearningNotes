@@ -806,7 +806,7 @@ C-Arrays
 
 <h3 id="hta"># How to avoid ConcurrentModificationException</h3>
 
-__When does ConcurrentModificationException occur __
+**When does ConcurrentModificationException occur**
 
 List use iterator() to remove/add element can occur ConcurrentModificationException.
 
@@ -814,7 +814,7 @@ When Set traverse, remove/add element occur ConcurrentModificationException.
 
 When Map traverse, remove/add element occur ConcurrentModificationException.
 
-Occur java.util.ConcurrentModificationException Example
+**Occur java.util.ConcurrentModificationException Example**
 
 ```java
 // list
