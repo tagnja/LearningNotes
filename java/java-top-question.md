@@ -9,19 +9,32 @@
   - [equals vs == in String](#ev=)
   - [Function value passing or reference passing](#fvp)
   - [String, StringBuider, StringBuffer](#sss)
+
 - II. Classes
-  - [ ] Object-oriented design principles?
+
+  - [Object-oriented Features](#oof)
   - [Package access](#pa)
-  - [instanceof in Polymorphism](#iip)
-  - [Function Calling in Polymorphism](#pfc)
-  - [Object Instantiating in Polymorphism](#poo)
+  - Polymorphism
+    - [instanceof in Polymorphism](#iip)
+    - [Function Calling in Polymorphism](#pfc)
+    - [Object Instantiating in Polymorphism](#poo)
+
 - III. Library & Advanced
-  - [ ] [Common Exceptions](#ces)
-  - [Nested Exception Run Sequence](#ner)
-  - [ ] [Common IO Stream](#cis)
-  - [ ] IO Common Operations
-  - [ ] Common Container Class
-  - [ ] Thread Safe Container  and Thread-Safe 
+  - Exception
+    - [Common Exceptions](#ces)
+
+    - [Nested Exception Run Sequence](#ner)
+  - IO
+    - [Common IO Stream](#cis)
+    - [IO Common Operations](#ico)
+  - Container
+    - [Common Container Class](#ccc)
+    - [How to avoid ConcurrentModificationException](#hta)
+    - [Thread Safe Container  and Thread-Safe](#tsc)
+    - [What Is difference between different implementation Class of Container and How to choose](#wdc)
+    - [How HashMap Works In Java](#hhw)
+    - [Container Uitility Class](#cuc)
+
 - IV. JVM
   - [How java works?](#hjw)
   - [Class Loading Process](#clp)
@@ -29,12 +42,15 @@
   - [Java Run-time memory](#jrm)
   - [JVM Configurations](#jcs)
   - [ ] [JVM Optimizations](#jos)
+
 - V. Concurrency
   - [synchronized](#sync)
   - [Thread Pool](#tp)
   - [ ] Thread Class Common Methods
   - [Thread Deadlock](#tdk)
+
 - VI. Design Pattern
+
   - [ ] [Common Design Patterns](#cdp)
 
 ### Main
@@ -237,7 +253,18 @@ References:
 
 ### II. Classes
 
+<h3 id="oof"> # Object-oriented Features</h3>
 
+__Main Features of OOP__
+
+- Abstract
+- Encapsulation
+- Inheritance
+- Polymorphism
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 <h3 id="pa"> # Package Access</h3>
@@ -271,11 +298,15 @@ System.out.println(obj instanceof B);
 System.out.println(obj instanceof C); 
 System.out.println(obj instanceof D); 
 System.out.println(obj instanceof A); 
-
+B  b = new B();
+System.out.println(b instanceof B);
+System.out.println(b instanceof A);
 /* 
 result:
     true
     false
+    true
+    true
     true
     true
 */
@@ -433,8 +464,75 @@ Son Constructor...
 ### III. Library & Advanced
 
 
+
+
 <h3 id="ces"># Common Exceptions</h3>
 
+**java.lang:**
+
+1. ArithmeticException
+2. ArrayIndexOutOfBoundsException
+3. ClassCastException
+4. ClassNotFoundException
+5. CloneNotSupportedException
+6. IllegalArgumentExcepion
+7. IllegalMonitorStateException
+8. IllegalThreadStateException
+9. IndexOutOfBoundsException
+10. InterruptedException
+11. NullPointerException
+12. NumberFormatedException
+
+**java.util:**
+
+1. ConcurrentModificationException
+
+**java.io :**
+
+1. EOFException
+2. FileNotFoundException
+3. IOException
+4. NotSerializableException
+
+__Other:__
+
+1. SQLExcepion
+
+Classify by packages
+
+- **Casting**: ClassCastException
+- **Arrays**: ArrayIndexOutOfBoundsException, NullPointerException
+- **Collections**: NullPointerException, ClassCastException (if you're not using autoboxing and you screw it up)
+- **IO**: java.io.IOException, java.io.FileNotFoundException, java.io.EOFException
+- **Serialization**: java.io.ObjectStreamException (AND ITS SUBCLASSES, which I'm too lazy to enumerate)
+- **Threads**: InterruptedException, SecurityException, IllegalThreadStateException
+- **Potentially common to all situations**: NullPointerException, IllegalArgumentException
+
+Classify by checked
+
+**Unchecked Exception List**
+ArrayIndexOutOfBoundsException
+ClassCastException
+IllegalArgumentException
+IllegalStateException
+NullPointerException
+NumberFormatException
+AssertionError
+ExceptionInInitializerError
+StackOverflowError
+NoClassDefFoundError
+
+**Checked Exception List**
+Exception
+IOException
+FileNotFoundException
+ParseException
+ClassNotFoundException
+CloneNotSupportedException
+InstantiationException
+InterruptedException
+NoSuchMethodException
+NoSuchFieldException
 
 [`back to content`](#content)
 
@@ -540,7 +638,7 @@ __Consequences__
 
 
 
-<h3 id=""># IO Common Operations</h3>
+<h3 id="ico"># IO Common Operations</h3>
 
 read byte/char from stream
 
@@ -656,7 +754,166 @@ try (
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-<h3 id=""># Common Container Class</h3>
+<h3 id="ccc"># Common Container Class</h3>
+
+```java
+java.util
+java.util.concurrent
+
+I-Collection
+	I-List
+		*C-AbstractList
+            C-LinkedList
+            C-ArrayList
+            ?C-Vector
+                ?C-Stack
+	I-Set
+		*C-AbstractSet
+            C-HashSet
+                C-LinkedHashSet
+            C-TreeSet
+        I-SortedSet
+        	I-NavigableSet
+            	C-TreeSet
+	I-Queue
+		*C-AbstractQueue
+			C-PriorityQueue
+			C-LinkedBlockingQueue
+		I-BlockingQueue
+		I-Deque
+	
+I-Map
+	*C-AbstractMap
+        C-HashMap
+            C-LinkedHashMap
+        C-TreeMap
+	I-SortedMap
+		I-NavigableMap
+			C-TreeMap
+
+I-Iterator
+	I-ListIterator
+I-Comparable
+C-Collections
+C-Arrays
+
+```
+
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<h3 id="hta"># How to avoid ConcurrentModificationException</h3>
+
+__When does ConcurrentModificationException occur __
+
+List use iterator() to remove/add element can occur ConcurrentModificationException.
+
+When Set traverse, remove/add element occur ConcurrentModificationException.
+
+When Map traverse, remove/add element occur ConcurrentModificationException.
+
+Occur java.util.ConcurrentModificationException Example
+
+```java
+// list
+Iterator<String> iterator = myList.iterator();
+while (iterator.hasNext())
+{
+	if (iterator.next().equals("a"))
+	{
+		myList.remove("a"); //myList.add("new");
+	}
+}
+
+// set
+for (String s : mySet)
+{
+	if (s.equals("a"))
+	{
+		mySet.remove(s); //mySet.add("new");
+	}
+}
+// set2
+Iterator<String> iterator = mySet.iterator();
+while (iterator.hasNext())
+{
+	if (iterator.next().equals("a"))
+	{
+		mySet.remove("a"); //mySet.add("new");
+	}
+}
+
+// map
+for (Map.Entry<String, String> entry : myMap.entrySet())
+{
+	if (entry.getKey().equals("a"))
+	{
+		myMap.remove("a"); //myMap.put("new", "new_value");
+	}
+}
+// map2
+for (String key : myMap.keySet())
+{
+	if (key.equals("a"))
+	{
+		myMap.remove("a"); //myMap.put("new", "new_value");
+	}
+}
+```
+
+__Why does ConcurrentModificationException occur__ 
+
+Iterator fail-fast property checks for any modification in the structure of the underlying collection everytime we try to get the next element. If there are any modifications found, it throws `ConcurrentModificationException`. All the implementations of Iterator in Collection classes are fail-fast by design except the concurrent collection classes like ConcurrentHashMap and CopyOnWriteArrayList.
+
+```java
+// HashTable.java
+
+transient int modCount;
+
+final Node<K,V> nextNode() {
+    Node<K,V>[] t;
+    Node<K,V> e = next;
+    if (modCount != expectedModCount)
+        throw new ConcurrentModificationException();
+    if (e == null)
+        throw new NoSuchElementException();
+    if ((next = (current = e).next) == null && (t = table) != null) {
+        do {} while (index < t.length && (next = t[index++]) == null);
+    }
+    return e;
+}
+public final void remove() {
+    Node<K,V> p = current;
+    if (p == null)
+        throw new IllegalStateException();
+    if (modCount != expectedModCount)
+        throw new ConcurrentModificationException();
+    current = null;
+    K key = p.key;
+    removeNode(hash(key), key, null, false, false);
+    expectedModCount = modCount;
+}
+```
+
+
+
+__How to avoid ConcurrentModificationException occur__
+
+CopyOnWriteArrayList instead of ArrayList
+
+ConcurrentHashMap instead of HashMap 
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+<h3 id="tsc"># Thread Safe Container  and Thread-Safe</h3>
+
+Vector, Hashtable, Properties and Stack are synchronized classes, so they are thread-safe and can be used in multi-threaded environment. Java 1.5 Concurrent API included some collection classes that allows modification of collection while iteration because they work on the clone of the collection, so they are safe to use in multi-threaded environment.
 
 
 
@@ -665,11 +922,118 @@ try (
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-<h3 id=""># Thread Safe Container  and Thread-Safe</h3>
 
+<h3 id="#wdc"># What Is difference between different implementation Class of Container, and How to choose</h3>
+
+
+
+__What is difference between HashMap and Hashtable?__
+
+   HashMap and Hashtable both implements Map interface and looks similar, however there are following difference between HashMap and Hashtable.
+
+   1. HashMap allows null key and values whereas Hashtable doesn’t allow null key and values.
+   2. Hashtable is synchronized but HashMap is not synchronized. So HashMap is better for single threaded environment, Hashtable is suitable for multi-threaded environment.
+   3. `LinkedHashMap` was introduced in Java 1.4 as a subclass of HashMap, so incase you want iteration order, you can easily switch from HashMap to LinkedHashMap but that is not the case with Hashtable whose iteration order is unpredictable.
+   4. HashMap provides Set of keys to iterate and hence it’s fail-fast but Hashtable provides Enumeration of keys that doesn’t support this feature.
+   5. Hashtable is considered to be legacy class and if you are looking for modifications of Map while iterating, you should use ConcurrentHashMap.
+
+
+
+__How to decide between HashMap and TreeMap?__
+
+   For inserting, deleting, and locating elements in a Map, the HashMap offers the best alternative. If, however, you need to traverse the keys in a sorted order, then TreeMap is your better alternative. Depending upon the size of your collection, it may be faster to add elements to a HashMap, then convert the map to a TreeMap for sorted key traversal.
+
+
+
+__What are similarities and difference between ArrayList and Vector?__
+
+   ArrayList and Vector are similar classes in many ways.
+
+      1. Both are index based and backed up by an array internally.
+      2. Both maintains the order of insertion and we can get the elements in the order of insertion.
+      3. The iterator implementations of ArrayList and Vector both are fail-fast by design.
+      4. ArrayList and Vector both allows null values and random access to element using index number. These are the differences between ArrayList and Vector.
+      5. Vector is synchronized whereas ArrayList is not synchronized. However if you are looking for modification of list while iterating, you should use CopyOnWriteArrayList.
+      6. ArrayList is faster than Vector because it doesn’t have any overhead because of synchronization.
+      7. ArrayList is more versatile because we can get synchronized list or read-only list from it easily using Collections utility class.
+
+__What is difference between Array and ArrayList? When will you use Array over ArrayList?__
+
+   Arrays can contain primitive or Objects whereas ArrayList can contain only Objects.
+   Arrays are fixed size whereas ArrayList size is dynamic.
+   Arrays doesn’t provide a lot of features like ArrayList, such as addAll, removeAll, iterator etc.
+
+   Although ArrayList is the obvious choice when we work on list, there are few times when array are good to use.
+
+   - If the size of list is fixed and mostly used to store and traverse them.
+   - For list of primitive data types, although Collections use autoboxing to reduce the coding effort but still it makes them slow when working on fixed size primitive data types.
+   - If you are working on fixed multi-dimensional situation, using [][] is far more easier than List<List<>>
+
+__What is difference between ArrayList and LinkedList?__
+
+   ArrayList and LinkedList both implement List interface but there are some differences between them.
+
+   1. ArrayList is an index based data structure backed by Array, so it provides random access to it’s elements with performance as O(1) but LinkedList stores data as list of nodes where every node is linked to it’s previous and next node. So even though there is a method to get the element using index, internally it traverse from start to reach at the index node and then return the element, so performance is O(n) that is slower than ArrayList.
+   2. Insertion, addition or removal of an element is faster in LinkedList compared to ArrayList because there is no concept of resizing array or updating index when element is added in middle.
+   3. LinkedList consumes more memory than ArrayList because every node in LinkedList stores reference of previous and next elements.
+
+   
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<h3 id="hhw"># How HashMap Works In Java</h3>
+
+
+
+HashMap stores key-value pair in Node<K,V> implements Map.Entry. HashMap works on hasing algorithm and uses hashCode() and equals() method in `put` and `get` methods. 
+
+HashMap consist of the Array of LinkedList. 
+
+When we call `put` method by passing key-value pair, HashMap uses key hashCode() with hasing find out the index of array to strore the key-value pair. The Entry is stored in the LinkedList. It uses equals() method to check if the passed key already exists, if yes it overwirtes the value else it creates a new entry and store this key-value entry.
+
+When we call `get` method by passing key, again it uses the hashCode() to find the index in the array and then use equals() method  to find the correct Entry and return it's value.
+
+HashMap's capacity, load factor, threshold resizing. HashMap initial default capacity is 16 and load factor is 0.75. Threshold is capacity multiplied by load factor and whenever we try to add an entry, if map size is greater than threshold, HashMap rehashes the contents of map into a new array with a larger capacity. The capacity is always power of 2, so if you know that you need to store a large number of key-value pairs, for example in caching data from database, it’s good idea to initialize the HashMap with correct capacity and load factor.
+
+[`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+<h3 id="cuc">Container Utility Class</h3>
+
+__How can we sort a list of Objects?__
+If we need to sort an array of Objects, we can use Arrays.sort(). If we need to sort a list of objects, we can use Collections.sort(). Both these classes have overloaded sort() methods for natural sorting (using Comparable) or sorting based on criteria (using Comparator).
+Collections internally uses Arrays sorting method, so both of them have same performance except that Collections take sometime to convert list to array.
+
+__How can we create a synchronized collection from given collection?__
+
+We can use `Collections.synchronizedCollection(Collection c)` to get a synchronized (thread-safe) collection backed by the specified collection.
+
+__While passing a Collection as argument to a function, how can we make sure the function will not be able to modify it?__
+
+We can create a read-only collection using Collections.unmodifiableCollection(Collection c) method before passing it as argument, this will make sure that any operation to change the collection will throw UnsupportedOperationException.
+
+__What are best practices related to Java Collections Framework?__
+
+- Chosing the right type of collection based on the need, for example if size is fixed, we might want to use Array over ArrayList. If we have to iterate over the Map in order of insertion, we need to use TreeMap. If we don’t want duplicates, we should use Set.
+- Some collection classes allows to specify the initial capacity, so if we have an estimate of number of elements we will store, we can use it to avoid rehashing or resizing.
+- Write program in terms of interfaces not implementations, it allows us to change the implementation easily at later point of time.
+- Always use Generics for type-safety and avoid ClassCastException at runtime.
+- Use immutable classes provided by JDK as key in Map to avoid implementation of hashCode() and equals() for our custom class.
+- Use Collections utility class as much as possible for algorithms or to get read-only, synchronized or empty collections rather than writing own implementation. It will enhance code-reuse with greater stability and low maintainability.
 
 
 [`back to content`](#content)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+References:
+
+<https://www.journaldev.com/1330/java-collections-interview-questions-and-answers#java8-collections>
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
