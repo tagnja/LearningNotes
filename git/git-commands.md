@@ -3,6 +3,7 @@
 <h3 id="content">Content</h3>
 
 - [git status](#gss)
+- git log
 - [git diff](#gdf)
 - [git add](#gad)
 - [git commit](#gct)
@@ -25,6 +26,16 @@ $ git status  //查看暂存区，未提交的文件
 ```
 
 [`back to content`](#content)
+
+
+
+<h3 id=""># git log</h3>
+
+> 查看提交日志
+
+```shell
+$ git log
+```
 
 
 
