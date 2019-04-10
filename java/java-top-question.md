@@ -1866,9 +1866,9 @@ __Proxy__
 
 **3. Implementation**
 
-- proxyObject and realObject all implements abstractObject
-- proxyObject do new realObject
-- proxyObject wrap methods of realObject
+- proxyObject and realObject all implements abstractObject.
+- proxyObject create realObject.
+- proxyObject wrap methods of realObject.
 
 Basic structure
 
