@@ -1656,6 +1656,11 @@ __3.Implementation__
 
 **Basic Structure**
 
+- Concrete factories implements abstract factory
+- Concrete factory product one abstract product
+- Concrete products implements abstract product.
+- FactoryProvider provide a concrete factory.
+
 ```java
 
 interface AbstractFactory                                                                                 
@@ -1860,6 +1865,10 @@ __Proxy__
 - Controls and manage access to the actual Object.
 
 **3. Implementation**
+
+- proxyObject and realObject all implements abstractObject
+- proxyObject do new realObject
+- proxyObject wrap methods of realObject
 
 Basic structure
 
