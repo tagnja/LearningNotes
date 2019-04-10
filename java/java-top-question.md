@@ -9,7 +9,6 @@
   - [equals vs == in String](#ev=)
   - [Function value passing or reference passing](#fvp)
   - [String, StringBuider, StringBuffer](#sss)
-
 - II. Classes
 
   - [Object-oriented Features](#oof)
@@ -18,7 +17,6 @@
     - [instanceof in Polymorphism](#iip)
     - [Function Calling in Polymorphism](#pfc)
     - [Object Instantiating in Polymorphism](#poo)
-
 - III. Library & Advanced
   - Exception
     - [Common Exceptions](#ces)
@@ -34,7 +32,6 @@
     - [What Is difference between different implementation Class of Container and How to choose](#wdc)
     - [How HashMap Works In Java](#hhw)
     - [Container Uitility Class](#cuc)
-
 - IV. JVM
   - [How java works?](#hjw)
   - [Class Loading Process](#clp)
@@ -42,14 +39,15 @@
   - [Java Run-time memory](#jrm)
   - [JVM Configurations](#jcs)
   - [ ] [JVM Optimizations](#jos)
-
 - V. Concurrency
   - [synchronized](#sync)
   - [Thread Pool](#tp)
   - [ ] Thread Class Common Methods
   - [Thread Deadlock](#tdk)
-
-- VI. Design Pattern
+- VI. Network Communication
+  - [I/O Models](#iom)
+  - Socket Implementation
+- VII. Design Pattern
 
   - [ ] [Common Design Patterns](#cdp)
 
@@ -1522,11 +1520,111 @@ Deadlock Example
 
 
 
+### Network Communication
+
+<h3 id="iom">I/O Models</h3>
+
+> 《UNIX网络编程》说得很清楚，5种IO模型分别是阻塞IO模型、非阻塞IO模型、IO复用模型、信号驱动的IO模型、异步IO模型；前4种为同步IO操作，只有异步IO模型是异步IO操作。
+
+- IO (BIO, blocking IO)
+- NIO (Non-blocking IO)
+- IO multiplexing
+- Signal Driven IO
+- Asynchronous IO
+
+**IO**
+
+IO (Input/Output，输入/输出)即数据的读取（接收）或写入（发送）操作，通常用户进程中的一个完整IO分为两阶段：用户进程空间<-->内核空间、内核空间<-->设备空间（磁盘、网络等）。
+
+LINUX中进程无法直接操作I/O设备，其必须通过系统调用请求kernel来协助完成I/O动作；内核会为每个I/O设备维护一个缓冲区。
+
+对于一个输入操作来说，进程IO系统调用后，内核会先看缓冲区中有没有相应的缓存数据，没有的话再到设备中读取，因为设备IO一般速度较慢，需要等待；内核缓冲区有数据则直接复制到进程空间。
+
+> 所以，对于一个网络输入操作通常包括两个不同阶段：
+
+> > （1）等待网络数据到达网卡→读取到内核缓冲区，数据准备好；
+> >
+> > （2）从内核缓冲区复制数据到进程空间。
+
+**阻塞IO模型**
+
+进程发起IO系统调用后，进程被阻塞，转到内核空间处理，整个IO处理完毕后返回进程。操作成功则进程获取到数据。
+
+典型应用：阻塞socket、Java BIO
+
+特点：
+
+进程阻塞挂起不消耗CPU资源，及时响应每个操作**；实现难度低、开发应用较容易；适用并发量小的网络应用开发；
+
+不适用并发量大的应用**：因为一个请求IO会阻塞进程，所以，得为每请求分配一个处理进程（线程）以及时响应，系统开销大。
+
+**非阻塞IO模型**
+
+进程发起IO系统调用后，如果内核缓冲区没有数据，需要到IO设备中读取，进程返回一个错误而不会被阻塞；进程发起IO系统调用后，如果内核缓冲区有数据，内核就会把数据返回进程。
+
+典型应用：socket是非阻塞的方式（设置为NONBLOCK）
+
+特点：
+
+进程轮询（重复）调用，消耗CPU的资源**；
+
+实现难度低、开发应用相对阻塞IO模式较难；
+
+适用并发量较小、且不需要及时响应的网络应用开发；
+
+**IO复用模型**
+
+多个的进程的IO可以注册到一个复用器（select）上，然后用一个进程调用该select， select会监听所有注册进来的IO；如果select没有监听的IO在内核缓冲区都没有可读数据，select调用进程会被阻塞；而当任一IO在内核缓冲区中有可数据时，select调用就会返回；
+
+典型应用：select、poll、epoll三种方案，nginx都可以选择使用这三个方案;Java NIO;
+
+特点：
+
+专一进程解决多个进程IO的阻塞问题，性能好；Reactor模式;
+
+实现、开发应用难度较大；
+
+适用高并发服务应用开发：一个进程（线程）响应多个请求；
+
+**信号驱动IO模型**
+
+当进程发起一个IO操作，会向内核注册一个信号处理函数，然后进程返回不阻塞；当内核数据就绪时会发送一个信号给进程，进程便在信号处理函数中调用IO读取数据。
+
+特点：回调机制，实现、开发应用难度大；
+
+**异步IO模型**
+
+当进程发起一个IO操作，进程返回（不阻塞），但也不能返回果结；内核把整个IO处理完后，会通知进程结果。如果IO操作成功则进程直接获取到数据。
+
+典型应用：JAVA7 AIO、高性能服务器应用
+
+特点：
+
+不阻塞，数据一步到位；Proactor模式；
+
+需要操作系统的底层支持，LINUX 2.5 版本内核首现，2.6 版本产品的内核标准特性；
+
+实现、开发应用难度大；
+
+非常适合高性能高并发应用；
 
 
 
+**阻塞IO和非阻塞IO调用和模型**
 
-### VI. Design Patterns
+BIO： 在用户进程（线程）中调用执行的时候，进程会等待该IO操作，而使得其他操作无法执行。
+
+NIO：在用户进程中调用执行的时候，无论成功与否，该IO操作会立即返回，之后进程可以进行其他操作（当然如果是读取到数据，一般就接着进行数据处理）。
+
+**同步IO和异步IO**
+
+同步IO：导致请求进程阻塞，直到I/O操作完成。
+异步IO：不导致请求进程阻塞。
+
+References: 
+[5种IO模型、阻塞IO和非阻塞IO、同步IO和异步IO](https://blog.csdn.net/tjiyu/article/details/52959418) 
+
+### VII. Design Patterns
 
 
 
@@ -1534,29 +1632,303 @@ Deadlock Example
 
 (Composite, Strategy, Decorator, Abstract Factory, Bridge, )
 
-- Abstract Factory
-- Factory Method
-- Singleton
-- Proxy
-- Strategy
+- Creational Patterns
+  - Abstract Factory
+  - Singleton
+- Structural Patterns
+  - Proxy
+- Behavioral Patterns
+  - Strategy
 
 __Abstract Factory__
 
-__1.Intent__
+**1.What is it**
 
-__2.Functions__
+- Abstract Factory patterns work around a super-factory which creates other factories. This factory is also called as factory of factories. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to create an object.
 
-__2.Implementation__
+- Provide an interface for creating families of related or dependent object without specify their concrete classes.
+
+**2.  Why use it**
+
+- 抽象工厂方法是针对与一个产品族，使得易于交换产品系列。如精装版书籍转换为普通装书籍。
+
+__3.Implementation__
+
+**Basic Structure**
+
+```java
+
+interface AbstractFactory                                                                                 
+	abstract T create(String type);
+
+class ConcreteFactoryA implements AbstractFactory
+	public ProductA create(String type){}
+
+class ConocreteFactoryB implements AbstractFactory
+	public ProductB create(String type){}
+    
+interface AbstractProductA
+class ProductA1 implements AbstractProductA
+class ProductA2 implements AbstractProductA
+	
+interface AbstractProductB
+class ProductB1 implements AbstractProductB
+class ProductB2 implements AbstractProductB
+
+public class FactoryProvider
+    pubilc static AbstractFactory getFactory(String choice){}
+public class Client
+```
 
 
 
-__Factory Method__
+**Detail Example**
+
+```java
+public interface AbstractFactory<T> {
+	T create(String type);
+}
+public class AnimalFactory implements AbstractFactory<Animal>{
+	@Override
+	public Animal create(String type) {
+		if ("dog".equals(type))
+		{
+			return new Dog();
+		}
+		else if ("cat".equals(type))
+		{
+			return new Cat();
+		}
+		return null;
+	}
+}
+public class PlantFactory implements AbstractFactory<Plant>{
+	@Override
+	public Plant create(String type) {
+		if ("tree".equals(type))
+		{
+			return new Tree();
+		}
+		else if ("grass".equals(type))
+		{
+			return new Grass();
+		}
+		return null;
+	}
+}
+
+public interface Animal {
+	String getName();
+}
+public class Cat implements Animal{
+	private String name = "cat";
+	@Override
+	public String getName() {
+		return name;
+	}
+}
+public class Dog implements Animal{
+	private String name = "dog";
+	@Override
+	public String getName() {
+		return name;
+	}
+}
+
+public interface Plant {
+	String getName();
+}
+public class Grass implements Plant{
+	private String name = "grass";
+	@Override
+	public String getName() {
+		return name;
+	}
+}
+public class Tree implements Plant{
+	private String name = "tree";
+	@Override
+	public String getName() {
+		return name;
+	}
+}
+
+public class FactoryProvider {
+	public static AbstractFactory getFactory(String type)
+	{
+		if ("animal".equals(type))
+		{
+			return new AnimalFactory();
+		}
+		else if ("plant".equals(type))
+		{
+			return new PlantFactory();
+		}
+		return null;
+	}
+}
+
+public class Client {
+	public static void main(String[] args)
+	{
+		AbstractFactory<?> factory = FactoryProvider.getFactory("animal");
+		Animal animal = (Animal) factory.create("dog");
+		System.out.println(animal.getName());
+		
+		AbstractFactory<?> factory2 = FactoryProvider.getFactory("plant");
+		Plant plant = (Plant) factory2.create("tree");
+		System.out.println(plant.getName());
+	}
+}
+```
+
+
 
 __Singleton__
 
+**1. What is it**
+
+Ensure a class only has one instance, and provide a global point of access to it.
+
+**2. Why use it**
+
+**3. Implementation**
+
+Requirement
+
+- private constructor
+- static get instance method
+
+```java
+​```java
+// hungry mode
+public class SingleObject_hungry 
+{
+	private final static SingleObject_hungry instance = new SingleObject_hungry();
+	private SingleObject_hungry() {}
+	public static SingleObject_hungry getInstance() 
+	{
+		return instance;
+	}
+}
+// lazy
+public class SingleObject_lazy 
+{
+	private static SingleObject_lazy instance;
+	private SingleObject_lazy() {}
+	public synchronized static SingleObject_lazy getInstance() 
+	{
+		if (instance == null)
+		{
+			synchronized (SingleObject_lazy.class)
+			{
+				if (instance == null)
+				{
+					instance = new SingleObject_lazy();
+				}
+			}
+		}
+		return instance;
+	}
+}
+// lazy2
+public class SingleObject_lazy2 
+{
+	private SingleObject_lazy2() {}
+	
+	private static class SingletonInstance
+	{
+		private static final SingleObject_lazy2 INSTANCE = new SingleObject_lazy2();
+	}
+	
+	public static SingleObject_lazy2 getInstance() 
+	{
+		return SingletonInstance.INSTANCE;
+	}
+}
+```
+
 __Proxy__
 
-__Strategy__
+**1. What is it**
+
+- a (proxy) class represents functionality of another class..
+
+**2..why use it**
+
+- Hide actual Object detail. Wrap it actual Object method.
+- Controls and manage access to the actual Object.
+
+**3. Implementation**
+
+Basic structure
+
+```java
+interface AstractObject
+class ObjectA implements AbstractObject
+class ProxyObjectA implements AbstractObject
+class Client
+    AbsractObject obj = new ProxyObjectA();
+```
+
+Detail Implementation
+
+```java
+public interface Image 
+{
+	void display();
+}
+public class RealImage implements Image
+{
+	private String fileName;
+	public RealImage() {}
+	public RealImage(String fileName)
+	{
+		this.fileName = fileName;
+	}
+	@Override
+	public void display() 
+	{
+		System.out.println("display image...");
+	}
+}
+public class ProxyImage implements Image
+{
+	private String fileName;
+	private RealImage realImage;
+	public ProxyImage() {}
+	public ProxyImage(String fileName)
+	{
+		this.fileName = fileName;
+		realImage = new RealImage(this.fileName);
+	}
+	
+	@Override
+	public void display()
+	{
+		realImage.display();
+		System.out.println("proxy...");
+	}
+}
+public class Client 
+{
+	public static void main(String[] args) 
+	{
+		Image image = new ProxyImage("hello.txt");
+		image.display();
+	}
+}
+```
+
+
+
+References:
+
+<https://www.baeldung.com/java-abstract-factory-pattern>
+
+<https://www.tutorialspoint.com/design_pattern/abstract_factory_pattern.htm>
+
+
 
 [`back to content`](#content)
 
