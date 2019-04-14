@@ -6,6 +6,12 @@
   - [What is Data Structure](#wds)
   - [Abstract Data Type](#adt)
   - [Which Are Common Data Structures](#wcd)
+  - List
+    - Difference between Singly linked list and Doubly linked list
+  - Stack
+    - Get Output sequence by input in Stack.
+  - Tree
+    - Nodes and Levels.
 - Algorithms
   - [What is algorithm](#wia)
   - [Which Are Common Algorithms](#wca)
@@ -97,6 +103,24 @@ isEmpty() – Return true if the queue is empty, otherwise return false.
 isFull() – Return true if the queue is full, otherwise return false.
 
 From these definitions, we can clearly see that the definitions do not specify how these ADTs will be represented and how the operations will be carried out. There can be different ways to implement an ADT, for example, the List ADT can be implemented using arrays, or singly linked list or doubly linked list. Similarly, stack ADT and Queue ADT can be implemented using arrays or linked lists.
+
+**Tree ADT**
+
+traverseBFS()
+
+traversePreorder()
+
+tracvrseInorder()
+
+traversePostorder()
+
+**Graph ADT**
+
+traverseBFS()
+
+traverseDFS()
+
+
 
 References:
 
