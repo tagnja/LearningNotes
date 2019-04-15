@@ -12,6 +12,8 @@
     - Get Output sequence by input in Stack.
   - Tree
     - Nodes and Levels.
+  - Graph
+    - vertex and edge.
 - Algorithms
   - [What is algorithm](#wia)
   - [Which Are Common Algorithms](#wca)
@@ -126,17 +128,137 @@ References:
 
 [Abstract Data Types - GeeksforGeeks](https://www.geeksforgeeks.org/abstract-data-types/)
 
+[back to content](#content)
 
-<h3 id="wcd"># Which Are Common Data Structures</h3>
+---
 
-- ArrayList
-- LinkedList
+<h3 id="wcd"># Which are Common Data Structures</h3>
+
+- Array
 - Stack
 - Queue
 - Binary Tree
+- Trie
+- Hash Table
 - Graph
 
+**Array**
 
+Description:
+
+- Array is a linear data structure consisting of a collection of *elements* each identified by *array index.*
+
+Applications:
+
+- Sorting elements
+- Matrix operation
+- CPU scheduling
+
+**Stack**
+
+Description:
+
+- Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be *LIFO(Last In First Out).* Insertion in a stack is called *PUSH* while deletion from stack is called *POP*.
+
+Applications:
+
+- Expression evaluation
+- Syntax parsing.
+- Recursion.
+- algorithms like [Tower of Hanoi](http://www.geeksforgeeks.org/recursive-functions/),  DFS
+
+**Queue**
+
+Description:
+
+- Queue is a linear structure which follows a particular order in which the operations are performed. The order is *FIFO(First In First Out).* Insertion in a stack is called *Enqueue* while deletion from stack is called *Dequeue*.
+
+Applications:
+
+- it is used when a resource is shared among multiple consumers like in CPU scheduling, Disk Scheduling.
+
+**Binary Tree**
+
+Description:
+
+- Binary Tree is a [tree](https://en.wikipedia.org/wiki/Tree_structure) [data structure](https://en.wikipedia.org/wiki/Data_structure) in which each node has at most two children, which are referred to as the *left child* and the *right child.*
+
+Applications:
+
+- [Binary Tree](https://en.wikipedia.org/wiki/Binary_tree) applications are Binary Search Tree, Heaps, Binary Tries etc.
+
+**Binary Search Tree**
+
+Description:
+
+- Binary Search Tree is a binary tree where the value of each node is greater than or equal to the value of left subtree & the value of each node is less than or equal to the value of right subtree.
+
+Applications:
+
+- [Binary Search Tree](https://en.wikipedia.org/wiki/Binary_search_tree) is used to implement multilevel indexing in database. 
+- It is also used in Huffman Coding Algorithm & to implement searching Algorithm.
+
+**Heap**
+
+Description:
+
+- Heap is a specialised tree data structure that satisfies the following property*:* *if P is a parent node of C, then the value of P is either greater than or equal to (in a max heap) or less than or equal to (in a min heap) the value of C.*
+
+Applications:
+
+- [Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) is used in [Heapsort](https://en.wikipedia.org/wiki/Heapsort)
+- Dynamic memory allocation in lisp
+
+**Tire**
+
+Description:
+
+- Trie is an ordered tree data structure that is used to store a dynamic set or associative array where the keys are usually strings.
+
+Applications:
+
+- [Trie](https://en.wikipedia.org/wiki/Trie) is used as dictionary, such as one found on a mobile telephone for autocompletion and spell-checking. 
+- Trie is also used in [Aho–Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) & in [KMP algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
+
+**Hash Table**
+
+Description:
+
+- Hash Table is a data structure that is used to store keys/value pairs. It uses a *hash* function to compute an index into an array in which an element will be inserted or searched.
+
+Applications:
+
+- [Hash Table](https://en.wikipedia.org/wiki/Hash_table) is used for fast data lookup - symbol table for compilers, database indexing, caches,Unique data representation.
+
+**Graph**
+
+Description:
+
+- Graph is a data structure that consists a finite set of vertices called as *Nodes* & a finite set of ordered pair called as *Edge*. Graph can be *Directed* or *Undirected*.
+
+Applications:
+
+- [Graphs](https://en.wikipedia.org/wiki/Graph_(abstract_data_type)) are used to represent networks. Graphs are also used in social networks like linkedIn, facebook. For example, in facebook, each person is represented with a vertex(or node). Each node is a structure and contains information like person id, name, gender and locale. 
+- They are also used in *Routing Algorithms*.
+
+**Applications of binary trees**
+
+- [Binary Search Tree](http://en.wikipedia.org/wiki/Binary_search_tree) - Used in *many* search applications where data is constantly entering/leaving, such as the `map` and `set` objects in many languages' libraries.
+- [Binary Space Partition](http://en.wikipedia.org/wiki/Binary_space_partitioning) - Used in almost every 3D video game to determine what objects need to be rendered.
+- [Binary Tries](http://en.wikipedia.org/wiki/Radix_tree) - Used in almost every high-bandwidth router for storing router-tables.
+- [Hash Trees](http://en.wikipedia.org/wiki/Hash_tree) - used in p2p programs and specialized image-signatures in which a hash needs to be verified, but the whole file is not available.
+- [Heaps](http://en.wikipedia.org/wiki/Heap_(data_structure)) - Used in implementing efficient priority-queues, which in turn are used for scheduling processes in many operating systems, Quality-of-Service in routers, and A* *(path-finding algorithm used in AI applications, including robotics and video games)*. Also used in heap-sort.
+- [Huffman Coding Tree](http://en.wikipedia.org/wiki/Huffman_coding) ([Chip Uni](https://stackoverflow.com/questions/2130416/what-are-the-applications-of-binary-trees/2174096#2174096)) - used in compression algorithms, such as those used by the .jpeg and .mp3 file-formats.
+- [GGM Trees](http://www.wisdom.weizmann.ac.il/~/oded/ggm.html) - Used in cryptographic applications to generate a tree of pseudo-random numbers.
+- [Syntax Tree](http://en.wikipedia.org/wiki/Abstract_syntax_tree) - Constructed by compilers and (implicitly) calculators to parse expressions.
+- [Treap](http://en.wikipedia.org/wiki/Treap) - Randomized data structure used in wireless networking and memory allocation.
+- [T-tree](http://en.wikipedia.org/wiki/T-tree) - Though most databases use some form of B-tree to store data on the drive, databases which keep all (most) their data in memory often use T-trees to do so.
+
+References:
+
+[What are the applications of data structures? - Quora](https://www.quora.com/What-are-the-applications-of-data-structures)
+
+[What are the applications of binary trees? - StackOverflow](https://stackoverflow.com/questions/2130416/what-are-the-applications-of-binary-trees)
 
 [back to content](#content)
 
