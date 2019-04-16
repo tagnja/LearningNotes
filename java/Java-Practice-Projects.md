@@ -2,11 +2,10 @@
 
 <h3 id="content">Content</h3>
 
-- Java SE
-  - Concurrency Application
+- Code Tools
   - [ ] P-JVM Run Status Monitor
 
-- Java EE
+- Code Explore
 
   - [ ] P-Spring framework mock
   - [ ] P-Spring Boot mock
@@ -20,15 +19,19 @@
   - [ ] My News info Crawler
   - [ ] Wechat Official Article Crawler
 
-- System
+- Common System
 
-  - [ ] Manage System
-  - [ ] Shop System
+  - [ ] Management System
+  - [ ] Shopping System
+  - [ ] Wechat Official Account Management System
 
-- Living Application
+- Mini Program in Wechat or Alipay 
+
+- Concurrency Application
+
+- Tools Application
 
   - [ ] Social Account Post Push
-
   - [ ] My Working Platform
 
     
