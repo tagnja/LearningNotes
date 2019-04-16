@@ -21,7 +21,7 @@
 
 - Common System
 
-  - [ ] Management System
+  - [ ] Management System - EasyMS
   - [ ] Shopping System
   - [ ] Wechat Official Account Management System
 
