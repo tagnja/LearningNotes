@@ -3,20 +3,24 @@
 <h3 id="content">Content</h3>
 
 - Data Structure
-  - [What is Data Structure](#wds)
-  - [Abstract Data Type](#adt)
-  - [Which Are Common Data Structures](#wcd)
+  - Common
+    - [What is Data Structure](#wds)
+    - [Abstract Data Type](#adt)
+    - [Which Are Common Data Structures](#wcd)
   - List
     - Difference between Singly linked list and Doubly linked list
   - Stack
     - Get Output sequence by input in Stack.
   - Tree
+    - [DFS/BFS of Tree](dbt)
     - Nodes and Levels.
   - Graph
     - vertex and edge.
 - Algorithms
   - [What is algorithm](#wia)
   - [Which Are Common Algorithms](#wca)
+  - What are Common sorting algorithms
+  - What are Common searching algorithms
 
 
 
@@ -259,6 +263,34 @@ References:
 [What are the applications of data structures? - Quora](https://www.quora.com/What-are-the-applications-of-data-structures)
 
 [What are the applications of binary trees? - StackOverflow](https://stackoverflow.com/questions/2130416/what-are-the-applications-of-binary-trees)
+
+[back to content](#content)
+
+---
+
+### Tree
+
+<h3 id="dbt"># DFS/BFS of Tree</h3>
+
+Binary  Tree Example:
+
+```
+        1
+     2      3
+   4   5   6
+
+Print Result:
+
+DFS
+preorderTraverse: 1 2 4 5 3 6
+inorderTraverse: 4 2 5 1 6 3 
+postorderTraverse: 4 5 2 6 3 1
+
+BFS
+levelTraverse: 1 2 3 4 5 6
+```
+
+
 
 [back to content](#content)
 
