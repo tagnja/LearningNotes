@@ -1,4 +1,4 @@
-# Java Practice Projects
+# Practice Projects
 
 <h3 id="content">Content</h3>
 
