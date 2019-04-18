@@ -15,6 +15,7 @@
     - [ ] Wechat Official Account Management System
   - Mini Program in Wechat or Alipay 
   - Concurrency Application
+  - Distributed System and Cluster Service.
   - Tools Application
     - [ ] Social Account Post Push
     - [ ] My Working Platform
