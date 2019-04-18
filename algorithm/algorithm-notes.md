@@ -8,8 +8,8 @@
 - Algorithms Paradigms
   - [Greedy Algorithm](#gam)
   - [Dynamic Programming](#dpg)
-  - Divide and Conquer
-  - [Backtracking]
+  - [Backtracking](#btg)
+  - [Divide and Conquer](#bac)
 - Searching Algorithms 
   - [Binary Search](#bsh)
 - Sorting Algorithms 
@@ -22,7 +22,7 @@
 
 <h3 id="gam"># Greedy Algorithm</h3>
 
-
+- Find a greedy principle.
 
 [back to content](#content)
 
@@ -108,6 +108,37 @@
 - Min Cost Path
 - Longest Increase Sequence
 - [ ] Knapsack Problem
+
+[back to content](#content)
+
+----
+
+
+<h3 id="btg">Backtracking</h3>
+
+
+
+**Questions**
+
+- N queens problem
+- Knight's Tour Problem
+- Flight itinerary problem
+
+[back to content](#content)
+
+----
+
+
+<h3 id="bac">Divide and Conquer</h3>
+
+[back to content](#content)
+
+----
+
+
+
+
+
 
 # Top 10 Dynamic programming problems for interviews
 
