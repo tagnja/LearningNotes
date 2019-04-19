@@ -8,25 +8,33 @@
   - [Are EJB/Spring different implementations of Java EE?](#eas)
 - Servlet/JSP
 
-  - [What is Servlet](#wis)
-  - [Web Servers and Servlet Containers](#was)
-  - [Lifecycle of Servlet](#los)
-  - [Flow of Request](#for)
-  - What are Servlet Core Concept
-  - Servlet Interfaces
-  - Sharing Information like Session & Cookie
-  - How to use session when client ban cookie
-  - Uploading Files
-  - Asynchronous Processing and Nonblocking I/O
+  - Basic
+    - [What is Servlet](#wis)
+    - [Lifecycle of Servlet](#los)
+    - [Flow of Request in Servlet](#for)
+    - [Servlet Interfaces And Implementation Class](#sic)
+  - Core
+    - What are Servlet Core Concept
+    - Sharing Information like Session & Cookie
+    - How to use session when client ban cookie
+    - Uploading Files
+    - Asynchronous Processing and Nonblocking I/O
 - JDBC
-
   - [Transaction Isolation Levels](#til)
+- Tomcat
+  - [What is Apache Tomcat](#wit)
+  - [Apache HTTP server and Apache Tomcat](#aat)
+  - [Web Servers and Servlet Containers](#was)
 - HTTP
-  - 
+  - HTTP request
+  - HTTP Common request method
+  - get vs post
+  - Content Type
+  - Status Code
 - Spring Framework
 
   - What is Spring
-  - Which Configuration files in Spring
+  - What are Configuration files in Spring
   - IOC Implementation Principles
   - AOP Implementation Principles
   - How @transactional work in spring
@@ -39,11 +47,13 @@
 - Hibernate
 
   - What is Hibernate
+  - What are Configuration files in Hibernate
 - Mybatis
 
   - What is Mybatis
-  - Which Configuration files in MyBatis
+  - What are Configuration files in MyBatis
   - What is differences between Mybatis and Hibernate
+  - Why the Dao Interface can mapper its mapper.xml
 
 ---
 
@@ -134,14 +144,6 @@ References
 
 ---
 
-<h3 id="was"># Web Servers and Servlet Containers</h3>
-
-
-
-[back to content](#content)
-
----
-
 
 
 <h3 id="los"># Lifecycle of Servlet</h3>
@@ -156,15 +158,37 @@ Lifecycle of Servlet
 
 **Details of Lifecycle of Servlet**
 
-...
+Servlet class loaded
+
+- Servlet class loaded is on application startup or at the first time when the servlet is invoked.
+- The classloader is responsible to load the servlet class. The servlet class is loaded when the first request for the servlet is received by the web container.
+- using <load-on-startup>, you can be sure that your servlets will be loaded when the app is starting up and be available.
+
+Servlet instance created
+
+- The web container creates the instance of a servlet after loading the servlet class. The servlet instance is created only once in the servlet life cycle.
+
+init method is invoked
+
+- The web container calls the init method only once after creating the servlet instance. The init method is used to initialize the servlet. 
+
+service method is invoked
+
+- The web container calls the service method each time when request for the servlet is received. If servlet is not initialized, it follows the first three steps as described above then calls the service method. If servlet is initialized, it calls the service method. Notice that servlet is initialized only once.
+
+destory method is invoked
+
+- All the Servlet instances are destroyed when server is shutting down or on application disposal call it destroy() method.
+- The web container calls the destroy method before removing the servlet instance from the service. It gives the servlet an opportunity to clean up any resource for example memory, thread etc.
+- You can't destroy the Servlet manually and Servlet is just like worker not for data container. 
 
 
 
+References
 
+- [Life Cycle of a Servlet](https://www.javatpoint.com/life-cycle-of-a-servlet)
 
-
-
-
+- [When exactly a servlet is destroyed?](https://stackoverflow.com/questions/24832470/when-exactly-a-servlet-is-destroyed)
 
 [back to content](#content)
 
@@ -172,9 +196,9 @@ Lifecycle of Servlet
 
 
 
-<h3 id="for"># Flow of Request</h3>
+<h3 id="for"># Flow of Request in Servlet</h3>
 
-Flow of request
+**Flow of request**
 
 - Client sends HTTP request to Web server
 - Web server forwards that HTTP request to web container.
@@ -205,6 +229,41 @@ Flow of request
 ---
 
 
+
+<h3 id="sic"""># Servlet Interfaces And Implementation Class</h3>
+
+[back to content](#content)
+
+---
+
+### Tomcat
+
+<h3 id="wit"># What is Apache Tomcat</h3>
+
+
+
+[`back to content`](#content)
+
+---
+
+<h3 id="aat"># Apache HTTP Server and Apache Tomcat</h3>
+
+Difference between the Apache HTTP Server and Apache Tomcat
+
+[back to content](#content)
+
+---
+
+<h3 id="was"># Web Servers and Servlet Containers</h3>
+
+What are differences between web servers and servlet containers
+
+- Web Server(HTTP Server): A server which is capable of handling HTTP requests, sent by a client and respond back with a HTTP response.
+- Web Container or Servlet Container or Servlet Engine : is used to manage the components like Servlets, JSP. It is a part of the web server.
+
+[back to content](#content)
+
+---
 
 ### JDBC
 
