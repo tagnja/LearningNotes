@@ -15,16 +15,22 @@
     - [Servlet Interfaces And Implementation Class](#sic)
   - Core
     - What are Servlet Core Concept
+    - Servlet Collaboration
     - Sharing Information like Session & Cookie
+    - Session Tracking
+    - Filter and Listener
     - How to use session when client ban cookie
     - Uploading Files
     - Asynchronous Processing and Nonblocking I/O
+  - JSP
+    - include(), forward(), redirect
 - JDBC
   - [Transaction Isolation Levels](#til)
-- Tomcat
+- Apache Tomcat
   - [What is Apache Tomcat](#wit)
   - [Apache HTTP server and Apache Tomcat](#aat)
   - [Web Servers and Servlet Containers](#was)
+- Web Server
 - HTTP
   - HTTP request
   - HTTP Common request method
@@ -44,16 +50,23 @@
   - Spring Boot Features
   - Spring Boot Implementation Principle.
   - Spring Boot Configuration
+- ORM Framework
 - Hibernate
-
   - What is Hibernate
-  - What are Configuration files in Hibernate
-- Mybatis
-
-  - What is Mybatis
-  - What are Configuration files in MyBatis
-  - What is differences between Mybatis and Hibernate
-  - Why the Dao Interface can mapper its mapper.xml
+    - What are Configuration files in Hibernate
+  - MyBatis
+  
+    - What is MyBatis
+    - What are Configuration files in MyBatis
+    - What is differences between MyBatis and Hibernate
+    - Why the Dao Interface can mapper its mapper.xml
+- Restful
+- Web Service
+- Cache
+- Web Security
+  - OAuth
+  - Shiro
+  - Spring Security
 
 ---
 
@@ -148,7 +161,7 @@ References
 
 <h3 id="los"># Lifecycle of Servlet</h3>
 
-Lifecycle of Servlet
+**Lifecycle of Servlet**
 
 - Servlet class loaded.
 - Servlet instance created.
@@ -181,6 +194,19 @@ destory method is invoked
 - All the Servlet instances are destroyed when server is shutting down or on application disposal call it destroy() method.
 - The web container calls the destroy method before removing the servlet instance from the service. It gives the servlet an opportunity to clean up any resource for example memory, thread etc.
 - You can't destroy the Servlet manually and Servlet is just like worker not for data container. 
+
+**Advantage of load-on-startup element**
+
+- As you know well, servlet is loaded at first request. That means it consumes more time at first request. If you specify the load-on-startup in web.xml, servlet will be loaded at project deployment time or server start. So, it will take less time for responding to first request.
+- If you pass the positive value, the lower integer value servlet will be loaded before the higher integer value servlet. In other words, container loads the servlets in ascending integer value. The 0 value will be loaded first then 1, 2, 3 and so on.
+
+```java
+  <servlet>  
+     <servlet-name>servlet1</servlet-name>  
+     <servlet-class>com.javatpoint.FirstServlet</servlet-class>  
+     <load-on-startup>0</load-on-startup>  
+  </servlet> 
+```
 
 
 
@@ -222,6 +248,20 @@ References
 - Every servlet in the web app should have an entry into this file
 - So this lookup happens like- url-pattern -> servlet-name -> servlet-class
 
+**Server-side Java stack**
+
+- Hardware
+  - Firmware
+    - Operating System
+      - Java Virtual Machine
+        - Java Server
+          - Your Java Application
+          - Servlet API
+
+References
+
+- [What is a Java servlet? Request handling for Java web applications - JavaWorld](https://www.javaworld.com/article/3313114/what-is-a-java-servlet-request-handling-for-java-web-applications.html)
+
 
 
 [back to content](#content)
@@ -230,7 +270,157 @@ References
 
 
 
-<h3 id="sic"""># Servlet Interfaces And Implementation Class</h3>
+<h3 id="sic"""># Servlet Interfaces And Abstract Classes</h3>
+
+Servlet Interfaces
+
+```java
+I-Servlet
+	*-GenericSevlet implements Servlet, ServletConfig
+		*-HttpServlet extends HttpServlet
+I-ServletRequest
+	I-HttpServletRequest extends ServletRequest
+		HttpServletRequestWrapper implements HttpServletRequest
+I-ServletResponse
+	I-HttpServletResponse 
+I-RequestDispatcher
+I-ServletConfig
+I-HttpSession
+I-ServletContext
+I-java.util.EventListener
+	I-javax.servlet.ServletContextListener
+	I-HttpSessionListener
+	I-ServletRequestListener
+I-Filter
+I-FilterChain
+I-FilterConfig
+```
+
+**Servlet Interface**
+
+- Servlet interface needs to be implemented for creating any servlet (either directly or indirectly). It provides 3 life cycle methods that are used to initialize the servlet, to service the requests, and to destroy the servlet and 2 non-life cycle methods.
+
+- ```java
+  void init(ServletConfig config);
+  void service(ServletRequest request, ServletResponse response);
+  void destory();
+  ServletConfig getServletConfig();
+  String getServletInfo();
+  ```
+
+**GenericServlet Abstract class**
+
+- GenericServlet class implements Servlet, ServletConfig and Serializable interfaces. It provides the implementation of all the methods of these interfaces except the service method. GenericServlet provides simple versions of the life-cycle methods init and destroy and of the methods in the ServletConfig interface.
+- GenericServlet class can handle any type of request so it is protocol-independent.
+- You may create a generic servlet by inheriting the GenericServlet class and providing the implementation of the service method. To write a generic servlet, it is sufficient to override the abstract service() method.
+
+**HttpServlet Abstract class**
+
+- The HttpServlet class extends the GenericServlet class and implements Serializable interface. It provides http specific methods such as doGet, doPost, doHead, doTrace etc.\
+
+**GenericServet VS HttpServlet**
+
+- the Servlet class doesn't know about any protocols. It is the HttpServlet that understands the HTTP protocol. A SMTPServlet would override the service() method of Servlet to handle, for example, the MAIL, RCPT, and DATA SMTP "verbs" - maybe with a doMail(), doRecipient(), and doData(). There would likely be other methods to handle the protocol. But the interaction would be protocol specific - thus the generic base class and protocol specific child class.
+
+**ServletRequest Interface**
+
+- An object of ServletRequest is used to provide the client request information to a servlet such as content type, content length, parameter names and values, header informations, attributes etc.
+
+**ServletResponse**
+
+**ServletConfig**
+
+- An object of ServletConfig is created by the web container for each servlet. This object can be used to get configuration information from web.xml file.
+
+- If the configuration information is modified from the web.xml file, we don't need to change the servlet. So it is easier to manage the web application if any specific content is modified from time to time.
+
+- The core advantage of ServletConfig is that you don't need to edit the servlet file if information is modified from the web.xml file.
+
+- ```
+    <servlet> 
+    	......  
+      <init-param>  
+        <param-name>parametername</param-name>  
+        <param-value>parametervalue</param-value>  
+      </init-param>  
+      ......  
+    </servlet>  
+  ```
+
+**HttpSession**
+
+- Session simply means a particular interval of time.
+- Session Tracking is a way to maintain state (data) of an user. It is also known as session management in servlet.
+- Http protocol is a stateless so we need to maintain state using session tracking techniques. Each time user requests to the server, server treats the request as the new request. So we need to maintain the state of an user to recognize to particular user.
+
+**ServletContext**
+
+- An object of ServletContext is created by the web container at time of deploying the project. This object can be used to get configuration information from web.xml file. There is only one ServletContext object per web application.
+
+- If any information is shared to many servlet, it is better to provide it from the web.xml file using the **<context-param>** element.
+
+- Easy to maintain if any information is shared to all the servlet, it is better to make it available for all the servlet. We provide this information from the web.xml file, so if the information is changed, we don't need to modify the servlet. Thus it removes maintenance problem.
+
+- ```java
+  <web-app>  
+   ......  
+    <context-param>  
+      <param-name>parametername</param-name>  
+      <param-value>parametervalue</param-value>  
+    </context-param>  
+   ......  
+  </web-app>  
+  ```
+
+- ```java
+  ServletContext application=getServletConfig().getServletContext();  
+  ```
+
+**ServletContextListener**
+
+- Events are basically occurrence of something. Changing the state of an object is known as an event.
+
+- We can perform some important tasks at the occurrence of these exceptions, such as counting total and current logged-in users, creating tables of the database at time of deploying the project, creating database connection object etc.
+
+- There are many Event classes and Listener interfaces in the javax.servlet and javax.servlet.http packages.
+
+- ```java
+  <web-app>
+  	<listener>
+  		<listener-class>com.wiiun.petkit.web.listener.MyServletContextListener</listener-class>
+  	</listener>
+  </web-app>  
+  ```
+
+**Filter**
+
+- A filter is an object that is invoked at the preprocessing and postprocessing of a request.
+
+- It is mainly used to perform filtering tasks such as conversion, logging, compression, encryption and decryption, input validation etc.
+
+- The servlet filter is pluggable, i.e. its entry is defined in the web.xml file, if we remove the entry of filter from the web.xml file, filter will be removed automatically and we don't need to change the servlet.
+
+- ```java
+  <web-app>  
+    
+  <filter>  
+  <filter-name>...</filter-name>  
+  <filter-class>...</filter-class>  
+  </filter>  
+     
+  <filter-mapping>  
+  <filter-name>...</filter-name>  
+  <url-pattern>...</url-pattern>  
+  </filter-mapping>  
+    
+  </web-app>  
+  ```
+
+****
+
+References
+
+- [Servlet Interface - javaTpoint](https://www.javatpoint.com/Servlet-interface)
 
 [back to content](#content)
 
@@ -453,4 +643,3 @@ server:
 
 
 ### MyBatis
-
