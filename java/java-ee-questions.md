@@ -14,16 +14,19 @@
     - [Flow of Request in Servlet](#for)
     - [Servlet Interfaces And Implementation Class](#sic)
   - Core
-    - What are Servlet Core Concept
-    - Servlet Collaboration
-    - Sharing Information like Session & Cookie
-    - Session Tracking
-    - Filter and Listener
-    - How to use session when client ban cookie
-    - Uploading Files
-    - Asynchronous Processing and Nonblocking I/O
+    - [What are Servlet Core Concept](#scc)
+    - [Servlet Collaboration](#scn)
+    - [Attribute in Servlet](#ais)
+    - [Session Tracking](#stg)
+    - [How to use session when client ban cookie](#htus)
+    - [ ] Uploading Files
+    - [ ] Asynchronous Processing and Nonblocking I/O
   - JSP
-    - include(), forward(), redirect
+    - JSP Scriptlet, Declarations, Expression
+    - JSP Directives
+    - JSP Actions
+    - [JSP Implicit Object](#jio)
+    - 
 - JDBC
   - [Transaction Isolation Levels](#til)
 - Apache Tomcat
@@ -38,28 +41,25 @@
   - Content Type
   - Status Code
 - Spring Framework
-
-  - What is Spring
-  - What are Configuration files in Spring
-  - IOC Implementation Principles
-  - AOP Implementation Principles
-  - How @transactional work in spring
+  - [...What is Spring](#wis)
+  - [...What are Configuration files in Spring](#wacf)
+  - [...IOC Implementation Principle](#iip)
+  - [...AOP Implementation Principle](#aip)
+  - [...How @transactional work in spring](#htw)
 - Spring Boot
-
-  - What is SpringBoot
-  - Spring Boot Features
-  - Spring Boot Implementation Principle.
-  - Spring Boot Configuration
+  - [...What is SpringBoot]()
+  - [...Spring Boot Features]()
+  - [...Spring Boot Implementation Principle.]()
+  - [...Spring Boot Configuration]()
 - ORM Framework
-- Hibernate
-  - What is Hibernate
-    - What are Configuration files in Hibernate
+  - Hibernate
+    - [...What is Hibernate]()
+    - [...What are Configuration files in Hibernate]()
   - MyBatis
-  
-    - What is MyBatis
-    - What are Configuration files in MyBatis
-    - What is differences between MyBatis and Hibernate
-    - Why the Dao Interface can mapper its mapper.xml
+    - [...What is MyBatis]()
+    - [...What are Configuration files in MyBatis]()
+    - [...What is differences between MyBatis and Hibernate]()
+    - [...Why the Dao Interface can mapper its mapper.xml]()
 - Restful
 - Web Service
 - Cache
@@ -137,6 +137,8 @@ References
 
 
 ### Servlet/JSP
+
+### Basic
 
 <h3 id="wis"># What is Servlet</h3>
 
@@ -326,9 +328,9 @@ I-FilterConfig
 
 - An object of ServletRequest is used to provide the client request information to a servlet such as content type, content length, parameter names and values, header informations, attributes etc.
 
-**ServletResponse**
+**ServletResponse Interface**
 
-**ServletConfig**
+**ServletConfig Interface**
 
 - An object of ServletConfig is created by the web container for each servlet. This object can be used to get configuration information from web.xml file.
 
@@ -347,13 +349,13 @@ I-FilterConfig
     </servlet>  
   ```
 
-**HttpSession**
+**HttpSession Interface**
 
 - Session simply means a particular interval of time.
 - Session Tracking is a way to maintain state (data) of an user. It is also known as session management in servlet.
 - Http protocol is a stateless so we need to maintain state using session tracking techniques. Each time user requests to the server, server treats the request as the new request. So we need to maintain the state of an user to recognize to particular user.
 
-**ServletContext**
+**ServletContext Interface**
 
 - An object of ServletContext is created by the web container at time of deploying the project. This object can be used to get configuration information from web.xml file. There is only one ServletContext object per web application.
 
@@ -376,7 +378,7 @@ I-FilterConfig
   ServletContext application=getServletConfig().getServletContext();  
   ```
 
-**ServletContextListener**
+**ServletContextListener Interface**
 
 - Events are basically occurrence of something. Changing the state of an object is known as an event.
 
@@ -392,7 +394,7 @@ I-FilterConfig
   </web-app>  
   ```
 
-**Filter**
+**Filter Interface**
 
 - A filter is an object that is invoked at the preprocessing and postprocessing of a request.
 
@@ -425,6 +427,261 @@ References
 [back to content](#content)
 
 ---
+
+### Servlet Core
+
+<h3 id="scc"># What are Servlet Core Concept</h3>
+
+- Attribute in Servlet
+- Session Tracking
+- Event and Listener
+- Servlet Filter
+
+[back to content](#content)
+
+---
+
+
+
+<h3 id="scn"># Servlet Collaboration</h3>
+
+**RequestDispatcher Interface**
+
+- `void forward(ServletRequest request,ServletResponse response)` : Forwards a request from a servlet to another resource (servlet, JSP file, or HTML file) on the server.
+-  `void include(ServletRequest request,ServletResponse response)`: Includes the content of a resource (servlet, JSP page, or HTML file) in the response.
+
+**How to get the object of RequestDispatcher**
+
+```java
+RequestDispatcher getRequestDispatcher(String resource);  
+```
+Example code: 
+
+```java
+// forward()
+RequestDispatcher rd=request.getRequestDispatcher("servlet2");
+rd.forward(request, response);
+
+// include()
+RequestDispatcher rd=request.getRequestDispatcher("/index.html");  
+rd.include(request, response);  
+```
+
+Example of real
+
+```java
+login.html -> loginServlet --Y--> WelcomeServlet -> home.html
+                           --N-->include login.html
+```
+
+**HttServletResponse Interface**
+
+- `void sendRedirect(String location)`: to redirect response to another resource, it may be servlet, jsp or html file.
+
+Example code:
+
+```java
+response.sendRedirect("http://www.google.com");
+```
+
+**Difference between forward() and sendRedirect() method**
+
+- The forward() method works at server side. The sendRedirect() method works at client side.
+- The forward() sends the same request and response objects to another servlet. The sendRedirect() always sends a new request.
+- The forward() can work within the server only. The sendRedirect()can be used within and outside the server.
+
+References
+
+- [RequestDispatcher in Servlet - javaTpoint](https://www.javatpoint.com/requestdispatcher-in-servlet)
+
+[back to content](#content)
+
+---
+
+<h3 id="ais"># Attribute in Servlet</h3>
+
+Scope Objects
+
+- An **attribute in servlet** is an object that can be set, get or removed from one of the following scopes: request scope, session scope, application scope.
+
+- The servlet programmer can pass informations from one servlet to another using attributes. It is just like passing object from one class to another so that we can reuse the same object again and again.
+
+- There are following 4 attribute specific methods
+
+- ```java
+  void setAttribute(String name,Object object);
+  Object getAttribute(String name);
+  Enumeration getInitParameterNames();
+  void removeAttribute(String name);
+  ```
+
+Socpe                  |  Class
+---                         | -------
+Application scope      | javax.servlet.ServletContext
+Session scope               | javax.servlet.http.HttpSession
+Request scope              | subtype of javax.servlet.servletRequest
+Page scope                    | javax.servlet.jsp.JspContext
+
+[back to content](#content)
+
+---
+
+
+
+<h3 id="stg"># Session Tracking</h3>
+
+**Session Tracking**
+
+- **Session Tracking** is a way to maintain state (data) of an user. It is also known as **session management**in servlet.
+- Http protocol is a stateless so we need to maintain state using session tracking techniques. Each time user requests to the server, server treats the request as the new request. So we need to maintain the state of an user to recognize to particular user.
+
+**Session tracking Techniques**
+
+- Cookies
+- Hidden Form field
+- URL rewriting
+- HttpSession
+
+**What is Cookie**
+
+- A **cookie** is a small piece of information that is persisted between the multiple client requests.
+- A cookie has a name, a single value, and optional attributes such as a comment, path and domain qualifiers, a maximum age, and a version number.
+
+How Cookie Work
+
+- By default, each request is considered as a new request. In cookies technique, we add cookie with response from the servlet. So cookie is stored in the cache of the browser. After that if request is sent by the user, cookie is added with request by default. Thus, we recognize the user as the old user.
+
+Cookie Advantage
+
+- Simplest technique of maintaining the state.
+- Cookies are maintained at client side.
+
+Cookie Disadvantage
+
+- It will not work if cookie is disabled from the browser.
+
+- Only textual information can be set in Cookie object.
+
+```java
+Cookie
+    Cookie(String name, String value);
+    void setMaxAge(int expiry);
+    String getName();
+    String getValue();
+    void setName(String name);
+    void setValue(String value);
+HttpServletRequest
+    Cookie[] getCookies();
+HttpServletResponse
+    void addCookie(Cookie ck);
+```
+
+Code example
+
+```java
+// set cookie
+Cookie ck = new Cookie("user","sonoo jaiswal");//creating cookie object  
+response.addCookie(ck);//adding cookie in the response  
+
+// get cookie
+Cookie ck[] = request.getCookies();  
+for(int i=0;i<ck.length;i++){  
+ out.print("<br>"+ck[i].getName()+" "+ck[i].getValue()); 
+}  
+```
+
+**URL Rewriting**
+
+- In URL rewriting, we append a token or identifier to the URL of the next Servlet or the next resource. We can send parameter name/value pairs using the following format
+
+Advantage 
+
+- It will always work whether cookie is disabled or not (browser independent).
+- Extra form submission is not required on each pages.
+
+Disadvantage
+
+- It will work only with links.
+- It can send Only textual information.
+
+**HttpSession Interface**
+
+```java
+HttpSession session = request.getSession();
+session.setAttribute("attributeKey", "Sample Value");
+```
+
+
+
+[back to content](#content)
+
+---
+
+
+
+<h3 id="htus"># How to use session when client disable cookie</h3>
+
+~~get session by id~~
+
+```java
+//Session session = request.getSession().getSessionConext().getSession(sessionid);
+```
+
+Right implementation
+
+```java
+MySessionLinsterner implements HttpSessionListener
+{
+    HashMap sessionContainer = new HashMap<>();
+    sessionContainer.put(sessionid, session);
+}
+```
+
+**URL Rewriting**
+
+When cookies are enabled, the session is stored in a cookie under the name `JSESSIONID`.
+
+If cookies are disabled, the container should rewrite the session id as a GET parameter (i.e. `&JSESSIONID=1223456fds` at the end of all URLs).
+
+If the URL rewriting isn't on by default, see your container's documentation on how to enable it.
+
+You might want to consider modern frameworks (for example Spring MVC with Thymeleaf) which will automate this for you. Otherwise you need to make sure you're rewriting URLs with `response.encodeURL()` as Ouney directs in his answer.
+
+
+
+[back to content](#content)
+
+---
+
+### JSP
+
+<h3 id="jio"># JSP Implicit Object</h3>
+
+**What is JSP Implicit**
+
+- These Objects are the Java objects that the JSP Container makes available to the developers in each page and the developer can call them directly without being explicitly declared.
+- JSP Implicit Objects are also called **pre-defined variables**.
+
+**JSP Implicit**
+
+- **request**, This is the **HttpServletRequest** object associated with the request.
+- **response**, This is the **HttpServletResponse** object associated with the response to the client.
+- **out**, This is the **PrintWriter** object used to send output to the client.
+- **session**, This is the **HttpSession** object associated with the request.
+- **application**, This is the **ServletContext** object associated with the application context.
+- **config**, This is the **ServletConfig** object associated with the page.
+- **pageContext**, This encapsulates use of server-specific features like higher performance **JspWriters**.
+- **page**, This is simply a synonym for **this**, and is used to call the methods defined by the translated servlet class.
+- **Exception**, The **Exception** object allows the exception data to be accessed by designated JSP.
+
+
+
+[back to content](#content)
+
+---
+
+
+
 
 ### Tomcat
 
@@ -475,7 +732,7 @@ SERLALIZABLE: 串行化，最高的事务隔离级别，不管多少事务，挨
 
 [`back to content`](#content)
 
-
+---
 
 ### HTTP
 
@@ -483,9 +740,215 @@ SERLALIZABLE: 串行化，最高的事务隔离级别，不管多少事务，挨
 
 ### Spring Framework
 
-<h3 id="sta"># Spring Transaction accomplishment principles</h3>
+TODO
 
-- How @transactional work in spring?
+- [Spring interview questions and answers](https://howtodoinjava.com/interview-questions/top-spring-interview-questions-with-answers/#ioc_in_spring)
+
+<h3 id=""> #What is Spring</h3>
+
+
+
+[`back to content`](#content)
+
+---
+
+<h3 id=""> #What are Configuration files in Spring</h3>
+
+[`back to content`](#content)
+
+---
+
+<h3 id=""> #IOC Implementation Principle</h3>
+
+**Spring IoC container**
+
+- It is a process whereby objects define their dependencies, that is, the other objects they work with, only through constructor arguments, arguments to a factory method, or properties that are set on the object instance after it is constructed or returned from a factory method.
+- The container then *injects* those dependencies when it creates the bean.
+- The `org.springframework.beans` and `org.springframework.context` packages are the basis for Spring Framework's IoC container. 
+- The `BeanFactory` interface provides an advanced configuration mechanism capable of managing any type of object. `ApplicationContext` is a sub-interface of `BeanFactory.` It adds easier integration with Spring's AOP features; message resource handling (for use in internationalization), event publication; and application-layer specific contexts such as the `WebApplicationContext` for use in web applications.
+- In short, the `BeanFactory` provides the configuration framework and basic functionality, and the `ApplicationContext` adds more enterprise-specific functionality. The`ApplicationContext` is a complete superset of the `BeanFactory`
+
+
+
+In short, "The Container" is a Spring instance in charge of managing the lifecycle of your beans.
+
+To create one, basically, you should do something like
+
+```java
+ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/application-context.xml");
+```
+
+**What is IOC**
+
+- Spring helps in the creation of loosely coupled applications because of **Dependency Injection**.
+- In Spring, objects define their associations (dependencies) and do not worry about how they will get those **dependencies**. It is the responsibility of Spring to provide the required dependencies for creating objects.
+
+For example: Suppose we have an object `Employee` and it has a dependency on object `Address`. We would define a bean corresponding to `Employee` that will define its dependency on object `Address`.
+
+When Spring tries to create an `Employee` object, it will see that `Employee` has a dependency on `Address`, so it will first create the `Address` object (dependent object) and then inject it into the `Employee` object.
+
+- Inversion of Control (**IOC**) and Dependency Injection (**DI**) are used interchangeably. IOC is achieved through DI. DI is the process of providing the dependencies and IOC is the end result of DI. (**Note:** DI is not the only way to achieve IOC. There are [other ways](https://en.wikipedia.org/wiki/Inversion_of_control#Implementation_techniques) as well.)
+- By DI, the responsibility of creating objects is shifted from our application code to the Spring container; this phenomenon is called IOC.
+- Dependency Injection can be done by setter injection or constructor injection.
+
+**Create IOC Container**
+
+```java
+ApplicationContext context = new FileSystemXmlApplicationContext("beans.xml");
+HelloWorld obj = (HelloWorld) context.getBean("helloWorld");
+```
+
+
+
+**Spring Bean Life Cycle**
+
+
+
+**BeanFactory Interface**
+
+```java
+I-BeanFactory
+    Object getBean(String name);
+    boolean containsBean(String name);
+    boolean isSingleton(String name);
+    boolean isPrototype(String name);
+    Class<?> getType(String name); // the type of the bean
+    String[] getAliases(String name); //All of those aliases point to the same bean
+I-ListableBeanFactory extends BeanFactory
+	boolean containsBeanDefinition(String beanName);
+	String[] getBeanNamesForType(ResolvableType type);
+	String[] getBeanNamesForAnnotation(Class<? extends Annotation> annotationType);
+I-AutowireCapableBeanFactory extends BeanFactory
+	// Typical methods for creating and populating external bean instances
+	<T> T createBean(Class<T> beanClass); //Fully create a new bean instance of the given class.
+	void autowireBean(Object existingBean);
+	Object Object configureBean(Object existingBean, String beanName);
+
+	// Specialized methods for fine-grained control over the bean lifecycle
+    Object createBean(Class<?> beanClass, int autowireMode, boolean dependencyCheck);
+    Object autowire(Class<?> beanClass, int autowireMode, boolean dependencyCheck);
+    void autowireBeanProperties(Object existingBean, int autowireMode, boolean dependencyCheck);
+    void applyBeanPropertyValues(Object existingBean, String beanName);
+    Object initializeBean(Object existingBean, String beanName);
+    Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName);
+    void destroyBean(Object existingBean);
+
+    // Delegate methods for resolving injection points
+    Object resolveDependency(DependencyDescriptor descriptor, String requestingBeanName);
+I-ApplicationContext
+	String getId(); // Return the unique id of this application context.
+	String getApplicationName();
+	long getStartupDate();
+	ApplicationContext getParent();
+	AutowireCapableBeanFactory getAutowireCapableBeanFactory();
+```
+
+**Spring IOC Start Analysis**
+
+```java
+class ClassPathXmlApplicationContext 
+	public ClassPathXmlApplicationContext(String[] configLocations, boolean refresh, ApplicationContext parent){
+ 
+        super(parent);
+            // 解析配置文件列表，放置到上面说的那个 configResources 数组中
+        setConfigLocations(configLocations);
+        if (refresh) {
+          refresh(); // 核心方法
+        }
+      }
+}
+class AbstractApplicationContext{
+    public void refresh() throws BeansException, IllegalStateException {
+    
+    
+    }
+    
+}
+
+```
+
+- **DefaultListableBeanFactory** : 我们可以看到 ConfigurableListableBeanFactory 只有一个实现类 DefaultListableBeanFactory，而且实现类 DefaultListableBeanFactory 还通过实现右边的 AbstractAutowireCapableBeanFactory 通吃了右路。所以结论就是，最底下这个家伙 DefaultListableBeanFactory 基本上是最牛的 BeanFactory 了，这也是为什么这边会使用这个类来实例化的原因。
+- **BeanDefinition** interface:  A BeanDefinition describes a bean instance, which has property values, constructor argument values, and further information supplied by concrete implementations.
+
+过程
+
+- 创建 Bean 容器前的准备工作
+- 创建 Bean 容器（BeanFactory）实例，加载并注册 Bean
+    - 加载 Bean
+      -  loadBeanDefinitions(beanFactory) 这个方法将根据配置，加载各个 Bean，然后放到 BeanFactory 中。
+      - 读取配置的操作在 XmlBeanDefinitionReader 中，其负责加载配置、解析。
+      - 经过漫长的链路，一个配置文件终于转换为一颗 DOM 树了。
+      - 由Document得到BeanDefinition
+    - 注册 Bean
+    	- 注册了各个 BeanDefinition 到注册中心，并且发送了注册事件。
+- Bean 容器实例化完成后
+- 准备 Bean 容器: prepareBeanFactory(factory)
+- 初始化所有的 singleton beans
+- 创建 Bean
+- 创建 Bean 实例
+- bean 属性注入
+
+**Spring Default Scope**
+
+- Spring's default scope *is* singleton. It's just that your idea of what it means to be a singleton doesn't match how Spring defines singletons.
+
+- If you tell Spring to make two separate beans with different ids and the same class, then you get two separate beans, each with singleton scope. All singleton scope means is that when you reference something with the same id, you get the same bean instance back.
+
+References 
+
+- [The IoC container - spring.io](https://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/beans.html)
+- [What is Dependency Injection and Inversion of Control in Spring Framework? - Stack Overflow](https://stackoverflow.com/questions/9403155/what-is-dependency-injection-and-inversion-of-control-in-spring-framework)
+- [Spring IOC 容器源码分析 - ImportNew](http://www.importnew.com/27469.html)
+
+[`back to content`](#content)
+
+---
+
+<h3 id=""> #AOP Implementation Principle</h3>
+
+```java
+    <aop:config proxy-target-class="true">
+        <aop:aspect id="time" ref="timeHandler">
+            <aop:pointcut id="addAllMethod" expression="execution(* org.xrq.action.aop.Dao.*(..))" />
+            <aop:before method="printTime" pointcut-ref="addAllMethod" />
+            <aop:after method="printTime" pointcut-ref="addAllMethod" />
+        </aop:aspect>
+    </aop:config>
+```
+
+- AOP 实现源头，加载Bean定义的时候应该有过特殊的处理。
+- AOP Bean 加载
+    - AOP Bean定义加载——根据织入方式将<aop:before>、<aop:after>转换成名为adviceDef的RootBeanDefinition
+    - AOP Bean定义加载——将名为adviceDef的RootBeanDefinition转换成名为advisorDefinition的RootBeanDefinition
+    - AOP Bean定义加载——AopNamespaceHandler处理<aop:pointcut>流程
+- 在每个Bean初始化之后，如果需要，调用AspectJAwareAdvisorAutoProxyCreator中的postProcessBeforeInitialization 为 Bean生成代理。
+- 创建代理对象实例
+    - 代理对象实例化—-判断是否为<bean>生成代理
+    - 代理对象实例化—-为<bean>生成代理代码上下文梳理
+    - 代理对象实例化—-创建AopProxy接口实现类
+    - 代理对象实例化—-通过getProxy方法获取<bean>对应的代理
+- 调用代理方法原理
+
+References
+
+
+- [Spring源码分析：AOP源码解析 - importNew](http://www.importnew.com/24430.html)
+- [java之架构基础-动态代理&cglib - importNew](http://www.importnew.com/19749.html)
+
+[`back to content`](#content)
+
+---
+
+<h3 id=""> #How @transactional work in spring</h3>
+
+[`back to content`](#content)
+
+---
+
+
+
+
+
 
 ### Spring Boot
 
@@ -498,10 +961,22 @@ SERLALIZABLE: 串行化，最高的事务隔离级别，不管多少事务，挨
 Advantages
 
 - 简化配置，快速开始开发。没有繁琐的配置，专注于业务开发。
-
 - 内置tomcat和jetty容器，可以直接启动。
+- 没有代码生成和xml配置。
+- Simplified & version conflict free dependency management through the starter POMs.
+- We can quickly setup and run standalone, web applications and micro services at very less time.
+- You can just assemble the jar artifact which comes with an embedded Tomact, Jetty or Undertow application server and you are ready to go.
+- Spring Boot provides HTTP endpoints to access application internals like detailed metrics, application inner working, health status, etc.
+- No XML based configurations at all. Very much simplified properties. The beans are initialized, configured and wired automatically.
+- The Spring Initializer provides a project generator to make you productive with the certain technology stack from the beginning. You can create a skeleton project with web, data access (relational and NoSQL datastores), cloud, or messaging support.
 
-- 没有代码生成和xml配置
+Disadvantage
+
+- Spring boot may unnecessarily increase the deployment binary size with unused dependencies.
+
+- If you are a control freak, I doubt Spring Boot would fit your needs.
+
+- Spring Boot sticks good with micro services. The Spring Boot artifacts can be deployed directly into Docker containers. In a large and monolithic based applications, I would not encourage you to use Spring Boot.
 
 Shortcomings
 
@@ -643,3 +1118,28 @@ server:
 
 
 ### MyBatis
+
+<h3 id=""># mybatis mapper interface principle</h3>
+mybatis mapper interface principle
+
+赋值给 mapper 接口的实例是引用的对象是一个代理对象，这个代理对象是由 JDK 动态代理创建的。
+
+在解析 mybatis-config.xml 配置文件的时候：
+
+```java
+<mappers>
+    <mapper class="shfq.annotation.AddressMapper"/>
+</mappers>
+```
+
+会循环处理 < mappers/> 内的所有< mapper/>，在上面的例子中只有一个 mapper 并且是个接口，在解析 mapper 的时候，mybatis 会通过 Java 反射，获取到接口的所有方法。然后循环处理每一个方法。接口中的方法包含的信息主要有：参数、返回类型、方法注解、方法名称。
+
+- 返回类型的作用主要是根据返回类型创建对象，然后把结果集中的数据通过调用 Java 反射把相关的数据设置到对象中。
+- 参数的主要作用是为 sql 语句传递参数。
+- 方法注解里包含了 sql 语句信息，方法注解里还可以包含很多其他的信息。
+- 方法名称的作用主要是为了标志唯一性，接口名称和方法名称拼接在一起就可以唯一地区分一个方法（Java 里允许方法重载，但 mybatis 不支持方法名称相同但参数不同的情况）
+
+
+References
+
+- [mybatis mapper 接口原理 - CSDN](https://blog.csdn.net/shfqbluestone/article/details/52917270)
