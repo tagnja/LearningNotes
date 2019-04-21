@@ -3,11 +3,9 @@
 <h3 id="content">Content</h3>
 
 - Java EE
-
   - [What is Java EE](#wije)
   - [Are EJB/Spring different implementations of Java EE?](#eas)
 - Servlet/JSP
-
   - Basic
     - [What is Servlet](#wis)
     - [Lifecycle of Servlet](#los)
@@ -29,11 +27,12 @@
     - 
 - JDBC
   - [Transaction Isolation Levels](#til)
-- Apache Tomcat
-  - [What is Apache Tomcat](#wit)
-  - [Apache HTTP server and Apache Tomcat](#aat)
-  - [Web Servers and Servlet Containers](#was)
+
 - Web Server
+    - Apache Tomcat
+      - [What is Apache Tomcat](#wit)
+      - [Apache HTTP server and Apache Tomcat](#aat)
+      - [Web Servers and Servlet Containers](#was)
 - HTTP
   - HTTP request
   - HTTP Common request method
@@ -60,6 +59,7 @@
     - [...What are Configuration files in MyBatis]()
     - [...What is differences between MyBatis and Hibernate]()
     - [...Why the Dao Interface can mapper its mapper.xml]()
+  - JPA
 - Restful
 - Web Service
 - Cache
