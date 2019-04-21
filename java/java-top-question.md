@@ -5,6 +5,7 @@
 - I. Basics
   - [Differences between JDK, JRE and JVM?](#dbj)
   - [ ] Java every version features?
+  - [ ] why java is platform independent?
   - [int vs Integer?](#ivi)
   - [equals vs == in String](#ev=)
   - [Function value passing or reference passing](#fvp)
