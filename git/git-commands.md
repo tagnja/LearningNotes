@@ -10,6 +10,7 @@
 - [git reset](#grt)
 - [git clean](#gcn)
 - [git rm](#grm)
+- [git checkout](#gct)
 - [git clone](#gce)
 - [git push](#gph)
 - [git fetch, git merge](#gfh)
@@ -114,6 +115,8 @@ $ git clean -xfd   //连 gitignore 的untrack 文件/目录也一起删掉 （�
 [`back to content`](#content)
 
 
+
+
 <h3 id="grm"># git rm</h3>
 
 > git rm 是删除文件和版本记录。rm 是删除文件，没有删除版本库的记录，提交后文件依然存在版本库。
@@ -122,6 +125,25 @@ $ git clean -xfd   //连 gitignore 的untrack 文件/目录也一起删掉 （�
 $ git rm <filename>
 ```
 
+[`back to content`](#content)
+
+
+
+
+<h3 id="gct"># git checkout</h3>
+
+restore local delete files from latest version, if you haven't git commit the deletion
+
+```shell
+$ git checkout HEAD <path>
+$ git checkout HEAD .  # current dir path
+```
+
+restore local delete files from latest version, if you have git commit the deletion.
+
+```shell
+$ git checkout HEAD^ <path>
+```
 
 [`back to content`](#content)
 
