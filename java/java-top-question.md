@@ -20,7 +20,7 @@
 - III. Library & Advanced
   - Exception
     - [Common Exceptions](#ces)
-
+    - [Exception return statement](#ers)
     - [Nested Exception Run Sequence](#ner)
   - IO
     - [Common IO Stream](#cis)
@@ -535,6 +535,36 @@ NoSuchFieldException
 [`back to content`](#content)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<h3 id="ers"># Exception return statement</h3>
+
+```java
+try
+{
+	System.out.println("try...");
+	int i = 1/0;
+	return 1;
+}
+catch(Exception e)
+{
+	System.out.println("catch...");
+	return 2;
+}
+finally
+{
+	System.out.println("finally...");
+	return 3;
+}
+// result return 3;
+```
+
+- try block return statement will not be executed if it after occur exception statement.
+
+- if catch have return statement will be executed, if finally have return statement will be executed and cover catch block return statement.
+
+[`back to content`](#content)
+
+---
 
 
 <h3 id="ner"># Nested Exception Run Sequence</h3>
