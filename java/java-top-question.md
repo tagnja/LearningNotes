@@ -39,11 +39,12 @@
   - [Java Object Creation Process](#joc)
   - [Java Run-time memory](#jrm)
   - [JVM Configurations](#jcs)
-  - [ ] [JVM Optimizations](#jos)
+  - [ ] **JVM Optimizations**
 - V. Concurrency
   - [synchronized](#sync)
   - [Thread Pool](#tp)
-  - [ ] Thread Class Common Methods
+  - [ ] **Concurrency API and keyword**
+  - [ ] **Concurrency  Code Questions**
   - [Thread Deadlock](#tdk)
 - VI. Network Communication
   - [I/O Models](#iom)
