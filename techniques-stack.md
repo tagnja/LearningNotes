@@ -50,6 +50,7 @@
     - Mock: Mockito 
     - 数据库测试: H2 Database
   - **Database**
+  - DevOps
   - CS Foundation
     - Architecture
     - **Operating System & Linux**
