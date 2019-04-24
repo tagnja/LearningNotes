@@ -8,6 +8,15 @@
   - **JVM**
   - Network Communication & Socket & NIO
   - Design Patterns
+  - Good Code
+  - Utilities Library
+    - Apache Commons, Guava
+    - JSON. (Jackson)
+    - XML. (JDK JAXB)
+    - Email. (Spring)
+    - Logging. (Slf4j + Log4j, Scribe + Kafka)
+    - Datetime. (JodaTime)
+    - IO. (apache commons, google guava, zip4j)
 - Java EE
   - Web Foundation
     - **Servlet/JSP**
@@ -32,17 +41,6 @@
   - Web Security
     - Shiro 
     - Spring Security
-  - Utilities Library
-    - Apache Commons, Guava
-    - JSON. (Jackson)
-    - XML. (JDK JAXB)
-    - Email. (Spring)
-    - Logging. (Slf4j + Log4j, Scribe + Kafka)
-    - Datetime. (JodaTime)
-    - IO. (apache commons, google guava, zip4j)
-    - Schedule. (Spring, quartz)
-    - Search Engine. (Lucene.)
-    - Work Flow. (Activiti)
   - Test & Tools
     - Maven 
     - Git
@@ -51,12 +49,16 @@
     - 数据库测试: H2 Database
   - **Database**
   - DevOps
+  - Application Library
+    - Schedule. (Spring, quartz)
+    - Search Engine. (Lucene.)
+    - Work Flow. (Activiti)
   - CS Foundation
     - Architecture
     - **Operating System & Linux**
     - Algorithms
     - Networks
-  - microservice
+  - Microservice
     - Spring Cloud
   - Distributed System
     - 服务协调
