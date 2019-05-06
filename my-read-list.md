@@ -105,7 +105,11 @@
   
   - [ ] Java Concurrency in Practice by Goetz, Brian
   - [ ] Concurrent Programming in Java: Design Principles and Patterns by Doug Lea 
+  - [ ] 实战Java高并发程序设计 by 葛一鸣, 郭超 (适合入门)
   - [ ] Java并发编程的艺术 by 方腾飞,  魏鹏, 程晓明 
+  - [ ] Java多线程编程实战指南（设计模式篇）by 黄文海 
+  - [ ] Java多线程编程实战指南（核心篇）by 黄文海 
+  - [ ] 图解Java多线程设计模式 by  [日] 结城浩 
   - [ ] Seven Concurrency Models in Seven Weeks: When Threads Unravel by Paul Butcher
 - <h5 id="jjm">java-jvm</h5>
   
@@ -153,6 +157,7 @@
   - [ ] Java Persistence with Hibernate: Revised Edition of Hibernate in Action by Bauer, Christian
   - [ ] Redis in Action by Josiah L. Carlson
   - [ ] Redis设计与实现 by 黄健宏
+  - [ ] 海量数据库解决方案
 - <h5 id="jal">java-application-library</h5>
   
   - [ ] quartz
