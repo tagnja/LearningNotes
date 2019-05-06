@@ -58,7 +58,7 @@
   - [ ] 编程之美 by 《编程之美》小组
 - <h5 id="cah">cs-arch</h5>
   
-  - [x] Computer Organization and Design: the Hardware/Software Interface by David A Patterson John L Hennessy and John L. Hennessy 
+  - [x] ~~Computer Organization and Design: the Hardware/Software Interface by David A Patterson John L Hennessy and John L. Hennessy~~
   - [ ] Computer Organization and Architecture: Designing for Performance by William Stallings
   - [ ] Computer Systems: A Programmer‘Perspective by Randal E.Bryant, David O'Hallaron (CSAPP)
   - Computer Architecture: A Quantitative Approach by David A Patterson John L Hennessy and John L. Hennessy
@@ -174,7 +174,7 @@
   - [ ] 白帽子讲浏览器安全	
 - <h5 id="dps">devops</h5>
   
-  - [x] The Linux Command Line 
+  - [x] ~~The Linux Command Line by William E.Shotts~~
   - [ ] Linux Shell Scripting Cookbook (Linux Shell 脚本攻略) 
   - [ ] Pro Git
   - [ ] Maven: The Definitive Guide
