@@ -28,7 +28,7 @@ Content
 
 ### Java
 
-- java-se (j-java)
+- Java SE
 
   - Java SE - basic (**ja-basic**)
   - Java SE - Concurrency (**ja-concurrency**)
@@ -41,18 +41,26 @@ Content
 
 - Java Web
 
-  - Java web - Spring (**jw-spring**)
-  - Java web - JFinal (**jw-jfinal**)
-  - Java web - Struts (**jw-structs**)
+  - Java Web - Spring (**jw-spring**)
+  - Java Web - JFinal (**jw-jfinal**)
+  - Java Web - Struts (**jw-structs**)
+  - Java Web Security - Spring Security (**jw-springsecurity**)
+  - Java Web Security - Apache Shiro (**jw-shiro**)
 
 - Java Network Communication
 
   - > Message Queueing (MQ), PPC protocol framework   
 
   - Java network - Socket (**jn-socket**)
+  
   - Java network - Netty (**jn-netty**)
+  
+  - Java network - Apache Mina (**jn-mina**)
+  
   - Java RPC - Webservice (**jn-webservice**)
+  
   - Java  RPC - Apache Thrift (**jn-thrift**)
+  
   - Java MQ - RabbitMQ (**jn-rabbitmq**)
 
 
@@ -100,6 +108,7 @@ Content
 - Java Development Enviroment
 
   - Version Control - Git (**jde-git**)
+  - Version Control -SVN (**jde-svn**)
   - Java Build - Maven (**jde-maven**)
   - Java Build - Gradle (**jed-gradle**)
   - Java webserver JettyPlugin (**jde-jetty**)
