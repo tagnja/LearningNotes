@@ -149,3 +149,6 @@ Content
 - Linux
   - Commond, Management, Configurations
 
+### Business Architecture
+
+- Login authentication and authorization.
