@@ -6,7 +6,10 @@ Content
 - Java
 - Frontend
 - DevOps
+- Test
+- Tools
 - Database
+- System Architecture
 
 ### Main
 
@@ -25,6 +28,9 @@ Content
   - MySQL
   - SQL Server
   - Oracle
+- Design Patterns 
+  - Design Patterns
+  - UML
 
 ### Java
 
@@ -118,12 +124,6 @@ Content
   - java webserver weblogic (**jde-weblogic**)
   - java webserver Resin (**jde-resin**)
 
-### Design Patterns
-
-- Design Patterns
-- UML
-	
-
 ### FrontEnd
 
 - HTML, CSS, JavaScript
@@ -149,6 +149,8 @@ Content
 - Linux
   - Commond, Management, Configurations
 
-### Business Architecture
+### Test
+
+### System Architecture
 
 - Login authentication and authorization.
