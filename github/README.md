@@ -20,6 +20,5 @@
 
 ### GitHub
 
-- [Features · The right tools for the job · GitHub](https://github.com/features). How developers work
+- [Features · The right tools for the job · GitHub](https://github.com/features). How developers work.
 - [Tools for GitHub · GitHub](https://github.com/github-tools). Between applications and custom tools, there’s no limit to the ways you can build on GitHub.
-
