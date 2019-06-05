@@ -106,7 +106,9 @@
 - Is Subset Sum Problem
 - Which Probability Sum to N
 - Min Cost Path
-- Longest Increase Sequence
+- Longest (using assisted mark array tab)
+  - Longest Increase Sequence
+  - Longest **Substring** Without Repeating Characters
 - [ ] Knapsack Problem
 
 [back to content](#content)
