@@ -3,10 +3,10 @@
 Unit-x
 
 - README.md
-- _note.md
-- _questions.md
-- _summary.md
-- _knowledge-points.md
+- _note-{unit}.md
+- _questions-{unit}.md
+- _summary-{unit}.md
+- _knowledge-{unit}.md
 - /articles
   - My articles for Core Content Illustration
   - My articles for hard Content Illustration
