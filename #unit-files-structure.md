@@ -13,3 +13,9 @@ Unit-x
 - /{Features_Notes}
 - /references
   - Others good articles
+
+
+
+Notice
+
+Only `/articles` using Chinese. Others using English.
