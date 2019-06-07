@@ -59,7 +59,7 @@
 
 
 
-**Classify**
+**Feature Classify**
 
 
 
@@ -103,16 +103,7 @@
 
 
 
-**Classic Questions**:
-
-- Fibonacci Number
-- Is Subset Sum Problem
-- Which Probability Sum to N
-- Min Cost Path
-- Longest (using assisted mark array tab)
-  - Longest Increase Sequence
-  - Longest **Substring** Without Repeating Characters
-- [ ] Knapsack Problem
+View -> [Classic DP Questions Analysis](classic-questions/dp-questions-analysis.md)
 
 
 
