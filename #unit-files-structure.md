@@ -10,5 +10,6 @@ Unit-x
 - /articles
   - My articles for Core Content Illustration
   - My articles for hard Content Illustration
-- /reference
+- /{Features_Notes}
+- /references
   - Others good articles
