@@ -20,39 +20,46 @@
 
 ### Algorithms Paradigms
 
+
+
 <h3 id="gam"># Greedy Algorithm</h3>
+
+
 
 - Find a greedy principle.
 
+
+
 [back to content](#content)
+
+
 
 ----
 
 
+
 <h3 id="dpg"># Dynamic Programming</h3>
 
-**How to judge a problem is a DP problem**
 
-- 能够转换为若干个更小规模的子问题 T(n) = m * ( O(n-x)+y )。
-- 有大量重复的子问题。
 
-**Deciding the State**
-
-- 能决定问题的参数。如背包问题的（石头个数，石头重量）
-
-**Formulating a Relation Among the States**
-
-**Adding Memoization or Tabulation for the State**
-
-**Thought**
-
-- (1)有的动态规划问题，他的规模缩减比较明显，关系简单，如Fibonacci斐波那契数，Min-Cost-Path表格最小花费路径等。 (2)有的问题能看出缩减关系，但是缩减的关系很复杂。如COINS-Bytelandian-glod-coins金币换美元等。 (3)有的问题则看不出缩减关系，甚至不知道它是不是动态规划问题，如ACODE数字解码字母，Longest-Increase-Sequence最长递增子序列等。(4) 确实需要靠一点直觉，接触多了就有感觉。
-- 找到一种递归求解的方法，通过减少重复子问题来优化递归方法。
-- 当问题规模为n时有最优解，n-1时也有自己的最优解，隔离问题规模 。在试图用递归来找到从小规模最优解来得到大规模最优解。
+**Process**
 
 
 
-**动态规划问题的分类以及思路**
+- How to judge a problem is a DP problem
+  - 能够转换为若干个更小规模的子问题 T(n) = m * ( O(n-x)+y )。
+  - 有大量重复的子问题。
+
+- Deciding the State
+  - 能决定问题的参数。如背包问题的（石头个数，石头重量）
+
+- Formulating a Relation Among the States
+
+- Adding Memoization or Tabulation for the State
+
+
+
+**Classify**
 
 
 
@@ -63,7 +70,7 @@
   - 无效的话OPT(n)=OPT(n-1)
   - 有效的话OPT(n) <- OPT(n-1)<-OPT(i)。
 
-如，最长递增子序列OPT(n)<-OPT(i)， 最小花费路劲问题OPT(n) <- OPT(n-1)。
+>  如，最长递增子序列OPT(n)<-OPT(i)， 最小花费路劲问题OPT(n) <- OPT(n-1)。
 
 
 
@@ -72,7 +79,7 @@
 - 问题的规模就是问题的n。
 - 可以看出明显的递推关系。T(n) = a\*T(n-x) + b\*T(n-y)+...直接根据公式递推求解，再去除重复子结果。
 
-如斐波那契数 T(n) = T(n-2) + T(n-1)
+> 如斐波那契数 T(n) = T(n-2) + T(n-1)
 
 
 
@@ -81,7 +88,7 @@
 - 构造出问题的n。
 - 从规模n去推算，它由几种n-1规模问题组成。
 
-如3个数有多少种可能通过加法得到指定一个数。
+> 如3个数有多少种可能通过加法得到指定一个数。
 
 
 
@@ -92,15 +99,11 @@
   - 无效的话，这个数就忽略。
   - 有效的话，这个元素就是组成答案的一个关键因素。
 
-如数组N是否是数组的子集和
+> 如数组N是否是数组的子集和
 
 
 
-**总结：动态规划问题，核心的思路就是，找到一种递归求解的方法，然后通过减少重复子问题优化算法。**
-
-
-
-**Questions**:
+**Classic Questions**:
 
 - Fibonacci Number
 - Is Subset Sum Problem
@@ -111,16 +114,32 @@
   - Longest **Substring** Without Repeating Characters
 - [ ] Knapsack Problem
 
+
+
+**Summary**
+
+- 动态规划问题特征总结
+  - 问题规模 1, 2, 3 .. n 是独立的子问题。1）问题规模 n 与问题规模 n-1 之间有递推关系，可以通过问题规模 n-1 的解求规模 n 的解。如 。。2）n 与 n-1 之间没关联，但子问题独立，每个规模有自己的规则，最后合并所有子问题的解可以得到规模 n 的最终解。如。。
+- **动态规划问题，核心的思路就是，找到一种递归求解的方法，然后通过减少重复子问题优化算法。**
+- (1)有的动态规划问题，他的规模缩减比较明显，关系简单，如Fibonacci斐波那契数，Min-Cost-Path表格最小花费路径等。 (2)有的问题能看出缩减关系，但是缩减的关系很复杂。如COINS-Bytelandian-glod-coins金币换美元等。 (3)有的问题则看不出缩减关系，甚至不知道它是不是动态规划问题，如ACODE数字解码字母，Longest-Increase-Sequence最长递增子序列等。(4) 确实需要靠一点直觉，接触多了就有感觉。
+- 找到一种递归求解的方法，通过减少重复子问题来优化递归方法。
+- 当问题规模为n时有最优解，n-1时也有自己的最优解，隔离问题规模 。在试图用递归来找到从小规模最优解来得到大规模最优解。
+
+
+
 [back to content](#content)
 
+
+
 ----
+
 
 
 <h3 id="btg">Backtracking</h3>
 
 
 
-**Questions**
+**Classic Questions**
 
 - N queens problem
 - Knight's Tour Problem
@@ -128,12 +147,19 @@
 
 [back to content](#content)
 
+
+
 ----
+
 
 
 <h3 id="bac">Divide and Conquer</h3>
 
+`
+
 [back to content](#content)
+
+
 
 ----
 
