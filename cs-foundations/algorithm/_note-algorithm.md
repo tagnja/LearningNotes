@@ -5,6 +5,7 @@
 <h3 id="content">Content</h3>
 
 - Data Structure
+  - [Efficiency and Application](#effi)
 - Algorithms Paradigms
   - [Greedy Algorithm](#gam)
   - [Dynamic Programming](#dpg)
@@ -17,6 +18,31 @@
   - [DFS and BFS](#dab)
 
 ### Main
+
+### Data Structure
+
+<h3 id="effi"># Efficiency and Application</h3>
+
+Random Access
+
+- Array List, T(n) = O(1)
+
+Insert and Remove: 
+
+- Linked List, T(n) = O(1)
+
+Search
+
+- Hash Table, T(n) = O(1)
+- Binary Search Tree, T(n) = O(log n)
+
+FIFO
+
+- Queue
+
+LIFO
+
+- Stack
 
 ### Algorithms Paradigms
 
