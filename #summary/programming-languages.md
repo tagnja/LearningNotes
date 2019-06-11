@@ -112,6 +112,14 @@ JVM:
 
 
 
+### Feature 
+
+- Flutter framework：移动应用SDK，一份代码生成iOS和Android高保真应用程序。
+- Golang：高效能
+- PHP & Ruby: 开发效率非常高。
+- Python：数据分析、人工智能的生态很好。
+- JavaScript：全栈。网站、手机APP,桌面应用
+- Java & C#：跨平台
 
 
 
