@@ -2,8 +2,9 @@
 
 <h3 id="content">Content</h3>
 
-- Classic Problems
-  - Longest Common Subsequence
+- [Before Start](#first)
+- I. Classic Problems
+  - [Longest Common Subsequence (LCS)](#lcs)
   - Shortest Common Supersequence
   - Longest Increasing Subsequence problem
   - The Levenshtein distance (Edit distance) problem
@@ -13,8 +14,7 @@
   - Rod Cutting
   - Coin change problem
   - Word Break Problem
-
-- Other Problems
+- II. Other Problems
   - Balanced Partition
   - Box Stacking
   - Count All Palindrome Sub-Strings in a String
@@ -45,17 +45,72 @@
   - Unbounded Knapsack Problem
   - Ways to Cover a Distance
   - Wildcard Pattern Matching
+- References
 
 ### Main
 
+<h3 id="first">Before Start</h3>
 
+**Convention**
 
-**Method Classify**
+- Description
+- Analysis
+- Solution
+
+**Method Summary**
 
 - using assisted mark array tab
-  - Longest Increase Sequence
+
+  >  Longest Increase Sequence
 
 
+
+### I. Classic Problems
+
+
+
+<h3 id="lcs">Longest Common Subsequence</h3>
+
+**Description**
+
+The longest common subsequence (LCS) problem is the problem of finding the longest subsequence that is present in given two sequences in the same order. i.e. find a longest sequence which can be obtained from the first original sequence by deleting some items, and from the second original sequence by deleting other items.
+
+The problem differs from problem of finding common substrings. Unlike substrings, subsequences are not required to occupy consecutive positions within the original sequences.
+For example, consider the two following sequences X and Y
+
+X: ABCBDAB
+Y: BDCABA
+
+The length of LCS is 4
+LCS are BDAB, BCAB and BCBA
+
+**Analysis**
+
+1\. Find the relation by Top to Buttom
+
+if X[m] = Y[n], 
+
+​	LCS(X[1..m], Y[1..n]) = LCS(X[1..m-1], Y[1..n-1]) + X[m]
+
+else, 
+
+​	LCS[X[1..m], Y[1..n]] = max( LCS(X[1..m-1], Y[1..n]), LCS(X[1..m], Y[1..n-1]) )
+
+2\. Remove Repeated subproblems
+
+
+
+**Solution**
+
+
+
+References
+
+[Longest Common Subsequence | Introduction & LCS Length - Techie Delight](https://www.techiedelight.com/longest-common-subsequence/)
+
+
+
+### II. Other Problems
 
 
 
