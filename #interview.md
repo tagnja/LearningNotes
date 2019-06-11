@@ -39,6 +39,8 @@ Spring Family
 Database
 
 - **Database Concepts** (Like Transaction, Paradigms)
+- MyBatis
+- Cache
 - **MySQL** (function, index, procedure)
 - Redis (Principle, Data Structures.)
 
