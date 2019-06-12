@@ -2,16 +2,17 @@
 
 ### Content
 
-- Foundations
-  - Algorithms
-  - Computer Architecture
-  - Operating System
-  - Network
+- Algorithms
+- Computer Architecture
+- Operating System
+- Network
 - Database
 - DevOps
 - Java
 
 - Distributed System
+
+
 
 ### Main
 
