@@ -110,7 +110,7 @@ References
 
 - HTML parser
 - Recruit Info Crawler
-- Shop Price Contrast Crawler
+- Shop Price Contrast Crawler (JD, Dangdang, Amazon etc)
 - My News info Crawler
 - Wechat Official Article Crawler
 
@@ -187,6 +187,10 @@ References
 
 Modules and Functions
 
+My Projects
+
+- What Eat Today
+
 References
 
 - [mp-githubtrending - github](https://github.com/ZhuPeng/mp-githubtrending)
@@ -212,6 +216,10 @@ References
 
 <h3 id="mta">My Tools Application</h3>
 
-- My Working Platform
+- My Working Platform (to-do list, time schedule, time statistics)
 - Social Account Post Push
 
+### Other
+
+- HTML Online Generator (by drag component)
+- Fast Auto Code (handle excel)
