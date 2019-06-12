@@ -11,8 +11,8 @@ It's my learning notes.
 - Java Web
   - [JavaSE](java-web/basic)
 - Frontend
-  - [JavaScript](front-end\javascript)
-  - [jQuery](front-end\jquery)
+  - [JavaScript](front-end/javascript)
+  - [jQuery](front-end/jquery)
 - DevOps
   - [Linux](dev-ops/linux)
 - Tools
@@ -22,4 +22,3 @@ It's my learning notes.
 ### Others
 
 [My Read Books and Watched Courses](read-list.md)
-
