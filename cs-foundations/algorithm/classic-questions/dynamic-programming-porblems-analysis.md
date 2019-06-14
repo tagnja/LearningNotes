@@ -2,10 +2,10 @@
 
 <h3 id="content">Content</h3>
 
-- [Before Start](#first)
+- [Introduction](#intr)
 - I. Classic Problems
   - [x] [Longest Common Subsequence (LCS)](#lcs)
-  - Shortest Common Supersequence
+  - [Shortest Common Supersequence](#scsu)
   - Longest Increasing Subsequence problem
   - The Levenshtein distance (Edit distance) problem
   - Matrix Chain Multiplication
@@ -49,32 +49,142 @@
 
 ### Main
 
-<h3 id="first">Before Start</h3>
+### Before Start
 
 **Convention**
 
 - Description
 - Solutions
+- References
 
 **Problem Class Summary**
 
 - using assisted mark array tab
 
-  >  Longest Increase Sequence
+  > Longest Increase Sequence
 
 **Solution Methods**
 
-- Top-down approach: recursion and memorized.
+- Top-down approach (Memoization): recursion and memorized.
 
   > 1\. Sub-problem result store to Array, or sub-problem index value to map). If this sub-problem exist in memorized container, bypass it and don't calculate it.
   >
-  > 2\. The memorized container can be global variable(array, map) or parameter of function(map).
+  > 2\. The memorized container can be global variable or parameter of function. Variable can using Map or Array. Map memorized multiple composed key, Array memorized single key.
 
-- Bottom-up approach: for iterator and relational calculate. 
+- Bottom-up approach  (Tabulation): for iterator and relational calculate. 
 
   > Iterate Impose sub-problem result to calculate bigger scale sub-problem.
 
+<h3 id="intr">Introduction</h3>
 
+#### Dynamic Programming
+
+**Dynamic programming** is a method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just once, and storing their solutions using a memory-based data structure (array, map,etc). Each of the subproblem solutions is indexed in some way, typically based on the values of its input parameters, so as to facilitate its lookup. So the next time the same subproblem occurs, instead of recomputing its solution, one simply looks up the previously computed solution, thereby saving computation time. This technique of storing solutions to subproblems instead of recomputing them is called **memoization**.
+
+There are two key attributes that a problem must have in order for dynamic programming to be applicable: 
+
+- optimal substructure
+
+- overlapping sub-problems.
+
+##### Optimal substructure
+
+Dynamic programming simplify a complicated problem by breaking it down into simpler sub-problems in a recursive manner. A problem that can be solved optimally by breaking it into sub-problems and then recursively finding the optimal solutions to the sub-problems is said to have optimal substructure. In other words, solution to a given optimization problem can be obtained by the combination of optimal solutions to its sub-problems.
+
+##### Overlapping sub-problems
+
+A problem is said to have **overlapping subproblems** if the problem can be broken down into subproblems which are reused several times or a recursive algorithm for the problem solves the same subproblem over and over rather than always generating new subproblems.
+
+**Top-down approach (Memoization):** This is the direct fall-out of the recursive formulation of any problem. If the solution to any problem can be formulated recursively using the solution to its sub-problems, and if its sub-problems are overlapping, then one can easily memoize or store the solutions to the sub-problems in a table. Whenever we attempt to solve a new sub-problem, we first check the table to see if it is already solved. If the sub-problem is already solved, we can use it’s solution directly, otherwise we solve the sub-problem and add its solution to the table.
+
+**Bottom-up approach (Tabulation):** Once we formulate the solution to a problem recursively as in terms of its sub-problems, we can try reformulating the problem in a bottom-up fashion: try solving the sub-problems first and use their solutions to build-on and arrive at solutions to bigger sub-problems. This is also usually done in a tabular form by iteratively generating solutions to bigger and bigger sub-problems by using the solutions to small sub-problems. For example, if we already know the values of *F*(*i* – 1) and *F*(*i* – 2), we can directly calculate the value of *F*(*i*).
+
+If a problem can be solved by combining optimal solutions to non-overlapping sub-problems, the strategy is called “divide and conquer” instead. This is why merge sort and quick sort are not classified as dynamic programming problems.
+
+#### Example of Fibonacci
+
+A Native Implementation, T(n) = O(2^n)
+
+```
+// Function to find n'th Fibonacci number
+int fib(int n)
+{
+    if (n <= 1)
+        return n;
+ 
+    return fib(n - 1) + fib(n - 2);
+}
+```
+
+Top-down Approach, T(n) = O(n)
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+ 
+class Main
+{
+    // Function to find nth Fibonacci number
+    public static int fib(int n, Map<Integer, Integer> lookup)
+    {
+        if (n <= 1) {
+            return n;
+        }
+ 
+        // if sub-problem is seen for the first time
+        if (!lookup.containsKey(n)) {
+            int val = fib(n - 1, lookup) + fib(n - 2, lookup);
+            lookup.put(n, val);
+        }
+ 
+        return lookup.get(n);
+    }
+ 
+    public static void main(String[] args)
+    {
+        int n = 8;
+        Map<Integer, Integer> lookup = new HashMap<>();
+ 
+        System.out.println(fib(n, lookup));
+ 
+    }
+}
+```
+
+Bottom-up Approach, T(n) = O(n)
+
+```java
+class Main
+{
+    // Function to find n'th fibonacci number
+    public static int fib(int n)
+    {
+        if (n <= 1) {
+            return n;
+        }
+ 
+        int previousFib = 0, currentFib = 1;
+        for (int i = 0; i < n - 1; i++) {
+            int newFib = previousFib + currentFib;
+            previousFib = currentFib;
+            currentFib = newFib;
+        }
+ 
+        return currentFib;
+    }
+ 
+    public static void main(String[] args)
+    {
+        System.out.print(fib(8));
+    }
+}
+```
+
+
+
+References
+
+[Introduction to Dynamic Programming](https://www.techiedelight.com/introduction-dynamic-programming/?v=1#optimal-substructure)
 
 ### I. Classic Problems
 
@@ -96,6 +206,8 @@ The length of LCS is 4
 LCS are BDAB, BCAB and BCBA
 
 #### Solutions
+
+The LCS problem has an [optimal substructure](https://www.techiedelight.com/introduction-dynamic-programming/?v=1#optimal-substructure). That means the problem can be broken down into smaller, simple “subproblems”, which can be broken down into yet simpler subproblems, and so on, until, finally, the solution becomes trivial.
 
 ##### 1\. Find the relation by Top to Buttom
 
@@ -186,7 +298,7 @@ class LCS
             // if last character of X and Y matches
             if (X.charAt(m - 1) == Y.charAt(n - 1)) {
                 lookup.put(key, LCSLength(X, Y, m - 1, n - 1, lookup) + 1);
- 
+ 				
             }
             else {
                 // else if last character of X and Y don't match
@@ -211,14 +323,60 @@ class LCS
                 + LCSLength(X, Y, X.length(), Y.length(), lookup));
     }
 }
-
+// The length of LCS is 4
 ```
+
+**Print Optimal Result**
+
+(TODO)
 
 
 
 References
 
 [Longest Common Subsequence | Introduction & LCS Length - Techie Delight](https://www.techiedelight.com/longest-common-subsequence/)
+
+[`back to content`](#content)
+
+---
+
+
+
+<h3 id="scsu">Shortest Common Supersequence</h3>
+
+
+
+#### Description
+
+The shortest common supersequence (SCS) is the problem of finding the shortest supersequence Z of given sequences X and Y such that both X & Y are subsequences of Z.
+
+For example, consider the two following sequences X and Y
+
+X: ABCBDAB
+Y: BDCABA
+
+The length of SCS is 9
+SCS are ABCBDCABA, ABDCABDAB and ABDCBDABA
+
+
+
+#### Solutions
+
+
+
+
+
+
+
+References
+
+[Shortest Common Supersequence | Introduction & SCS Length - Techie Delight](https://www.techiedelight.com/shortest-common-supersequence-introduction-scs-length/)
+
+[`back to content`](#content)
+
+---
+
+
 
 
 
