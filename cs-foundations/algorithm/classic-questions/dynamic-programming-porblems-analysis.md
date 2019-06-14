@@ -152,11 +152,15 @@ T(n) = O(2^(n+m))
 
 ##### 2\. Remove Repeated subproblems
 
-​                              (n, m)
+```
+                      (n, m)
 
-​         (n-1, m)                          (n, m-1)
+       (n-1, m)                     (n, m-1)
 
-(n-2, m)   **(n-1, m-1)**        **(n-1, m-1)**  (n, m-2)
+(n-2, m)   *(n-1, m-1)        *(n-1, m-1)    (n, m-2)
+```
+
+Above \* is repeated sub-problems
 
 Implementation
 
