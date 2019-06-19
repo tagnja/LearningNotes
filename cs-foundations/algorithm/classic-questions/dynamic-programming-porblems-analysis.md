@@ -5,7 +5,7 @@
 - [Introduction](#intr)
 - I. Classic Problems
   - [x] [Longest Common Subsequence (LCS)](#lcs)
-  - [x] [Shortest Common Supersequence](#scsu)
+  - [x] [Shortest Common Supersequence(SCS)](#scsu)
   - [Longest Increasing Subsequence](#lisu)
   - The Levenshtein distance (Edit distance) problem
   - Matrix Chain Multiplication
