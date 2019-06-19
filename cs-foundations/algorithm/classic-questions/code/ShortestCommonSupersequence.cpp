@@ -1,49 +1,29 @@
 # include<iostream>
-# include<string>
 using namespace std;
 
 int SCSLength(string X, string Y, int m, int n)
 {
-	if (n == 0)
+	if (m == 0 || n ==0)
 	{
-		return m;
+		return m + n;
 	}
-	if (m == 0)
+
+	if (X[m-1] == Y[n-1])
 	{
-		return n;
-	}
-	int result = SCSLength(X, Y, n-1, m-1);
-	if (X[n-1] == Y[m-1])
-	{
-		result += 1;
+		return SCSLength(X, Y, m-1, n-1) + 1;
 	}
 	else
 	{
-		if (((n-2 >= 0 && X[n-1] != X[n-2]) || n-2 < 0) && m-2 >= 0 && X[n-1] == Y[m-2])
-		{
-			
-		}
-		else
-		{
-			result += 1;
-		}
-		
-		if (((m-2 >= 0 && Y[m-1] != Y[m-2]) || m-2 < 0) && n-2 >= 0 && Y[m-1] == X[n-2])
-		{
-			
-		}
-		else
-		{
-			result += 1;
-		}
-		return result;
+		int i = SCSLength(X, Y, m-1, n) + 1;
+		int j = SCSLength(X, Y, m, n-1) + 1;
+		return min(i, j);
 	}
 }
 int main()
 {
-	string s1 = "ABC", s2 = "ACB";
-	int m = 3, n = 3;
-	std::cout << "The length of SCS is " << SCSLength(s1, s2, m, n) << std::endl;
+	string X = "ABCBDAB", Y = "BDCABA";
+	int m = X.length(), n = Y.length();
+	cout << "The length of SCS is " << SCSLength(X, Y, m, n) << endl;
 	return 0;
 }
 

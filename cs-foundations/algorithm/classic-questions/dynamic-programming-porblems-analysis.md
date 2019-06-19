@@ -47,7 +47,15 @@
   - Wildcard Pattern Matching
 - References
 
+
+
+---
+
+
+
 ### Main
+
+
 
 ### Before Start
 
@@ -55,7 +63,16 @@
 
 - Description
 - Solutions
+  - 1\. Find the Relation
+  - 2\. Remove Overlapping subproblems
+    - Top-down Approach Implementation
+    - Bottom-up Approach Implementation
+- Exercise
+  - Printing xxx
+  - Write space optimized code for iterative version
 - References
+
+
 
 **Problem Class Summary**
 
@@ -69,11 +86,15 @@
 
   > 1\. Sub-problem result store to Array, or sub-problem index value to map). If this sub-problem exist in memorized container, bypass it and don't calculate it.
   >
-  > 2\. The memorized container can be global variable or parameter of function. Variable can using Map or Array. Map memorized multiple composed key, Array memorized single key.
+  > 2\. The memorized container can be global variable or parameter of function. Variable can using Map or Array. Map memorized multiple composed string key, Array memorized single int key.
 
 - Bottom-up approach  (Tabulation): for iterator and relational calculate. 
 
   > Iterate Impose sub-problem result to calculate bigger scale sub-problem.
+
+
+
+
 
 <h3 id="intr">Introduction</h3>
 
@@ -186,11 +207,19 @@ References
 
 [Introduction to Dynamic Programming](https://www.techiedelight.com/introduction-dynamic-programming/?v=1#optimal-substructure)
 
+
+
+---
+
+
+
 ### I. Classic Problems
 
 
 
 <h3 id="lcs">Longest Common Subsequence</h3>
+
+
 
 #### Description
 
@@ -204,6 +233,8 @@ Y: BDCABA
 
 The length of LCS is 4
 LCS are BDAB, BCAB and BCBA
+
+
 
 #### Solutions
 
@@ -262,7 +293,7 @@ int main()
 
 T(n) = O(2^(n+m))
 
-##### 2\. Remove Repeated subproblems
+##### 2\. Remove Overlapping subproblems
 
 ```
                       (n, m)
@@ -272,9 +303,9 @@ T(n) = O(2^(n+m))
 (n-2, m)   *(n-1, m-1)        *(n-1, m-1)    (n, m-2)
 ```
 
-Above \* is repeated sub-problems
+\* marked it is repeated sub-problems
 
-Implementation
+**Top-down Approach** Implementation
 
 ```java
 class LCS
@@ -326,7 +357,11 @@ class LCS
 // The length of LCS is 4
 ```
 
-**Print Optimal Result**
+
+
+#### Exercise
+
+Printing Longest Common Subsequence
 
 (TODO)
 
@@ -362,11 +397,200 @@ SCS are ABCBDCABA, ABDCABDAB and ABDCBDABA
 
 #### Solutions
 
+Shortest Common Supersequence(SCS) problem has an optimal substructure.
+
+##### 1. Find the Relation
+
+If X[m] = Y[n], 
+
+​	SCS(X[1..m], Y[1..n]) = SCS(X[1..**m-1**], Y[1..**n-1**]) + (X[m] or Y[n])
+
+If X[m] != Y[n]
+
+​	SCS(X[1..m], Y[1..n]) = Max(SCS(X[1..**m**], Y[1..**n-1**]) + Y[n], SCS(X[1..**m-1**], Y[1..**n**]) + X[m])
+
+```
+             | i+j                            (i=0 or j=0)
+SCS[i][j] =  | SCS[i-1][j-1] + 1              (X[i-1] = Y[j-1])
+             | min(SCS[i-1][j] + 1, SCS[i][j-1] + 1)  (X[i-1] != Y[j-1])
+```
+
+Implementation
+
+```cpp
+# include<iostream>
+using namespace std;
+
+int SCSLength(string X, string Y, int m, int n)
+{
+	if (m == 0 || n ==0)
+	{
+		return m + n;
+	}
+
+	if (X[m-1] == Y[n-1])
+	{
+		return SCSLength(X, Y, m-1, n-1) + 1;
+	}
+	else
+	{
+		int i = SCSLength(X, Y, m-1, n) + 1;
+		int j = SCSLength(X, Y, m, n-1) + 1;
+		return min(i, j);
+	}
+}
+int main()
+{
+	string X = "ABCBDAB", Y = "BDCABA";
+	int m = X.length(), n = Y.length();
+	cout << "The length of SCS is " << SCSLength(X, Y, m, n) << endl;
+	return 0;
+}
+```
+
+T(n) = O(2^(m+n)), S(n) = O(1)
 
 
 
+##### 2\. Remove Overlapping subproblems
+
+```
+                  (m, n)
+
+      (m-1, n)              (m, n-1)
+
+(m-2, n) *(m-1, n-1)   *(m-1, n-1)  (n, n-2)
+```
+
+\* marked it is repeated sub-problems
 
 
+
+**Top-down Approach** Implementation
+
+```cpp
+#include<iostream>
+#include <string>
+#include <unordered_map>
+using namespace std;
+
+int SCSLength(string X, string Y, int m, int n, auto &lookup)
+{
+	if (m == 0 || n == 0)
+	{
+		return m + n;
+	}
+	
+	string key = to_string(m) + "|" + to_string(n);
+	if (lookup.find(key) == lookup.end())
+	{
+		if (X[m-1] == Y[n-1])
+		{
+			lookup[key] = SCSLength(X, Y, m-1, n-1, lookup) + 1;
+		}
+		else
+		{
+			lookup[key] = min(SCSLength(X, Y, m, n-1, lookup) + 1, SCSLength(X, Y, m-1, n, lookup) + 1);
+		}
+	}
+	return lookup[key];
+}
+
+int main()
+{
+	string X = "ABCBDAB", Y = "BDCABA"; 
+    // Output: The length of shortest Common supersequence is 9
+	int m = X.length(), n = Y.length();
+	// create a map to store solutions of subproblems
+    // we can also use array instead of map
+    unordered_map<string, int> lookup;
+	cout << "The length of SCS is " << SCSLength(X, Y, m, n, lookup);
+	return 0;
+}
+
+```
+
+T(n) = O(mn), S(n) = O(mn)
+
+
+
+**Bottom-up Approach** Implementation
+
+```
+             | i                              (j=0)
+             | j                              (i=0)
+SCS[i][j] =  | SCS[i-1][j-1] + 1              (X[i-1] = Y[j-1])
+             | min(SCS[i-1][j] + 1, SCS[i][j-1] + 1)  (X[i-1] != Y[j-1])
+```
+
+Code
+
+```cpp
+#include<iostream>
+#include<string>
+using namespace std;
+
+// Function to find length of shortest Common supersequence of
+// sequences X[0..m-1] and Y[0..n-1]
+int SCSLength(string X, string Y)
+{
+	int m = X.length(), n = Y.length();
+	// lookup table stores solution to already computed sub-problems
+    // i.e. lookup[i][j] stores the length of SCS of substring
+    // X[0..i-1] and Y[0..j-1]
+	int lookup[m+1][n+1];
+	
+	for (int i = 0; i <= m; i++)
+	{
+		lookup[i][0] = i;
+	}
+	
+	for (int j = 0; j <= n; j++)
+	{
+		lookup[0][j] = j;
+	}
+	
+	for (int i = 1; i <= m; i++)
+	{
+		for (int j = 1; j <= n; j++)
+		{
+			if(X[i-1] == Y[j-1])
+			{
+				lookup[i][j] = lookup[i-1][j-1] + 1;
+			}
+			else
+			{
+				lookup[i][j] = min(lookup[i][j-1] + 1, 
+								lookup[i-1][j] + 1);
+			}
+		}
+	}
+	return lookup[m][n];
+}
+
+int main()
+{
+	string X = "ABCBDAB", Y = "BDCABA";
+	// Output: The length of shortest Common supersequence is 9
+	cout << "The length of Shortest Common Supersequence is " 
+			<< SCSLength(X, Y) << endl;
+	return 0;
+}
+```
+
+T(n) = O(m*n), S(n) = O(mn)
+
+
+
+#### Exercise
+
+Printing Shortest Common Supersequence
+
+(TODO)
+
+Write space optimized code for iterative version
+
+(TODO)
 
 References
 
@@ -377,6 +601,32 @@ References
 ---
 
 
+
+### Longest Increasing Subsequence 
+
+#### Description
+
+#### Solutions
+
+##### 1\. Find the Relation
+
+##### 2\. Remove Overlapping subproblems
+
+Top-down Approach Implementation
+
+Bottom-up Approach Implementation
+
+#### Exercise
+
+Printing xxx
+
+Write space optimized code for iterative version
+
+#### References
+
+[`back to content`](#content)
+
+---
 
 
 

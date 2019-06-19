@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class LongestCommonSubsequence_s1
+public class LongestCommonSubsequence_top_down
 {
 	static TreeMap<String, Character> resultStr = new TreeMap<>();
 	public static int LCSLength(String s1, String s2, int n, int m, Map<String, Integer> map)
