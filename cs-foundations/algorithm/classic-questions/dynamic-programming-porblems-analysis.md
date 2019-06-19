@@ -5,8 +5,8 @@
 - [Introduction](#intr)
 - I. Classic Problems
   - [x] [Longest Common Subsequence (LCS)](#lcs)
-  - [Shortest Common Supersequence](#scsu)
-  - Longest Increasing Subsequence problem
+  - [x] [Shortest Common Supersequence](#scsu)
+  - [Longest Increasing Subsequence](#lisu)
   - The Levenshtein distance (Edit distance) problem
   - Matrix Chain Multiplication
   - 0–1 Knapsack problem
@@ -602,7 +602,7 @@ References
 
 
 
-### Longest Increasing Subsequence 
+<h3 id="lisu">Longest Increasing Subsequence</h3>
 
 #### Description
 
