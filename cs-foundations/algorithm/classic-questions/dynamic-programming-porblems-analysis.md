@@ -6,7 +6,7 @@
 - I. Classic Problems
   - [x] [Longest Common Subsequence (LCS)](#lcs)
   - [x] [Shortest Common Supersequence(SCS)](#scsu)
-  - [Longest Increasing Subsequence](#lisu)
+  - [Longest Increasing Subsequence(LIS)](#lisu)
   - The Levenshtein distance (Edit distance) problem
   - Matrix Chain Multiplication
   - 0–1 Knapsack problem
@@ -604,6 +604,8 @@ Write space optimized code for iterative version
 
 <h3 id="lisu">Longest Increasing Subsequence</h3>
 
+
+
 #### Description
 
 The longest increasing subsequence problem is to find a subsequence of a given sequence in which the subsequence’s elements are in sorted order, lowest to highest, and in which the subsequence is as long as possible. This subsequence is not necessarily contiguous, or unique.
@@ -613,6 +615,8 @@ For example, consider below subsequence
 
 Longest increasing subsequence is
 0, 2, 6, 9, 11, 15
+
+
 
 #### Solutions
 
@@ -709,17 +713,30 @@ int main()
 
 T(n) = O(n^2), S(n) = O(n)
 
+
+
 #### Exercise
 
-Printing Longest Increasing Subsequence
+**Printing Longest Increasing Subsequence**
+
+To print the LIS, storing  the LIS itself in lookup table instead of storing just LIS length.
+
+(TODO)
 
 ```cpp
 
 ```
 
+T(n) = O(n^2), S(n) = O(n^2)
 
 
-Write space optimized code for iterative version
+
+**O(nlogn) algorithm to find length of Longest increasing subsequence**
+(TODO)
+
+References
+[Longest Increasing Subsequence Size (N log N)](https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/)
+[Longest Increasing Subsequence-improvement](https://www.techiedelight.com/longest-increasing-subsequence/)
 
 #### References
 
