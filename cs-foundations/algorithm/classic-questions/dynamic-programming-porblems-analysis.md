@@ -367,7 +367,7 @@ Printing Longest Common Subsequence
 
 
 
-References
+#### References
 
 [Longest Common Subsequence | Introduction & LCS Length - Techie Delight](https://www.techiedelight.com/longest-common-subsequence/)
 
@@ -592,7 +592,7 @@ Write space optimized code for iterative version
 
 (TODO)
 
-References
+#### References
 
 [Shortest Common Supersequence | Introduction & SCS Length - Techie Delight](https://www.techiedelight.com/shortest-common-supersequence-introduction-scs-length/)
 
@@ -606,23 +606,124 @@ References
 
 #### Description
 
+The longest increasing subsequence problem is to find a subsequence of a given sequence in which the subsequence’s elements are in sorted order, lowest to highest, and in which the subsequence is as long as possible. This subsequence is not necessarily contiguous, or unique.
+
+For example, consider below subsequence
+0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15
+
+Longest increasing subsequence is
+0, 2, 6, 9, 11, 15
+
 #### Solutions
 
 ##### 1\. Find the Relation
 
-##### 2\. Remove Overlapping subproblems
+Using recursion to solve this problem.
+
+ For each item, there are two possibilities 
+
+1. We include current item in LIS if it is greater than the previous element in LIS and recur for remaining items.
+2. We exclude current item from LIS and recur for remaining items.
+
+Implementation (recursion, bottom-up)
+
+```cpp
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int LISLength(int arr[], int i, int n, int prev)
+{
+	if (i == n)
+	{
+		return 0;
+	}
+	
+	int excl = LISLength(arr, i+1, n, prev);
+	int incl = 0;
+	if (arr[i] > prev)
+	{
+		incl = LISLength(arr, i+1, n, arr[i]) + 1;
+	}
+	return max(excl, incl);
+}
+
+int main()
+{
+	int arr[] = { 0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15 };
+	//Output: Length of LIS is 6
+	int n = sizeof(arr) / sizeof(arr[0]);
+	cout << "The length of longest increasing subsequence is " << LISLength(arr, 0, n, INT_MIN);
+	return 0;
+}
+```
+
+T(n) = O(2^n), S(n) = O(1)
+
+##### 2\. Remove Overlapping subproblems 
+
+Use Dynamic Programming to solve this problem
 
 Top-down Approach Implementation
 
 Bottom-up Approach Implementation
 
+```cpp
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int LISLength(int arr[], int n)
+{
+	int L[n] = {0};
+	L[0] = 1;
+	for (int i = 1; i < n; i++)
+	{
+		for (int j = 0; j < i; j++)
+		{
+			if (arr[i] > arr[j] && L[i] < L[j])
+			{
+				L[i] = L[j];
+			}
+		}
+		L[i]++;
+	}
+	
+	int lis = INT_MIN;
+	for (int i = 0; i < n; i++)
+	{
+		lis = max(L[i], lis);
+	}
+	return lis;
+}
+
+int main()
+{
+	int arr[] = { 0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15 };
+	//Output: Length of LIS is 6
+	int n = sizeof(arr) / sizeof(arr[0]);
+	cout << "The length of longest increasing subsequence is " << LISLength(arr, n);
+	return 0;
+}
+```
+
+T(n) = O(n^2), S(n) = O(n)
+
 #### Exercise
 
-Printing xxx
+Printing Longest Increasing Subsequence
+
+```cpp
+
+```
+
+
 
 Write space optimized code for iterative version
 
 #### References
+
+[Longest Increasing Subsequence using Dynamic Programming](https://www.techiedelight.com/longest-increasing-subsequence-using-dynamic-programming/)
 
 [`back to content`](#content)
 
