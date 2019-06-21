@@ -21,4 +21,4 @@ It's my learning notes.
 
 ### Others
 
-[My Read Books and Watched Courses](read-list.md)
+[Books and Courses of I have Studied](read-list.md)
