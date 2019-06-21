@@ -54,7 +54,7 @@ System View
 
 Defining Operating Systems
 
-[details](_knowledge-os-details#intr)
+[Details](_knowledge-os-details.md#intr)
 
 
 
@@ -66,7 +66,7 @@ Storage Structure
 
 I/O Structure
 
-[details](_knowledge-os-details#intr)
+[Details](_knowledge-os-details.md#intr)
 
 
 
@@ -76,19 +76,19 @@ Multiprocessor Systems
 
 Clustered Systems
 
-[details](_knowledge-os-details#intr)
+[Details](_knowledge-os-details.md#intr)
 
 
 
 #### Operating-System Structure
 
-[details](_knowledge-os-details#intr)
+[Details](_knowledge-os-details.md#intr)
 
 
 
 #### Operating-System Operations
 
-[details](_knowledge-os-details#intr)
+[Details](_knowledge-os-details.md#intr)
 
 
 
@@ -100,19 +100,19 @@ Memory Management
 
 Storage Management
 
-[details](_knowledge-os-details#intr)
+[Details](_knowledge-os-details.md#intr)
 
 
 
 #### Protection and Security
 
-[details](_knowledge-os-details#intr)
+[Details](_knowledge-os-details.md#intr)
 
 
 
 #### Distributed Systems
 
-[details](_knowledge-os-details#intr)
+[Details](_knowledge-os-details.md#intr)
 
 
 
@@ -124,7 +124,7 @@ Multimedia Systems
 
 Handheld Systems
 
-[details](_knowledge-os-details#intr)
+[Details](_knowledge-os-details.md#intr)
 
 
 
@@ -138,7 +138,7 @@ Peer-to-Peer Computing
 
 Web-Based Computing
 
-[details](_knowledge-os-details#intr)
+[Details](_knowledge-os-details.md#intr)
 
 
 
