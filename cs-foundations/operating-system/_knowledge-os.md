@@ -140,6 +140,8 @@ Web-Based Computing
 
 [Details](_knowledge-os-details.md#intr)
 
+[`back to content`](#content)
+
 
 
 <h3 id="osst">2. Operating System Structures</h3>
@@ -148,15 +150,39 @@ Web-Based Computing
 
 #### Operating-System Services
 
+[Details](_knowledge-os-details.md#osst)
+
+
+
 #### User Operating-System Interface
+
+[Details](_knowledge-os-details.md#osst)
+
+
 
 #### System Calls
 
+[Details](_knowledge-os-details.md#osst)
+
+
+
 #### Types of System Calls
+
+[Details](_knowledge-os-details.md#osst)
+
+
 
 #### System Programs
 
+[Details](_knowledge-os-details.md#osst)
+
+
+
 #### Operating-System Design and Implementation
+
+[Details](_knowledge-os-details.md#osst)
+
+
 
 #### Operating-System Structure
 
@@ -168,11 +194,27 @@ Microkernels
 
 Modules
 
+[Details](_knowledge-os-details.md#osst)
+
+
+
 #### Virtual Machines
+
+[Details](_knowledge-os-details.md#osst)
+
+
 
 #### Operating-System Generation
 
+[Details](_knowledge-os-details.md#osst)
+
+
+
 #### System Boot
+
+[Details](_knowledge-os-details.md#osst)
+
+[`back to content`](#content)
 
 
 
@@ -200,6 +242,8 @@ Process Control Block
 
 What is Threads
 
+[Details](_knowledge-os-details.md#proc)
+
 
 
 #### Process Scheduling
@@ -210,6 +254,8 @@ Schedulers
 
 Context Switch Algorithms
 
+[Details](_knowledge-os-details.md#proc)
+
 
 
 #### Operations Of Processes
@@ -218,6 +264,8 @@ Process Creation
 
 Process Termination
 
+[Details](_knowledge-os-details.md#proc)
+
 
 
 #### Interprocess Communication
@@ -225,6 +273,8 @@ Process Termination
 Shared Memory
 
 Message Passing
+
+[Details](_knowledge-os-details.md#proc)
 
 
 
@@ -235,6 +285,10 @@ Sockets
 Remote Procedure Calls
 
 Remote Method Invocation
+
+[Details](_knowledge-os-details.md#proc)
+
+[`back to content`](#content)
 
 
 
@@ -248,6 +302,8 @@ What is Thread.
 
 Its Benefits
 
+[Details](_knowledge-os-details.md#thre)
+
 
 
 #### Multithreading Models
@@ -260,6 +316,8 @@ many-to-many
 
 two-level model
 
+[Details](_knowledge-os-details.md#thre)
+
 
 
 #### Thread Libraries
@@ -269,6 +327,8 @@ POSIX PThreads
 Win 32
 
 Java
+
+[Details](_knowledge-os-details.md#thre)
 
 
 
@@ -286,11 +346,17 @@ Thread-special Data
 
 Scheduler Activation
 
+[Details](_knowledge-os-details.md#thre)
+
 
 
 #### Thread Implementation
 
 Implementation in Windows and Linux
+
+[Details](_knowledge-os-details.md#thre)
+
+[`back to content`](#content)
 
 
 
@@ -308,9 +374,13 @@ Preemptive Scheduling
 
 Dispatcher
 
+[Details](_knowledge-os-details.md#csch)
+
 
 
 #### Scheduling Criteria
+
+[Details](_knowledge-os-details.md#csch)
 
 
 
@@ -328,6 +398,8 @@ Multilevel Queue Scheduling
 
 Multilevel Feedback-Queue Scheduling
 
+[Details](_knowledge-os-details.md#csch)
+
 
 
 #### Multiple-Processor Scheduling
@@ -340,11 +412,21 @@ Load Balancing
 
 Symmetric Multithreading
 
+[Details](_knowledge-os-details.md#csch)
+
 
 
 #### Thread Scheduling
 
+[Details](_knowledge-os-details.md#csch)
+
+
+
 #### Algorithm Evaluation
+
+[Details](_knowledge-os-details.md#csch)
+
+[`back to content`](#content)
 
 
 
@@ -354,13 +436,31 @@ Symmetric Multithreading
 
 #### Background
 
+[Details](_knowledge-os-details.md#psyn)
+
+
+
 #### The Critical-Section Problem
+
+[Details](_knowledge-os-details.md#psyn)
+
+
 
 #### Peterson's Solution
 
+[Details](_knowledge-os-details.md#psyn)
+
+
+
 #### Synchronization Hardware
 
+[Details](_knowledge-os-details.md#psyn)
+
+
+
 #### Semaphores
+
+[Details](_knowledge-os-details.md#psyn)
 
 
 
@@ -370,7 +470,13 @@ The Bounded-Buffer Problem
 
 The Dining-Philosophers Problem
 
+[Details](_knowledge-os-details.md#psyn)
+
+
+
 #### Monitors
+
+[Details](_knowledge-os-details.md#psyn)
 
 
 
@@ -384,6 +490,12 @@ Checkpoints
 
 Concurrent Atomic Transactions
 
+[Details](_knowledge-os-details.md#psyn)
+
+
+
+[`back to content`](#content)
+
 
 
 <h3 id="dead">7. Deadlocks</h3>
@@ -392,9 +504,21 @@ Concurrent Atomic Transactions
 
 #### System Model
 
+[Details](_knowledge-os-details.md#dead)
+
+
+
 #### Deadlock Characterization
 
+[Details](_knowledge-os-details.md#dead)
+
+
+
 #### Methods for Handling Deadlocks
+
+[Details](_knowledge-os-details.md#dead)
+
+
 
 #### Deadlock Prevention
 
@@ -406,11 +530,29 @@ No Preemption
 
 Circular Wait
 
+[Details](_knowledge-os-details.md#dead)
+
+
+
 #### Deadlock Avoidance
+
+[Details](_knowledge-os-details.md#dead)
+
+
 
 #### Deadlock Detection
 
+[Details](_knowledge-os-details.md#dead)
+
+
+
 #### Recovery From Deadlock
+
+[Details](_knowledge-os-details.md#dead)
+
+
+
+[`back to content`](#content)
 
 
 
@@ -438,6 +580,8 @@ Dynamic Loading
 
 Dynamic Linking and Shared Libraries
 
+[Details](_knowledge-os-details.md#mmem)
+
 
 
 #### Swapping
@@ -448,6 +592,8 @@ Why is it?
 
 How does it accomplish?
 
+[Details](_knowledge-os-details.md#mmem)
+
 
 
 #### Contiguous Memory Allocation
@@ -457,6 +603,8 @@ Memory Mapping and Protection
 Memory Allocation
 
 Fragmentation
+
+[Details](_knowledge-os-details.md#mmem)
 
 
 
@@ -472,6 +620,8 @@ Protection
 
 Shared Pages
 
+[Details](_knowledge-os-details.md#mmem)
+
 
 
 #### Structure of the Page Table
@@ -482,6 +632,8 @@ Hashed Page Tables
 
 Inverted Page Tables
 
+[Details](_knowledge-os-details.md#mmem)
+
 
 
 #### Segmentation
@@ -489,6 +641,8 @@ Inverted Page Tables
 Basic Method
 
 Hardware
+
+[Details](_knowledge-os-details.md#mmem)
 
 
 
@@ -500,9 +654,17 @@ Pentium Paging
 
 Linux on Pentium Systems
 
+[Details](_knowledge-os-details.md#mmem)
+
 
 
 #### Summary
+
+[Details](_knowledge-os-details.md#mmem)
+
+
+
+[`back to content`](#content)
 
 
 
@@ -516,6 +678,8 @@ What is it
 
 Virtual Address Space
 
+[Details](_knowledge-os-details.md#vmem)
+
 
 
 #### Demand Paging
@@ -524,11 +688,15 @@ Basic Concept
 
 Performance of Demand Paging
 
+[Details](_knowledge-os-details.md#vmem)
+
 
 
 #### Copy-on-Write
 
 What is it
+
+[Details](_knowledge-os-details.md#vmem)
 
 
 
@@ -550,6 +718,8 @@ Page-Buffering Algorithms
 
 Application and Page Replacement
 
+[Details](_knowledge-os-details.md#vmem)
+
 
 
 #### Allocation of Frames
@@ -559,6 +729,8 @@ Minimum Number of Frames
 Allocation Algorithms
 
 Global versus Local Allocation
+
+[Details](_knowledge-os-details.md#vmem)
 
 
 
@@ -570,6 +742,8 @@ Working-Set Model
 
 Page-Fault Frequency
 
+[Details](_knowledge-os-details.md#vmem)
+
 
 
 #### Memory-Mapped Files
@@ -580,6 +754,8 @@ Shared Memory in the Win32 API
 
 Memory-Mapped I/O
 
+[Details](_knowledge-os-details.md#vmem)
+
 
 
 #### Allocating Kernel Memory
@@ -587,6 +763,8 @@ Memory-Mapped I/O
 Buddy System
 
 Slab Allocation
+
+[Details](_knowledge-os-details.md#vmem)
 
 
 
@@ -604,13 +782,23 @@ Program Structure
 
 I/O Interlock
 
+[Details](_knowledge-os-details.md#vmem)
+
 
 
 #### Operating-System Example of Virtual Memory
 
+[Details](_knowledge-os-details.md#vmem)
+
+
+
 #### Summary
 
+[Details](_knowledge-os-details.md#vmem)
 
+
+
+[`back to content`](#content)
 
 
 
@@ -640,6 +828,8 @@ What is File Structure
 
 Internal File Structure
 
+[Details](_knowledge-os-details.md#fsin)
+
 
 
 #### Access Methods
@@ -649,6 +839,8 @@ Sequential Access
 Direct Access
 
 Other Access Methods
+
+[Details](_knowledge-os-details.md#fsin)
 
 
 
@@ -668,11 +860,15 @@ Acyclic-Graph Directories
 
 General Graph Directory
 
+[Details](_knowledge-os-details.md#fsin)
+
 
 
 #### File-System Mounting
 
 What is it?
+
+[Details](_knowledge-os-details.md#fsin)
 
 
 
@@ -684,6 +880,8 @@ Remote File Systems
 
 Consistency Semantics
 
+[Details](_knowledge-os-details.md#fsin)
+
 
 
 #### Protection
@@ -694,9 +892,17 @@ Access Control
 
 Other Protection Approaches
 
+[Details](_knowledge-os-details.md#fsin)
+
 
 
 #### Summary
+
+[Details](_knowledge-os-details.md#fsin)
+
+
+
+[`back to content`](#content)
 
 
 
@@ -708,6 +914,8 @@ Other Protection Approaches
 
 Layered File System
 
+[Details](_knowledge-os-details.md#fsim)
+
 
 
 #### File-System Implementation
@@ -718,11 +926,15 @@ Partitions and Mounting
 
 Virtual File Systems
 
+[Details](_knowledge-os-details.md#fsim)
+
 
 
 #### Directory Implementation
 
 Data Structure of a directory
+
+[Details](_knowledge-os-details.md#fsim)
 
 
 
@@ -736,6 +948,8 @@ Indexed Allocation
 
 Performance
 
+[Details](_knowledge-os-details.md#fsim)
+
 
 
 #### Free-Space Management
@@ -748,11 +962,15 @@ Grouping
 
 Counting
 
+[Details](_knowledge-os-details.md#fsim)
+
 
 
 #### Efficiency and Performance
 
 Efficiency and performance of secondary storage
+
+[Details](_knowledge-os-details.md#fsim)
 
 
 
@@ -764,9 +982,17 @@ Backup and Restore
 
 Log-Structured File Systems
 
+[Details](_knowledge-os-details.md#fsim)
+
 
 
 #### NFS
+
+[Details](_knowledge-os-details.md#fsim)
+
+
+
+[`back to content`](#content)
 
 
 
@@ -786,6 +1012,8 @@ Secondary Storage Connection Methods
 
 Address Mapping
 
+[Details](_knowledge-os-details.md#msst)
+
 
 
 #### HDD Scheduling
@@ -798,17 +1026,23 @@ C-SCAN Scheduling
 
 Selection of a Disk-Scheduling Algorithm
 
+[Details](_knowledge-os-details.md#msst)
+
 
 
 #### NVM Scheduling
 
 What is it
 
+[Details](_knowledge-os-details.md#msst)
+
 
 
 #### Error Detection and Correction
 
 What is it
+
+[Details](_knowledge-os-details.md#msst)
 
 
 
@@ -820,6 +1054,8 @@ Boot Block
 
 Bad Block
 
+[Details](_knowledge-os-details.md#msst)
+
 
 
 #### Swap-Space Management
@@ -827,6 +1063,8 @@ Bad Block
 Swap-Space Use
 
 Swap-Space Location
+
+[Details](_knowledge-os-details.md#msst)
 
 
 
@@ -841,6 +1079,8 @@ Network-Attached Storage
 Cloud Storage
 
 Storage-Area Networks and Storage Arrays
+
+[Details](_knowledge-os-details.md#msst)
 
 
 
@@ -860,9 +1100,17 @@ Problems with RAID
 
 Object Storage
 
+[Details](_knowledge-os-details.md#msst)
+
 
 
 #### Summary
+
+[Details](_knowledge-os-details.md#msst)
+
+
+
+[`back to content`](#content)
 
 
 
@@ -873,6 +1121,8 @@ Object Storage
 #### Overview
 
 What is it
+
+[Details](_knowledge-os-details.md#iosy)
 
 
 
@@ -887,6 +1137,8 @@ Polling
 Interrupts
 
 Direct Memory Access
+
+[Details](_knowledge-os-details.md#iosy)
 
 
 
@@ -903,6 +1155,8 @@ Clocks and Timers
 Nonblocking and Asynchronous I/O
 
 Vectored I/O
+
+[Details](_knowledge-os-details.md#iosy)
 
 
 
@@ -926,11 +1180,15 @@ Power management
 
 Kernel I/O Subsystem Summary
 
+[Details](_knowledge-os-details.md#iosy)
+
 
 
 #### Transforming I/O Requests to Hardware Operations
 
 What is it
+
+[Details](_knowledge-os-details.md#iosy)
 
 
 
@@ -938,17 +1196,25 @@ What is it
 
 What is it
 
+[Details](_knowledge-os-details.md#iosy)
+
 
 
 #### Performance
 
 What is it
 
+[Details](_knowledge-os-details.md#iosy)
+
 
 
 #### Summary
 
+[Details](_knowledge-os-details.md#iosy)
 
+
+
+[`back to content`](#content)
 
 
 
@@ -958,11 +1224,19 @@ What is it
 
 ### V. Protection and Security
 
+
+
 <h3 id="prot">Protection</h3>
+
+[Details](_knowledge-os-details.md#prot)
 
 
 
 <h3 id="secu">Security</h3>
+
+[Details](_knowledge-os-details.md#secu)
+
+
 
 
 
@@ -972,9 +1246,15 @@ What is it
 
 ### VI. Distributed Systems
 
+
+
 <h3 id="dsst">Distributed System Structures</h3>
 
+
+
 <h3 id="dfsy">Distributed File System</h3>
+
+
 
 <h3 id="dcoo">Distributed Coordination</h3>
 
