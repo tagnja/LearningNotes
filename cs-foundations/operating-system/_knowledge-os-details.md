@@ -120,6 +120,8 @@ Peer-to-Peer Computing
 
 Web-Based Computing
 
+[`back to content`](#content)
+
 
 
 <h3 id="osst">2. Operating System Structures</h3>
@@ -153,6 +155,8 @@ Modules
 #### Operating-System Generation
 
 #### System Boot
+
+[`back to content`](#content)
 
 
 
@@ -216,6 +220,8 @@ Remote Procedure Calls
 
 Remote Method Invocation
 
+[`back to content`](#content)
+
 
 
 <h3 id="thre">4. Threads</h3>
@@ -271,6 +277,8 @@ Scheduler Activation
 #### Thread Implementation
 
 Implementation in Windows and Linux
+
+[`back to content`](#content)
 
 
 
@@ -328,6 +336,10 @@ Symmetric Multithreading
 
 
 
+[`back to content`](#content)
+
+
+
 <h3 id="psyn">6. Process Synchronization</h3>
 
 
@@ -366,6 +378,10 @@ Concurrent Atomic Transactions
 
 
 
+[`back to content`](#content)
+
+
+
 <h3 id="dead">7. Deadlocks</h3>
 
 
@@ -391,6 +407,10 @@ Circular Wait
 #### Deadlock Detection
 
 #### Recovery From Deadlock
+
+
+
+[`back to content`](#content)
 
 
 
@@ -483,6 +503,10 @@ Linux on Pentium Systems
 
 
 #### Summary
+
+
+
+[`back to content`](#content)
 
 
 
@@ -602,6 +626,8 @@ I/O Interlock
 
 
 
+[`back to content`](#content)
+
 
 
 -----
@@ -690,6 +716,10 @@ Other Protection Approaches
 
 
 
+[`back to content`](#content)
+
+
+
 <h3 id="fsim">11. File-System Implementation</h3>
 
 
@@ -757,6 +787,10 @@ Log-Structured File Systems
 
 
 #### NFS
+
+
+
+[`back to content`](#content)
 
 
 
@@ -856,6 +890,10 @@ Object Storage
 
 
 
+[`back to content`](#content)
+
+
+
 <h3 id="iosy">13. I/O Systems</h3>
 
 
@@ -939,6 +977,8 @@ What is it
 #### Summary
 
 
+
+[`back to content`](#content)
 
 
 
