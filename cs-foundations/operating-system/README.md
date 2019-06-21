@@ -2,6 +2,6 @@
 
 
 
-- [ ] [Knowledge Point](_knowledge-point.md)
+- [ ] [Knowledge Point](_knowledge-os.md)
 - [ ] [Articles](articles)
 
