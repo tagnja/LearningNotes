@@ -54,6 +54,8 @@ System View
 
 Defining Operating Systems
 
+[details](_knowledge-os-details#intr)
+
 
 
 #### Computer-System Organization
@@ -64,6 +66,8 @@ Storage Structure
 
 I/O Structure
 
+[details](_knowledge-os-details#intr)
+
 
 
 #### Computer-System Architecture
@@ -72,13 +76,19 @@ Multiprocessor Systems
 
 Clustered Systems
 
+[details](_knowledge-os-details#intr)
+
 
 
 #### Operating-System Structure
 
+[details](_knowledge-os-details#intr)
+
 
 
 #### Operating-System Operations
+
+[details](_knowledge-os-details#intr)
 
 
 
@@ -90,13 +100,19 @@ Memory Management
 
 Storage Management
 
+[details](_knowledge-os-details#intr)
+
 
 
 #### Protection and Security
 
+[details](_knowledge-os-details#intr)
+
 
 
 #### Distributed Systems
+
+[details](_knowledge-os-details#intr)
 
 
 
@@ -107,6 +123,8 @@ Real-Time Systems
 Multimedia Systems
 
 Handheld Systems
+
+[details](_knowledge-os-details#intr)
 
 
 
@@ -119,6 +137,8 @@ Client-Server Computing
 Peer-to-Peer Computing
 
 Web-Based Computing
+
+[details](_knowledge-os-details#intr)
 
 
 
