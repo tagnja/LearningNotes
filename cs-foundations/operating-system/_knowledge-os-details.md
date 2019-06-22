@@ -82,9 +82,9 @@ Defining Operating Systems
 
 Computer System Organization
 
-- CPUs and a number of device controllers connected through a common bus that provides access to shared memory.
+- A computer system consist of one or more CPUs and a number of device controllers connected through a common bus that provides access to shared memory.
 
-- A computer to start running. An initial program bootstrap program. It is stored in read-only memory (ROM). It locate and load operating system into memory. 
+- How a computer to start running? An initial program bootstrap program. It is stored in read-only memory (ROM). It locate and load operating system into memory. 
 
 - A modern computer system
 
