@@ -50,31 +50,68 @@
 
 > Computer System divided component: hardware, operating system, application programs, users.
 
-User View
+**User View**
 
 - The user's view is  according to the interface. Like GUI, terminal.
 - For a PC of single-user, the operating system is designed for ease of use. The goal is to maximize the work (or play). performance is important rather than resource utilization.
 - For mainframe, It is designed to maximize resource utilization.
 - For workstation, it is designed to compromise between individual usability and resource utilization.
 
-System View
+**System View**
 
 - An operating system as a resource allocator. Managing CPU time, memory space, file-storage space, I/O device, and so on.
 - How to allocate resource efficiently and fairly to specific programs and users
 - A slightly view of an operating system is a control program. It manages the execution of user programs to prevent errors and improper use of the computer.
 
-Defining Operating Systems
+**Defining Operating Systems**
 
 - An operating system is the one program running at all times on the computer (usually called the kernel), with all else being systems programs and application programs.
 - An operating system like a government, it performs no useful function by itself. It simply provides an environment within which other programs can do useful work. 
 
+
+
 #### Computer-System Organization ~
 
-Computer-System Operation
+**Computer System Organization**
 
-Storage Structure
+- CPUs and a number of device controllers connected through a common bus that provides access to shared memory.
+- A computer to start running. An initial program bootstrap program. It is stored in read-only memory (ROM). It locate and load operating system into memory. 
+- A modern computer system
 
-I/O Structure
+```
+                 disks           mouse  keyboard  printer         monitor
+                  |                  \     |     /                   |   
+CPU         disk controller          USE controller           graphics adapter
+|_________________|________________________|_________________________|
+                              |
+                            memory
+```
+
+
+
+**Computer-System Operation - interrupt**
+
+- What is it? When the CPU is interrupted, it stops what it is doing and immediately transfer execution to a fixed location. Example, CPU is waiting I/O operation, when I/O data transfer done, need to interrupt the CPU to continue execute next instruction of program.
+- Trigger an interrupt. Hardware by sending a signal to the CPU by way of system bus. Software by executing a system call.
+
+**Storage Structure**
+
+- Storage-device hierarchy
+
+  ```
+  # Speed, cost, size top-down
+  
+  register
+  cache
+  main memory
+  ----------------------------------
+  electronic disk    (nonvolatile)
+  magnetic disk 
+  optical disk
+  magnetic tapes
+  ```
+
+**I/O Structure**
 
 
 
@@ -453,6 +490,8 @@ The Dining-Philosophers Problem
 #### Synchronization Examples
 
 Synchronization mechanisms in Solaris, Windows XP, Linux operating system. 
+
+
 
 #### Atomic Transaction ~
 
