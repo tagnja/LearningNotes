@@ -46,17 +46,29 @@
 
 
 
-#### What Operating System Do
+#### What Operating System Do ~
+
+> Computer System divided component: hardware, operating system, application programs, users.
 
 User View
 
+- The user's view is  according to the interface. Like GUI, terminal.
+- For a PC of single-user, the operating system is designed for ease of use. The goal is to maximize the work (or play). performance is important rather than resource utilization.
+- For mainframe, It is designed to maximize resource utilization.
+- For workstation, it is designed to compromise between individual usability and resource utilization.
+
 System View
+
+- An operating system as a resource allocator. Managing CPU time, memory space, file-storage space, I/O device, and so on.
+- How to allocate resource efficiently and fairly to specific programs and users
+- A slightly view of an operating system is a control program. It manages the execution of user programs to prevent errors and improper use of the computer.
 
 Defining Operating Systems
 
+- An operating system is the one program running at all times on the computer (usually called the kernel), with all else being systems programs and application programs.
+- An operating system like a government, it performs no useful function by itself. It simply provides an environment within which other programs can do useful work. 
 
-
-#### Computer-System Organization
+#### Computer-System Organization ~
 
 Computer-System Operation
 
@@ -68,21 +80,23 @@ I/O Structure
 
 #### Computer-System Architecture
 
+Single-Processor Systems
+
 Multiprocessor Systems
 
 Clustered Systems
 
 
 
-#### Operating-System Structure
+#### Operating-System Structure ~
 
 
 
-#### Operating-System Operations
+#### Operating-System Operations ~
 
 
 
-#### Resource Management
+#### Resource Management ~
 
 Process Management
 
@@ -92,11 +106,11 @@ Storage Management
 
 
 
-#### Protection and Security
+#### Protection and Security ~
 
 
 
-#### Distributed Systems
+#### Distributed Systems ~
 
 
 
@@ -110,7 +124,7 @@ Handheld Systems
 
 
 
-#### Computing Environments
+#### Computing Environments ~
 
 Traditional Computing
 
@@ -128,19 +142,51 @@ Web-Based Computing
 
 
 
-#### Operating-System Services
+#### Operating-System Services ~
+
+
 
 #### User Operating-System Interface
 
-#### System Calls
+Command Interpreter
 
-#### Types of System Calls
+Graphical User Interfaces
+
+
+
+#### System Calls ~
+
+
+
+#### Types of System Calls ~
+
+Process Control
+
+File Management
+
+Device Management
+
+Information Maintenance
+
+Communication
+
+
 
 #### System Programs
 
-#### Operating-System Design and Implementation
 
-#### Operating-System Structure
+
+#### Operating-System Design and Implementation ~
+
+Design Goals
+
+Mechanisms and Policies
+
+Implementation
+
+
+
+#### Operating-System Structure ~
 
 Simple Structure
 
@@ -150,11 +196,25 @@ Microkernels
 
 Modules
 
-#### Virtual Machines
+
+
+#### Virtual Machines ~
+
+Implementation
+
+Benefits
+
+Examples: VMware, Java Virtual Machine
+
+
 
 #### Operating-System Generation
 
-#### System Boot
+
+
+#### System Boot ~
+
+
 
 [`back to content`](#content)
 
@@ -172,7 +232,7 @@ Modules
 
 
 
-#### Basic Concept
+#### Basic Concept ~
 
 What is Process
 
@@ -186,7 +246,7 @@ What is Threads
 
 
 
-#### Process Scheduling
+#### Process Scheduling ~
 
 Scheduling Queues
 
@@ -196,7 +256,7 @@ Context Switch Algorithms
 
 
 
-#### Operations Of Processes
+#### Operations Of Processes ~
 
 Process Creation
 
@@ -204,7 +264,7 @@ Process Termination
 
 
 
-#### Interprocess Communication
+#### Interprocess Communication ~
 
 Shared Memory
 
@@ -212,7 +272,7 @@ Message Passing
 
 
 
-#### Communication in System
+#### Communication in System ~
 
 Sockets
 
@@ -228,7 +288,7 @@ Remote Method Invocation
 
 
 
-#### Basic Concepts
+#### Basic Concepts ~
 
 What is Thread. 
 
@@ -236,7 +296,9 @@ Its Benefits
 
 
 
-#### Multithreading Models
+#### Multithreading Models ~
+
+user threads and kernel threads
 
 Many-to-one
 
@@ -260,7 +322,7 @@ Java
 
 #### Thread Issues
 
-Creating sub Process
+The fork() and exec() system calls
 
 Thread Cancellation
 
@@ -274,9 +336,9 @@ Scheduler Activation
 
 
 
-#### Thread Implementation
+#### Operating System Examples
 
-Implementation in Windows and Linux
+threads Implementation in Windows and Linux
 
 [`back to content`](#content)
 
@@ -286,7 +348,7 @@ Implementation in Windows and Linux
 
 
 
-#### Basic Concepts
+#### Basic Concepts ~
 
 CPU-I/O Burst Cycle
 
@@ -298,13 +360,15 @@ Dispatcher
 
 
 
-#### Scheduling Criteria
+#### Scheduling Criteria ~
 
 
 
-#### Scheduling Algorithms
+#### Scheduling Algorithms ~
 
 First-Come First-Served (FCFS) Scheduling
+
+Gantt Chart
 
 Shortest-Job-First (SJF) Scheduling
 
@@ -318,7 +382,7 @@ Multilevel Feedback-Queue Scheduling
 
 
 
-#### Multiple-Processor Scheduling
+#### Multiple-Processor Scheduling ~
 
 Approaches to Multiple-Processor Scheduling
 
@@ -332,6 +396,14 @@ Symmetric Multithreading
 
 #### Thread Scheduling
 
+
+
+#### Operating System Examples
+
+Scheduling Policies in Solaris, Windows XP, and Linux.
+
+
+
 #### Algorithm Evaluation
 
 
@@ -344,29 +416,45 @@ Symmetric Multithreading
 
 
 
-#### Background
-
-#### The Critical-Section Problem
-
-#### Peterson's Solution
-
-#### Synchronization Hardware
-
-#### Semaphores
+#### Background ~ 
 
 
 
-#### Classic Problems of Synchronizaiton
+#### The Critical-Section Problem ~
+
+
+
+#### Peterson's Solution ~
+
+
+
+#### Synchronization Hardware ~
+
+
+
+#### Semaphores ~
+
+
+
+#### Classic Problems of Synchronization ~
 
 The Bounded-Buffer Problem
 
+The Readers-Writers Problem
+
 The Dining-Philosophers Problem
 
-#### Monitors
+
+
+#### Monitors ~
 
 
 
-#### Atomic Transaction
+#### Synchronization Examples
+
+Synchronization mechanisms in Solaris, Windows XP, Linux operating system. 
+
+#### Atomic Transaction ~
 
 System Model
 
@@ -386,13 +474,23 @@ Concurrent Atomic Transactions
 
 
 
-#### System Model
+#### System Model ~
 
-#### Deadlock Characterization
 
-#### Methods for Handling Deadlocks
 
-#### Deadlock Prevention
+#### Deadlock Characterization ~
+
+Necessary Conditions
+
+Resource-Allocation Graph
+
+
+
+#### Methods for Handling Deadlocks ~
+
+
+
+#### Deadlock Prevention ~
 
 Mutual Exclusion
 
@@ -402,11 +500,17 @@ No Preemption
 
 Circular Wait
 
-#### Deadlock Avoidance
 
-#### Deadlock Detection
 
-#### Recovery From Deadlock
+#### Deadlock Avoidance ~
+
+
+
+#### Deadlock Detection ~
+
+
+
+#### Recovery From Deadlock ~
 
 
 
@@ -426,7 +530,7 @@ Circular Wait
 
 
 
-#### Background
+#### Background ~
 
 Basic Hardware
 
@@ -440,7 +544,7 @@ Dynamic Linking and Shared Libraries
 
 
 
-#### Swapping
+#### Swapping ~
 
 What is it?
 
@@ -450,7 +554,7 @@ How does it accomplish?
 
 
 
-#### Contiguous Memory Allocation
+#### Contiguous Memory Allocation ~
 
 Memory Mapping and Protection
 
@@ -460,7 +564,7 @@ Fragmentation
 
 
 
-#### Paging 
+#### Paging  ~
 
 What is it? (noncontiguous)
 
@@ -474,7 +578,7 @@ Shared Pages
 
 
 
-#### Structure of the Page Table
+#### Structure of the Page Table ~
 
 Hierarchical Paging
 
@@ -484,7 +588,7 @@ Inverted Page Tables
 
 
 
-#### Segmentation
+#### Segmentation ~
 
 Basic Method
 
@@ -514,7 +618,7 @@ Linux on Pentium Systems
 
 
 
-#### Background
+#### Background ~
 
 What is it
 
@@ -522,7 +626,7 @@ Virtual Address Space
 
 
 
-#### Demand Paging
+#### Demand Paging ~
 
 Basic Concept
 
@@ -537,7 +641,7 @@ Performance of Demand Paging
 
 
 
-#### Copy-on-Write
+#### Copy-on-Write ~
 
 What is it
 
@@ -546,7 +650,7 @@ What is it
 
 
 
-#### Page Replacement
+#### Page Replacement ~
 
 Basic Page Replacement
 
@@ -566,7 +670,7 @@ Application and Page Replacement
 
 
 
-#### Allocation of Frames
+#### Allocation of Frames ~
 
 Minimum Number of Frames
 
@@ -642,7 +746,7 @@ I/O Interlock
 
 
 
-#### File Concept
+#### File Concept ~
 
 What is a File
 
@@ -658,7 +762,7 @@ Internal File Structure
 
 
 
-#### Access Methods
+#### Access Methods ~
 
 Sequential Access
 
@@ -668,7 +772,7 @@ Other Access Methods
 
 
 
-#### Directory Structure
+#### Directory Structure ~
 
 Directory Storage Structure
 
@@ -686,7 +790,7 @@ General Graph Directory
 
 
 
-#### File-System Mounting
+#### File-System Mounting ~
 
 What is it?
 
@@ -724,13 +828,13 @@ Other Protection Approaches
 
 
 
-#### File-System Structure
+#### File-System Structure ~
 
 Layered File System
 
 
 
-#### File-System Implementation
+#### File-System Implementation ~
 
 Overview
 
@@ -740,13 +844,13 @@ Virtual File Systems
 
 
 
-#### Directory Implementation
+#### Directory Implementation ~
 
 Data Structure of a directory
 
 
 
-#### Allocation Methods
+#### Allocation Methods ~
 
 Contiguous Allocation
 
@@ -758,7 +862,7 @@ Performance
 
 
 
-#### Free-Space Management
+#### Free-Space Management ~
 
 Bit Vector
 
@@ -776,7 +880,7 @@ Efficiency and performance of secondary storage
 
 
 
-#### Recovery
+#### Recovery ~
 
 Consistency Checking
 
@@ -786,7 +890,7 @@ Log-Structured File Systems
 
 
 
-#### NFS
+#### NFS (Network File System)
 
 
 
@@ -798,7 +902,7 @@ Log-Structured File Systems
 
 
 
-#### Overview of Mass-Storage Structure
+#### Overview of Mass-Storage Structure ~
 
 Hard Disk Drives (Magnetic Disks)
 
@@ -812,7 +916,7 @@ Address Mapping
 
 
 
-#### HDD Scheduling
+#### HDD Scheduling ~
 
 FCFS Scheduling
 
@@ -836,7 +940,7 @@ What is it
 
 
 
-#### Storage Device management
+#### Storage Device management ~
 
 Device Formatting, Partitions, and Volumes
 
@@ -846,7 +950,7 @@ Bad Block
 
 
 
-#### Swap-Space Management
+#### Swap-Space Management ~
 
 Swap-Space Use
 
@@ -868,7 +972,7 @@ Storage-Area Networks and Storage Arrays
 
 
 
-#### RAID Structure
+#### RAID Structure ~
 
 What is it
 
@@ -898,13 +1002,13 @@ Object Storage
 
 
 
-#### Overview
+#### Overview ~
 
 What is it
 
 
 
-#### I/O Hardware
+#### I/O Hardware ~
 
 I/O hardware
 
@@ -918,7 +1022,7 @@ Direct Memory Access
 
 
 
-#### Application I/O Interface
+#### Application I/O Interface ~
 
 I/O Structure and I/O Devices
 
@@ -934,7 +1038,7 @@ Vectored I/O
 
 
 
-#### Kernel I/O Subsystem
+#### Kernel I/O Subsystem ~
 
 I/O Scheduling
 
@@ -956,7 +1060,7 @@ Kernel I/O Subsystem Summary
 
 
 
-#### Transforming I/O Requests to Hardware Operations
+#### Transforming I/O Requests to Hardware Operations ~
 
 What is it
 

@@ -72,6 +72,8 @@ I/O Structure
 
 #### Computer-System Architecture
 
+Single-Processor Systems
+
 Multiprocessor Systems
 
 Clustered Systems
@@ -156,6 +158,10 @@ Web-Based Computing
 
 #### User Operating-System Interface
 
+Command Interpreter
+
+Graphical User Interfaces
+
 [Details](_knowledge-os-details.md#osst)
 
 
@@ -168,6 +174,16 @@ Web-Based Computing
 
 #### Types of System Calls
 
+Process Control
+
+File Management
+
+Device Management
+
+Information Maintenance
+
+Communication
+
 [Details](_knowledge-os-details.md#osst)
 
 
@@ -179,6 +195,12 @@ Web-Based Computing
 
 
 #### Operating-System Design and Implementation
+
+Design Goals
+
+Mechanisms and Policies
+
+Implementation
 
 [Details](_knowledge-os-details.md#osst)
 
@@ -199,6 +221,12 @@ Modules
 
 
 #### Virtual Machines
+
+Implementation
+
+Benefits
+
+Examples: VMware, Java Virtual Machine
 
 [Details](_knowledge-os-details.md#osst)
 
@@ -308,6 +336,8 @@ Its Benefits
 
 #### Multithreading Models
 
+user threads and kernel threads
+
 Many-to-one
 
 one-to-one
@@ -334,7 +364,7 @@ Java
 
 #### Thread Issues
 
-Creating sub Process
+The fork() and exec() system calls
 
 Thread Cancellation
 
@@ -422,6 +452,14 @@ Symmetric Multithreading
 
 
 
+#### Operating System Examples
+
+Scheduling Policies in Solaris, Windows XP, and Linux.
+
+[Details](_knowledge-os-details.md#csch)
+
+
+
 #### Algorithm Evaluation
 
 [Details](_knowledge-os-details.md#csch)
@@ -468,6 +506,8 @@ Symmetric Multithreading
 
 The Bounded-Buffer Problem
 
+The Readers-Writers Problem
+
 The Dining-Philosophers Problem
 
 [Details](_knowledge-os-details.md#psyn)
@@ -477,6 +517,12 @@ The Dining-Philosophers Problem
 #### Monitors
 
 [Details](_knowledge-os-details.md#psyn)
+
+
+
+#### Synchronization Examples
+
+Synchronization mechanisms in Solaris, Windows XP, Linux operating system. 
 
 
 
@@ -509,6 +555,10 @@ Concurrent Atomic Transactions
 
 
 #### Deadlock Characterization
+
+Necessary Conditions
+
+Resource-Allocation Graph
 
 [Details](_knowledge-os-details.md#dead)
 
@@ -986,7 +1036,7 @@ Log-Structured File Systems
 
 
 
-#### NFS
+#### NFS (Network File System)
 
 [Details](_knowledge-os-details.md#fsim)
 
