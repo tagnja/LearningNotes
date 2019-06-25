@@ -64,10 +64,11 @@
 ```
 #### Description
 #### Solutions
-##### 1\. Find the Relation
-##### 2\. Remove Overlapping subproblems
-Top-down Approach Implementation
-Bottom-up Approach Implementation
+##### 1\. Find the Relation of Optimal Substructure
+Recursion Implementation (Top-down)
+##### 2\. Remove Overlapping subproblems by DP
+Dynamic Programming Implementation (Top-down Approach) 
+Dynamic Programming Implementation (Bottom-up Approach)
 #### Exercise
 Printing xxx
 Write space optimized code for iterative version
@@ -245,7 +246,7 @@ LCS are BDAB, BCAB and BCBA
 
 The LCS problem has an [optimal substructure](https://www.techiedelight.com/introduction-dynamic-programming/?v=1#optimal-substructure). That means the problem can be broken down into smaller, simple “subproblems”, which can be broken down into yet simpler subproblems, and so on, until, finally, the solution becomes trivial.
 
-##### 1\. Find the relation by Top to Buttom
+##### 1\. Find the Relation of Optimal Substructure
 
 if X[m] = Y[n], 
 
@@ -261,7 +262,7 @@ LCS[i][j] =  | LCS[i-1][j-1] + 1              (X[i-1] = Y[j-1])
              | max(LCS[i-1][j], LCS[i][j-1])  (X[i-1] != Y[j-1])
 ```
 
-Implementation
+Recursion Implementation (Top-down)
 
 ```cpp
 #include <iostream>
@@ -298,7 +299,7 @@ int main()
 
 T(n) = O(2^(n+m))
 
-##### 2\. Remove Overlapping subproblems
+##### 2\. Remove Overlapping subproblems by DP
 
 ```
                       (n, m)
@@ -310,7 +311,7 @@ T(n) = O(2^(n+m))
 
 \* marked it is repeated sub-problems
 
-**Top-down Approach** Implementation
+Dynamic Programming Implementation (Top-down Approach) 
 
 ```java
 class LCS
@@ -404,7 +405,7 @@ SCS are ABCBDCABA, ABDCABDAB and ABDCBDABA
 
 Shortest Common Supersequence(SCS) problem has an optimal substructure.
 
-##### 1. Find the Relation
+##### 1. Find the Relation of Optimal Substructure
 
 If X[m] = Y[n], 
 
@@ -420,7 +421,7 @@ SCS[i][j] =  | SCS[i-1][j-1] + 1              (X[i-1] = Y[j-1])
              | min(SCS[i-1][j] + 1, SCS[i][j-1] + 1)  (X[i-1] != Y[j-1])
 ```
 
-Implementation
+Recursion Implementation (Top-down)
 
 ```cpp
 # include<iostream>
@@ -457,7 +458,7 @@ T(n) = O(2^(m+n)), S(n) = O(1)
 
 
 
-##### 2\. Remove Overlapping subproblems
+##### 2\. Remove Overlapping subproblems by DP
 
 ```
                   (m, n)
@@ -471,7 +472,7 @@ T(n) = O(2^(m+n)), S(n) = O(1)
 
 
 
-**Top-down Approach** Implementation
+Dynamic Programming Implementation (Top-down Approach) 
 
 ```cpp
 #include<iostream>
@@ -519,7 +520,7 @@ T(n) = O(mn), S(n) = O(mn)
 
 
 
-**Bottom-up Approach** Implementation
+Dynamic Programming Implementation (Bottom-up Approach)
 
 ```
              | i                              (j=0)
@@ -625,7 +626,7 @@ Longest increasing subsequence is
 
 #### Solutions
 
-##### 1\. Find the Relation
+##### 1\. Find the Relation of Optimal Substructure
 
 Using recursion to solve this problem.
 
@@ -634,7 +635,9 @@ Using recursion to solve this problem.
 1. We include current item in LIS if it is greater than the previous element in LIS and recur for remaining items.
 2. We exclude current item from LIS and recur for remaining items.
 
-Implementation (recursion, bottom-up)
+
+
+Recursion Implementation (Bottom-up)
 
 ```cpp
 #include <iostream>
@@ -671,7 +674,7 @@ T(n) = O(2^n), S(n) = O(1)
 
 
 
-##### 2\. Remove Overlapping subproblems 
+##### 2\. Remove Overlapping subproblems by DP
 
 Use Dynamic Programming to solve this problem
 
@@ -837,8 +840,8 @@ References
 
 #### Description
 #### Solutions
-##### 1\. Find the Relation
-##### 2\. Remove Overlapping subproblems
+##### 1\. Find the Relation of Optimal Substructure
+##### 2\. Remove Overlapping subproblems by DP
 Top-down Approach Implementation
 Bottom-up Approach Implementation
 
