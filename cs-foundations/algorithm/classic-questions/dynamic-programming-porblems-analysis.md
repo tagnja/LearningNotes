@@ -839,20 +839,34 @@ References
 
 
 
-### The Levenshtein distance (Edit distance)
+<h3 id="tldi">The Levenshtein distance (Edit distance)</h3>
+
+
 
 #### Description
+
+
+
 #### Solutions
 ##### 1\. Find the Relation of Optimal Substructure
+Recursion Implementation (Top-down)
 ##### 2\. Remove Overlapping subproblems by DP
-Top-down Approach Implementation
-Bottom-up Approach Implementation
+Dynamic Programming Implementation (Top-down Approach) 
+Dynamic Programming Implementation (Bottom-up Approach)
+
+
 
 #### Exercise
 Printing xxx
 Write space optimized code for iterative version
 
+
+
 #### References
+
+[The Levenshtein distance (Edit distance) problem](https://www.techiedelight.com/levenshtein-distance-edit-distance-problem/)
+
+
 
 [`back to content`](#content)
 
