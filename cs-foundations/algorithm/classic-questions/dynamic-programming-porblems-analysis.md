@@ -6,8 +6,8 @@
 - I. Classic Problems
   - [x] [Longest Common Subsequence (LCS)](#lcs)
   - [x] [Shortest Common Supersequence(SCS)](#scsu)
-  - [Longest Increasing Subsequence(LIS)](#lisu)
-  - The Levenshtein distance (Edit distance) problem
+  - [x] [Longest Increasing Subsequence(LIS)](#lisu)
+  - [The Levenshtein distance (Edit distance)](#tldi)
   - Matrix Chain Multiplication
   - 0–1 Knapsack problem
   - Partition problem
@@ -61,16 +61,21 @@
 
 **Convention**
 
-- Description
-- Solutions
-  - 1\. Find the Relation
-  - 2\. Remove Overlapping subproblems
-    - Top-down Approach Implementation
-    - Bottom-up Approach Implementation
-- Exercise
-  - Printing xxx
-  - Write space optimized code for iterative version
-- References
+```
+#### Description
+#### Solutions
+##### 1\. Find the Relation
+##### 2\. Remove Overlapping subproblems
+Top-down Approach Implementation
+Bottom-up Approach Implementation
+#### Exercise
+Printing xxx
+Write space optimized code for iterative version
+#### References
+[`back to content`](#content)
+
+---
+```
 
 
 
@@ -664,13 +669,19 @@ int main()
 
 T(n) = O(2^n), S(n) = O(1)
 
+
+
 ##### 2\. Remove Overlapping subproblems 
 
 Use Dynamic Programming to solve this problem
 
+
+
 Top-down Approach Implementation
 
-Bottom-up Approach Implementation
+
+
+**Bottom-up Approach Implementation**
 
 ```cpp
 #include <iostream>
@@ -721,10 +732,84 @@ T(n) = O(n^2), S(n) = O(n)
 
 To print the LIS, storing  the LIS itself in lookup table instead of storing just LIS length.
 
-(TODO)
+For example 
+
+arr = [0, 8, 4, 12, 2, 10]
+
+The Longest Increasing Subsequence of subarray arr[0...i] that end with a[i] are
+
+LIS[0] - 0
+
+LIS[1] - 0 8
+
+LIS[2] - 0 4
+
+LIS[3] - 0 8 12
+
+LIS[4] - 0  2
+
+LIS[5] - 0 8 10 
+
+Algorithm Description
+
+1). Creating vector LIS[n], to storing every LIS of end with arr[i] (0 < i < n). 
+
+2). first assign LIS[0]. put arr[0] into LIS[0].
+
+3). get current LIS[i] (1 < i < n), LIS = max(LIS[j]) (0 < j < i) + arr[i].
+
+4). find max size of LIS[i] index i.
+
+5). print LIS[i].
 
 ```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
 
+void LISPrint(int arr[], int n)
+{
+	vector<int> LIS[n];
+	LIS[0].push_back(arr[0]);
+	int i, j;
+	for (i = 1; i < n; i++)
+	{
+		for (j = 0; j < i; j++)
+		{
+			if (arr[i] > arr[j] && LIS[i].size() < LIS[j].size())
+			{
+				LIS[i] = LIS[j];
+			}
+		}
+		LIS[i].push_back(arr[i]);
+	}
+	
+	j = 0;
+	for (i = 0; i < n; i++)
+	{
+		if (LIS[i].size() > LIS[j].size())
+		{
+			j = i;
+		}
+	}
+	cout << "LIS is ";
+	for (int x : LIS[j])
+	{
+		cout << x << " ";
+	}
+	
+	return;
+}
+
+int main()
+{
+	int arr[] = { 0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15 };
+	//Length of LIS is 6
+	int n = sizeof(arr) / sizeof(arr[0]);
+	LISPrint(arr, n);
+	// LIS print: 0 4 6 9 13 15
+	return 0;
+}
 ```
 
 T(n) = O(n^2), S(n) = O(n^2)
@@ -745,6 +830,29 @@ References
 [`back to content`](#content)
 
 ---
+
+
+
+### The Levenshtein distance (Edit distance)
+
+#### Description
+#### Solutions
+##### 1\. Find the Relation
+##### 2\. Remove Overlapping subproblems
+Top-down Approach Implementation
+Bottom-up Approach Implementation
+
+#### Exercise
+Printing xxx
+Write space optimized code for iterative version
+
+#### References
+
+[`back to content`](#content)
+
+---
+
+
 
 
 
