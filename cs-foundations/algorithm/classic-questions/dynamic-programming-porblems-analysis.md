@@ -63,15 +63,18 @@
 
 ```
 #### Description
+
 #### Solutions
 ##### 1\. Find the Relation of Optimal Substructure
 Recursion Implementation (Top-down)
 ##### 2\. Remove Overlapping subproblems by DP
 Dynamic Programming Implementation (Top-down Approach) 
 Dynamic Programming Implementation (Bottom-up Approach)
+
 #### Exercise
 Printing xxx
 Write space optimized code for iterative version
+
 #### References
 [`back to content`](#content)
 
