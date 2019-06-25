@@ -80,7 +80,7 @@ Defining Operating Systems
 
 
 
-Computer System Organization
+##### Computer System Organization
 
 - A computer system consist of one or more CPUs and a number of device controllers connected through a common bus that provides access to shared memory.
 
@@ -99,14 +99,14 @@ Computer System Organization
 
   
 
-Computer-System Operation - interrupt
+##### Computer-System Operation - interrupt
 
 - What is it? When the CPU is interrupted, it stops what it is doing and immediately transfer execution to a fixed location. Example, CPU is waiting I/O operation, when I/O data transfer done, need to interrupt the CPU to continue execute next instruction of program.
 - Trigger an interrupt. Hardware by sending a signal to the CPU by way of system bus. Software by executing a system call.
 
 
 
-Storage Structure
+##### Storage Structure
 
 - Storage-device hierarchy
 
@@ -123,11 +123,69 @@ Storage Structure
   magnetic tapes
   ```
 
+- cache (RAM memory)
 
 
-I/O Structure
 
+##### I/O Structure
 
+- system bus
+
+  - The system bus is a pathway composed of cables and connectors used to carry data between a computer microprocessor and the main memory.
+  - The bus provides a communication path for the data and control signals moving between the major components of computer system.
+  - Three main buses: data, address and control bus.
+  - computer system consists of CUPs and multiple device controllers that are connected through a common bus.
+
+- device driver
+
+  - it understands device controller.
+  - It presents a uniform  interface to the device to the operating system.
+
+- device controller
+
+  - it's in charge of a specific type of device. 
+  - Devices attached to specific controller.
+  - It maintains some local buffer storage (in RAM) and a set of special-purpose registers.
+  - It is responsible for moving data between peripheral devices that it controls and its local buffer storage.
+
+- buffer (buffer storage)
+
+  - A part of RAM used for temporary storage of data that is waiting to be sent to a device (or read from device).
+  - it is a data area shared by hardware devices or program processes.
+
+- interrupt-driven I/O
+
+  - device driver loads registers within device controller
+  - device controller execute appropriate task by contents of these registers.
+  - controller transfer of data from device to its local buffer (in RAM).
+  - controller informs device driver via an interrupt that it has finished its operation.
+  - device driver return control to OS. returning data pointer(read) or status information(write).
+
+- DMA(direct memory access)
+
+  - device controller transfer an entire block of data directly to or from its buffer storage to memory, with no intervention by CPU.
+  - interrupt is generated per block.
+
+- How a modern computer system works
+
+  ```
+  -------------------------------                            --------------------
+  | Thread of execution |       |  <----instruction ----->   |   instructions   |
+  |                     | cache |     execution cycle        |       and        | 
+  |   CPU(*N)           |       |  <----data movement---->   |      data        |
+  -------------------------------                            |                  |
+     |          ^         ^                            /     |                  |
+     |          |         |                       /          |      memory      |
+  IO REQUEST   data    interrupt             /                --------------------
+     |          |         |             DMA
+     V          V         |           /
+  --------------------------       /
+  |                        |    /
+  |       device(*M)       | /
+  --------------------------
+  ```
+
+  
 
 #### Computer-System Architecture
 
