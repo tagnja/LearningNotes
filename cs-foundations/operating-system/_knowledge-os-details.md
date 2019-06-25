@@ -302,9 +302,50 @@ Clustered Systems
 
 #### Operating-System Structure ~
 
+Operating system structure
+
+- Multiprogramming
+  - increasing CPU utilization by organization jobs.
+  - keeps several jobs in memory simultaneously.
+  - CPU is switched executing jobs in job pool.
+- Time sharing
+  - It is a logical extension of multiprogramming.
+  - It allows many users to share the computer simultaneously.
+- Process
+  - a program loaded into memory and executing is called a process.
+- Job scheduling, job pool.
+- CPU scheduling
+- Memory swapping
+- Virtual memory
+
 
 
 #### Operating-System Operations ~
+
+##### trap
+
+- a trap (or an exception) is a signal like an interrupt.
+- It is a software-generated interrupt caused by an error (for example, division by zero or invalid memory access) or by a specific request from a user program.
+
+
+
+##### Dual-Mode Operation
+
+- Ensure proper execution of the operating system, must to distinguish between execution of operating system code and user program code.
+- A bit called mode bit is added to the hardware of the computer indicate the current mode: kernel(0) or user(1).
+- privileged instructions
+  - Privileged instructions executed only in kernel mode. If an attempt execute a privileged instruction in user mode, the hardware does not execute rather treats it as illegal and traps it to operating system.
+  - Privileged instruction: I/O control, timer management, interrupt management.
+  - user program execute privileged instructions by send a system call to operating system.
+- Life cycle of instruction execution
+  - initial control is within operating system, where instructions are executed in kernel mode.
+  - when control is given to a user application, mode is set to user mode.
+  - control is switched back to operating system, when an interrupt, a trap, or a system call is occurred.
+
+##### Timer
+
+- Using a timer to prevent a user program from getting stuck in an infinite loop or never returning control to the operating system.
+- A timer can be set to interrupt the computer after a specified period.
 
 
 
@@ -322,7 +363,7 @@ Storage Management
 
 
 
-#### Distributed Systems ~
+#### Distributed Systems
 
 
 
@@ -345,6 +386,8 @@ Client-Server Computing
 Peer-to-Peer Computing
 
 Web-Based Computing
+
+
 
 [`back to content`](#content)
 
