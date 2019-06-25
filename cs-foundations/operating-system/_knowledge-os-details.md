@@ -4,24 +4,123 @@
 
 <h3 id="content">Content</h3>
 
-- Overview
+- I. Overview
   - [1. Introduction](#intr)
+    - What Operating System Do
+    - Computer-System Organization
+    - Computer-System Architecture
+    - Operating-System Structure
+    - Operating-System Operations
+    - Resource Management
+    - Protection and Security
+    - Distributed Systems
+    - Special-Purpose Systems
+    - Computing Environments
   - [2. Operating System Structure](#osst)
-- Process Management
+    - Operating-System Services
+    - User Operating-System Interface
+    - System Calls
+    - Types of System Calls
+    - System Programs
+    - Operating-System Design and Implementation
+    - Operating-System Structure
+    - Virtual Machines
+    - Operating-System Generation
+    - System Boot
+- II. Process Management
   - [3. Process](#proc)
+    - Basic Concept
+    - Process Scheduling
+    - Operations Of Processes
+    - Interprocess Communication
+    - Communication in System
   - [4. Threads](#thre)
+    - Basic Concepts
+    - Multithreading Models
+    - Thread Libraries
+    - Thread Issues
+    - Operating System Examples 
   - [5. CPU Scheduling](#csch)
+    - Basic Concepts
+    - Scheduling Criteria
+    - Scheduling Algorithms
+    - Multiple-Processor Scheduling
+    - Thread Scheduling
+    - Operating System Examples
+    - Algorithm Evaluation 
   - [6. Process Synchronization](#psyn)
+    - Background
+    - The Critical-Section Problem
+    - Peterson's Solution
+    - Synchronization Hardware
+    - Semaphores
+    - Classic Problems of Synchronizaiton
+    - Monitors
+    - Synchronization Examples
+    - Atomic Transaction
   - [7. Deadlocks](#dead)
-- Memory Management
+    - System Model
+    - Deadlock Characterization
+    - Methods for Handling Deadlocks
+    - Deadlock Prevention
+    - Deadlock Avoidance
+    - Deadlock Detection
+    - Recovery From Deadlock 
+- III. Memory Management
   - [8. Main Memory](#mmem)
+    - Background
+    - Swapping
+    - Contiguous Memory Allocation
+    - Paging
+    - Structure of the Page Table
+    - Segmentation
+    - Example Memory Management
   - [9. Virtual Memory](#vmem)
-- Storage Management
+    - Background
+    - Demand Paging
+    - Copy-on-Write
+    - Page Replacement
+    - Allocation of Frames
+    - Thrashing
+    - Memory-Mapped Files
+    - Allocating Kernel Memory
+    - Other Considerations
+    - Operating-System Example of Virtual Memory
+- IV. Storage Management
   - [10. File-System Interface](#fsin)
+    - File Concept
+    - Access Methods
+    - Directory Structure
+    - File-System Mounting
+    - File Sharing
+    - Protection
   - [11. File-System Implementation](#fsim)
+    - File-System Structure
+    - File-System Implementation
+    - Directory Implementation
+    - Allocation Methods
+    - Free-Space Management
+    - Efficiency and Performance
+    - Recovery
+    - NFS (Network File System)
   - [12. Mass-Storage Structure](#msst)
+    - Overview of Mass-Storage Structure
+    - HDD Scheduling
+    - NVM Scheduling
+    - Error Detection and Correction
+    - Storage Device management
+    - Swap-Space Management
+    - Storage Attachment
+    - RAID Structure
   - [13. I/O Systems](#iosy)
-- Protection and Security
+    - Overview
+    - I/O Hardware
+    - Application I/O Interface
+    - Kernel I/O Subsystem
+    - Transforming I/O Requests to Hardware Operations
+    - STRRAMS
+    - Performance
+- V. Protection and Security
   - [14. Protection](#prot)
   - [15. Security](#secu)
 - Distributed Systems
@@ -44,7 +143,11 @@
 
 <h3 id="intr">1. Introduction</h3>
 
-
+> Computer System vs Operating System
+>
+> Computer System: Hardware and software perspective for computer. Mainly in hardware organization.
+>
+> Operating System: Hardware and software perspective for operating system. Mainly in operating system functions.
 
 #### What Operating System Do ~
 
