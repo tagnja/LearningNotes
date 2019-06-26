@@ -2,23 +2,22 @@
 
 
 <h3 id="content">Content</h3>
-
 - I. Overview
   - [1. Introduction](#intr)
-    - What Operating System Do ~
-    - Computer-System Organization ~
+    - What Operating System Do *
+    - Computer-System Organization *
     - Computer-System Architecture 
-    - Operating-System Structure ~
-    - Operating-System Operations ~
+    - Operating-System Structure *
+    - Operating-System Operations *
     - Resource Management
     - Protection and Security
     - Distributed Systems
     - Special-Purpose Systems
-    - Computing Environments ~
+    - Computing Environments *
   - [2. Operating System Structure](#osst)
-    - Operating-System Services ~
+    - Operating-System Services *
     - User Operating-System Interface
-    - System Calls ~
+    - System Calls *
     - Types of System Calls
     - System Programs
     - Operating-System Design and Implementation
@@ -147,7 +146,7 @@
 >
 > Operating System: Hardware and software perspective for operating system. Mainly in operating system functions.
 
-#### What Operating System Do ~
+#### What Operating System Do *
 
 > Computer System divided component: hardware, operating system, application programs, users.
 
@@ -177,7 +176,7 @@ Defining Operating Systems
 
 
 
-#### Computer-System Organization ~
+#### Computer-System Organization *
 
 
 
@@ -298,7 +297,7 @@ Clustered Systems
 
 
 
-#### Operating-System Structure ~
+#### Operating-System Structure *
 
 Operating system structure
 
@@ -318,7 +317,7 @@ Operating system structure
 
 
 
-#### Operating-System Operations ~
+#### Operating-System Operations *
 
 ##### trap
 
@@ -375,7 +374,7 @@ Handheld Systems
 
 
 
-#### Computing Environments ~
+#### Computing Environments *
 
 Traditional Computing
 
@@ -420,7 +419,7 @@ Web-Based Computing
 
 
 <h3 id="osst">2. Operating System Structures</h3>
-#### Operating-System Services ~
+#### Operating-System Services *
 
 Operating System Services - helpful to user
 
@@ -447,7 +446,7 @@ Graphical User Interfaces
 
 
 
-#### System Calls ~
+#### System Calls *
 
 System Calls
 
@@ -489,7 +488,7 @@ Implementation
 
 
 
-#### Operating-System Structure ~
+#### Operating-System Structure 
 
 Simple Structure
 
