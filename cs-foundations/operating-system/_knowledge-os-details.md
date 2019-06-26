@@ -1,8 +1,7 @@
 # Knowledge Details of Operating System 
 
-
-<h3 id="content">Content</h3>
-
+<h3 id="content"></h3>
+### Content
 
 - I. Overview
   - [1. Introduction](#intr)
@@ -139,9 +138,9 @@
 
 ### I. Overview
 
+<h3 id="intr"> </h3>
+### 1. Introduction
 
-
-<h3 id="intr">1. Introduction</h3>
 
 
 > Computer System vs Operating System
@@ -427,8 +426,6 @@ Web-Based Computing
 
 
 <h3 id="osst">2. Operating System Structures</h3>
-
-
 #### Operating-System Services *
 
 Operating System Services - helpful to user
@@ -538,34 +535,97 @@ Examples: VMware, Java Virtual Machine
 
 ### II. Process Management
 
+Process Management
+
+- Creation and deletion of both user and system processes
+- Scheduling of processes
+- Provision of mechanisms for synchronization, communication, and deadlock handling for processes.
+
+
 
 
 <h3 id="proc">3. Process</h3>
-#### Basic Concept ~
+#### Basic Concept *
 
-What is Process
+Process
+
+- A process is a program in execution.
+- A process is the unit of work in most systems.
+- Computer system allow multiple programs to be loaded into memory and executed concurrently.
+- Executable file: a file containing a list of instructions stored on disk.
 
 Process in Memory
 
+- text section
+  - program code
+- program counter and registers
+  - a program counter specifying the next instruction to execution.
+  - register are thread-specific
+- data section
+  - Global variables (usually shared across threads)
+- heap
+  - Dynamically allocated memory (Shared across threads)
+- stack
+  - Temporary data (such as function parameters, return address, local variables)
+  - Thread-specific
+
 Process States
 
-Process Control Block
+- Status
 
-What is Threads
+  - New. The process is being created.
+  - Ready. The process is waiting to be assigned to a processor.
+  - Running. Instructions are being executed.
+  - Waiting. The process is waiting for some event to occur (such as an I/O completion)
+  - Terminated. The process has finished execution.
+
+- Diagram of process state
+
+  ```
+  
+  New ---(admitted)---> Ready <-----(interrupt)----- Running ---(exit)---> Terminated
+                              --(scheduler dispatch)-->
+                          ^                              |
+                          |                              V
+            (I/O or event completion)---Waiting<-----(I/O or event wait)
+  
+  ```
+
+Process Control Block (PCB)
+
+- Process state
+- Program counter
+- CPU registers
+- CPU-scheduling information
+- Memory-management information
+- Accounting information
+- I/O status information
+
+Threads
 
 
 
-#### Process Scheduling ~
+#### Process Scheduling *
 
 Scheduling Queues
 
+- Job queue. all processes in the system.
+- Ready queue. ready and waiting to execute.
+- Device queue. The list of processes waiting for a particular I/O device. Each device has its own device queue.
+
 Schedulers
+
+- long-term scheduler. select CPU-bound processes.
+- short-term scheduler. select I/O-bound processes.
 
 Context Switch Algorithms
 
+- The kernel saves the context of the old process in its PCB (process control block) and loads the saved context of the new process scheduled to run.
+- Depend on the memory-management method of the operating system.
 
 
-#### Operations Of Processes ~
+
+#### Operations Of Processes
 
 Process Creation
 
@@ -573,7 +633,7 @@ Process Termination
 
 
 
-#### Interprocess Communication ~
+#### Interprocess Communication 
 
 Shared Memory
 
@@ -581,7 +641,7 @@ Message Passing
 
 
 
-#### Communication in System ~
+#### Communication in System
 
 Sockets
 
@@ -589,18 +649,27 @@ Remote Procedure Calls
 
 Remote Method Invocation
 
+
+
 [`back to content`](#content)
 
 
 
 <h3 id="thre">4. Threads</h3>
-#### Basic Concepts ~
+#### Basic Concepts *
 
-What is Thread. 
+Thread
 
-Its Benefits
+- A thread is a basic unit of CPU utilization.
+- A thread comprises a thread ID, a program counter, a register set, and a stack.
+- It shares with other threads belonging to the same process its code section, data section, and other operating-system resources (such as open files and signals)
 
+Benefits
 
+- Responsiveness. Multithreading allow a program to continue running even if part of it is blocked.
+- Resource sharing. Threads share the memory and the resources of the processes.
+- Economy. Creating a process is slower than creating a thread. and context switching is slower.
+- Utilization of multiprocessor architectures. thread may be running in parallel on different processors.
 
 #### Multithreading Models ~
 
@@ -651,7 +720,7 @@ threads Implementation in Windows and Linux
 
 
 <h3 id="csch">5. CPU Scheduling</h3>
-#### Basic Concepts ~
+#### Basic Concepts *
 
 CPU-I/O Burst Cycle
 
