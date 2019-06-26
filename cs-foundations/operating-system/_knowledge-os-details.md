@@ -420,8 +420,6 @@ Web-Based Computing
 
 
 <h3 id="osst">2. Operating System Structures</h3>
-
-
 #### Operating-System Services ~
 
 Operating System Services - helpful to user
@@ -534,8 +532,6 @@ Examples: VMware, Java Virtual Machine
 
 
 <h3 id="proc">3. Process</h3>
-
-
 #### Basic Concept ~
 
 What is Process
@@ -589,8 +585,6 @@ Remote Method Invocation
 
 
 <h3 id="thre">4. Threads</h3>
-
-
 #### Basic Concepts ~
 
 What is Thread. 
@@ -648,8 +642,6 @@ threads Implementation in Windows and Linux
 
 
 <h3 id="csch">5. CPU Scheduling</h3>
-
-
 #### Basic Concepts ~
 
 CPU-I/O Burst Cycle
@@ -715,8 +707,6 @@ Scheduling Policies in Solaris, Windows XP, and Linux.
 
 
 <h3 id="psyn">6. Process Synchronization</h3>
-
-
 #### Background ~ 
 
 
@@ -774,8 +764,6 @@ Concurrent Atomic Transactions
 
 
 <h3 id="dead">7. Deadlocks</h3>
-
-
 #### System Model ~
 
 
@@ -829,8 +817,6 @@ Circular Wait
 
 
 <h3 id="mmem">8. Main Memory</h3>
-
-
 #### Background ~
 
 Basic Hardware
@@ -916,8 +902,6 @@ Linux on Pentium Systems
 
 
 <h3 id="vmem">9. Virtual Memory</h3>
-
-
 #### Background ~
 
 What is it
@@ -1043,8 +1027,6 @@ I/O Interlock
 
 
 <h3 id="fsin">10. File-System Interface</h3>
-
-
 #### File Concept ~
 
 What is a File
@@ -1124,8 +1106,6 @@ Other Protection Approaches
 
 
 <h3 id="fsim">11. File-System Implementation</h3>
-
-
 #### File-System Structure ~
 
 Layered File System
@@ -1197,8 +1177,6 @@ Log-Structured File Systems
 
 
 <h3 id="msst">12. Mass-Storage Structure</h3>
-
-
 #### Overview of Mass-Storage Structure ~
 
 Hard Disk Drives (Magnetic Disks)
@@ -1296,8 +1274,6 @@ Object Storage
 
 
 <h3 id="iosy">13. I/O Systems</h3>
-
-
 #### Overview ~
 
 What is it
@@ -1389,10 +1365,7 @@ What is it
 ### V. Protection and Security
 
 <h3 id="prot">Protection</h3>
-
-
 <h3 id="secu">Security</h3>
-
 ---
 
 
@@ -1402,6 +1375,4 @@ What is it
 <h3 id="dsst">Distributed System Structures</h3>
 <h3 id="dfsy">Distributed File System</h3>
 <h3 id="dcoo">Distributed Coordination</h3>
-
-
 --END--
