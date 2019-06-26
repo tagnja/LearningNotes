@@ -28,13 +28,13 @@
     - System Boot
 - II. Process Management
   - [3. Process](#proc)
-    - Basic Concept
-    - Process Scheduling
+    - Basic Concept *
+    - Process Scheduling *
     - Operations Of Processes
     - Interprocess Communication
     - Communication in System
   - [4. Threads](#thre)
-    - Basic Concepts
+    - Basic Concepts *
     - Multithreading Models
     - Thread Libraries
     - Thread Issues
@@ -671,7 +671,7 @@ Benefits
 - Economy. Creating a process is slower than creating a thread. and context switching is slower.
 - Utilization of multiprocessor architectures. thread may be running in parallel on different processors.
 
-#### Multithreading Models ~
+#### Multithreading Models 
 
 user threads and kernel threads
 
