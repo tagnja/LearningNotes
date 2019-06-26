@@ -3,23 +3,22 @@
 
 
 <h3 id="content">Content</h3>
-
 - I. Overview
   - [1. Introduction](#intr)
-    - What Operating System Do
-    - Computer-System Organization
-    - Computer-System Architecture
-    - Operating-System Structure
-    - Operating-System Operations
+    - What Operating System Do ~
+    - Computer-System Organization ~
+    - Computer-System Architecture 
+    - Operating-System Structure ~
+    - Operating-System Operations ~
     - Resource Management
     - Protection and Security
     - Distributed Systems
     - Special-Purpose Systems
-    - Computing Environments
+    - Computing Environments ~
   - [2. Operating System Structure](#osst)
-    - Operating-System Services
+    - Operating-System Services ~
     - User Operating-System Interface
-    - System Calls
+    - System Calls ~
     - Types of System Calls
     - System Programs
     - Operating-System Design and Implementation
@@ -142,7 +141,6 @@
 
 
 <h3 id="intr">1. Introduction</h3>
-
 > Computer System vs Operating System
 >
 > Computer System: Hardware and software perspective for computer. Mainly in hardware organization.
@@ -349,7 +347,7 @@ Operating system structure
 
 
 
-#### Resource Management ~
+#### Resource Management 
 
 Process Management
 
@@ -359,7 +357,7 @@ Storage Management
 
 
 
-#### Protection and Security ~
+#### Protection and Security 
 
 
 
@@ -381,13 +379,41 @@ Handheld Systems
 
 Traditional Computing
 
+- Batch System
+  - Processing jobs in bulk, with predetermined input from files.
+- Interactive System
+  - Waiting for input from users.
+  - To optimize the use of the computing resources.
+  - multiple users shared time on system.
+- Time Shared System
+  - Using a timer and scheduling algorithms to rapidly cycle processes through the CPU, giving each user a share of the resources.
+
+
+
 Client-Server Computing
+
+- Multiple client systems request to server system.
+- Server System Class
+  - Compute-server system: A client send a request to perform an action, in response, the server executes the action and sends back results to client.
+  - File-server system: provides a file-system interface where clients can create, update, read, and delete files.
+
+
 
 Peer-to-Peer Computing
 
+- What
+  - Not distinguish clients and servers. Each may act as either a client or a server, depending on whether it is requesting or providing a service.
+- Advantages
+  - In a client-server system, the server is a bottleneck, but in a peer-to-peer system, service can be provided by several nodes distributed throughout the network.
+- Two way accomplished peer-to-peer system
+  - 1)A node joins a network, it register its service with a centralized lookup service on the network. 2)Any node desiring a specific service first contacts this centralized lookup service to determine which node provides the service.
+  - 1) a client node broadcasting a request for service to all other nodes in the network. 2) The node providing that service responds to peer.
+
+
+
 Web-Based Computing
 
-
+- The implementation of web-based computing has a load balancers which distribute network connections among a pool of similar servers.
 
 [`back to content`](#content)
 
@@ -396,8 +422,22 @@ Web-Based Computing
 <h3 id="osst">2. Operating System Structures</h3>
 
 
-
 #### Operating-System Services ~
+
+Operating System Services - helpful to user
+
+- user interface
+- Program execution
+- I/O operations
+- File-system manipulation
+- Communications
+- Error detection
+
+Operating System functions for itself
+
+- Resource allocation
+- Accounting
+- Protection and security
 
 
 
@@ -411,9 +451,19 @@ Graphical User Interfaces
 
 #### System Calls ~
 
+System Calls
+
+- System calls provide an interface to the services made available by an operating system.
+
+- These system calls generally written in C and C++ language. Certain low-level tasks may need to be written using assembly language.
+
+System-call interface 
+
+- Most programming languages provides a system-call interface. These API invokes the  necessary system call within the operating system.
 
 
-#### Types of System Calls ~
+
+#### Types of System Calls 
 
 Process Control
 
@@ -431,7 +481,7 @@ Communication
 
 
 
-#### Operating-System Design and Implementation ~
+#### Operating-System Design and Implementation
 
 Design Goals
 
@@ -453,7 +503,7 @@ Modules
 
 
 
-#### Virtual Machines ~
+#### Virtual Machines
 
 Implementation
 
@@ -467,7 +517,7 @@ Examples: VMware, Java Virtual Machine
 
 
 
-#### System Boot ~
+#### System Boot
 
 
 
@@ -484,7 +534,6 @@ Examples: VMware, Java Virtual Machine
 
 
 <h3 id="proc">3. Process</h3>
-
 
 
 #### Basic Concept ~
@@ -540,7 +589,6 @@ Remote Method Invocation
 
 
 <h3 id="thre">4. Threads</h3>
-
 
 
 #### Basic Concepts ~
@@ -600,7 +648,6 @@ threads Implementation in Windows and Linux
 
 
 <h3 id="csch">5. CPU Scheduling</h3>
-
 
 
 #### Basic Concepts ~
@@ -670,7 +717,6 @@ Scheduling Policies in Solaris, Windows XP, and Linux.
 <h3 id="psyn">6. Process Synchronization</h3>
 
 
-
 #### Background ~ 
 
 
@@ -730,7 +776,6 @@ Concurrent Atomic Transactions
 <h3 id="dead">7. Deadlocks</h3>
 
 
-
 #### System Model ~
 
 
@@ -784,7 +829,6 @@ Circular Wait
 
 
 <h3 id="mmem">8. Main Memory</h3>
-
 
 
 #### Background ~
@@ -872,7 +916,6 @@ Linux on Pentium Systems
 
 
 <h3 id="vmem">9. Virtual Memory</h3>
-
 
 
 #### Background ~
@@ -1002,7 +1045,6 @@ I/O Interlock
 <h3 id="fsin">10. File-System Interface</h3>
 
 
-
 #### File Concept ~
 
 What is a File
@@ -1084,7 +1126,6 @@ Other Protection Approaches
 <h3 id="fsim">11. File-System Implementation</h3>
 
 
-
 #### File-System Structure ~
 
 Layered File System
@@ -1156,7 +1197,6 @@ Log-Structured File Systems
 
 
 <h3 id="msst">12. Mass-Storage Structure</h3>
-
 
 
 #### Overview of Mass-Storage Structure ~
@@ -1258,7 +1298,6 @@ Object Storage
 <h3 id="iosy">13. I/O Systems</h3>
 
 
-
 #### Overview ~
 
 What is it
@@ -1352,10 +1391,7 @@ What is it
 <h3 id="prot">Protection</h3>
 
 
-
 <h3 id="secu">Security</h3>
-
-
 
 ---
 
@@ -1364,11 +1400,8 @@ What is it
 ### VI. Distributed Systems
 
 <h3 id="dsst">Distributed System Structures</h3>
-
 <h3 id="dfsy">Distributed File System</h3>
-
 <h3 id="dcoo">Distributed Coordination</h3>
-
 
 
 --END--
