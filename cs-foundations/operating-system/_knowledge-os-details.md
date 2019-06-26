@@ -2,6 +2,8 @@
 
 
 <h3 id="content">Content</h3>
+
+
 - I. Overview
   - [1. Introduction](#intr)
     - What Operating System Do *
@@ -140,13 +142,19 @@
 
 
 <h3 id="intr">1. Introduction</h3>
+
+
 > Computer System vs Operating System
 >
 > Computer System: Hardware and software perspective for computer. Mainly in hardware organization.
 >
 > Operating System: Hardware and software perspective for operating system. Mainly in operating system functions.
 
+
+
 #### What Operating System Do *
+
+
 
 > Computer System divided component: hardware, operating system, application programs, users.
 
@@ -419,6 +427,8 @@ Web-Based Computing
 
 
 <h3 id="osst">2. Operating System Structures</h3>
+
+
 #### Operating-System Services *
 
 Operating System Services - helpful to user
