@@ -1058,27 +1058,54 @@ Concurrent Atomic Transactions
 
 
 <h3 id="dead">7. Deadlocks</h3>
-#### System Model ~
+
+
+#### Deadlock
+
+- Deadlock situation. A waiting process is never again able to change state, because the resources it has requested are held by other waiting processes.
+- Solving deadlock using deadlock prevention or deadlock avoidance.
+
+#### System Model
 
 
 
-#### Deadlock Characterization ~
+#### Deadlock Characterization *
 
 Necessary Conditions
+
+- Mutual exclusion
+- Hold and wait
+- No preemption
+- Circular wait
 
 Resource-Allocation Graph
 
 
 
-#### Methods for Handling Deadlocks ~
+#### Methods for Handling Deadlocks *
+
+deal with deadlock problem in one of three ways
+
+- Using a protocol to prevent or avoid deadlocks, ensuring the system will never enter a deadlock state.
+- Allowing the system to enter a deadlock state, detect it, and recover.
+- Ignoring the problem altogether and pretend that deadlocks never occur in the system.
 
 
 
-#### Deadlock Prevention ~
+#### Deadlock Prevention *
+
+Deadlock prevention
+
+- For a deadlock to occur, each of the four necessary conditions must hold.
+- By ensuring that at least one of these conditions cannot hold, we can prevent the occurrence of a deadlock.
 
 Mutual Exclusion
 
+- This condition must hold.
+
 Hold and Wait
+
+- 
 
 No Preemption
 
@@ -1086,17 +1113,22 @@ Circular Wait
 
 
 
-#### Deadlock Avoidance ~
+#### Deadlock Avoidance *
 
 
 
-#### Deadlock Detection ~
+#### Deadlock Detection
 
 
 
-#### Recovery From Deadlock ~
+#### Recovery From Deadlock *
 
+- Process Termination
+  - Abort all deadlocked processes.
+  - Abort one process at a time until the deadlock cycle is eliminated.
 
+- Resource Preemption
+  - Preempt some resources from processes and give these resources to other processes until the deadlock cycle is broken.
 
 [`back to content`](#content)
 
