@@ -40,9 +40,9 @@
     - Thread Issues
     - Operating System Examples 
   - [5. CPU Scheduling](#csch)
-    - Basic Concepts
-    - Scheduling Criteria
-    - Scheduling Algorithms
+    - Basic Concepts *
+    - Scheduling Criteria *
+    - Scheduling Algorithms *
     - Multiple-Processor Scheduling
     - Thread Scheduling
     - Operating System Examples
@@ -722,39 +722,81 @@ threads Implementation in Windows and Linux
 <h3 id="csch">5. CPU Scheduling</h3>
 #### Basic Concepts *
 
+CPU Scheduling
+
+- When one process has to wait, the operating system takes the CPU away from that process and gives the CPU to another process.
+
 CPU-I/O Burst Cycle
 
+- CPU burst. CPU execution state.
+- I/O burst. I/O wait state.
+- Process execution consists of a cycle of CPU execution and I/O wait.
+
 CPU Scheduler
+
+- Short-term scheduler
 
 Preemptive Scheduling
 
 Dispatcher
 
+- The dispatcher is the module that gives control of the CPU to the process selected by the short-term scheduler.
+- Its function
+  - Switching context.
+  - Switching to user mode.
+  - Jumping to the proper location in the user program to restart that program.
+- Dispatch latency. The time it takes for the dispatcher to stop one process and start another running.
 
+#### Scheduling Criteria *
 
-#### Scheduling Criteria ~
+Scheduling Criteria
 
+- CPU utilization.
+- Throughput.
+- Turnaround time. It is the sum of waiting time, executing time, I/O time.
+- Waiting time.
+- Response time.
 
-
-#### Scheduling Algorithms ~
+#### Scheduling Algorithms *
 
 First-Come First-Served (FCFS) Scheduling
+
+- Advantage
+  - Simple.
+- Disadvantage. 
+  - Long wait time. May all the other processes wait for the one big process to get off the CPU.
 
 Gantt Chart
 
 Shortest-Job-First (SJF) Scheduling
 
+- What. Assigned to the process that has smallest next CPU burst.
+- Advantage. 
+  - Average waiting time decrease.
+- Disadvantage. 
+  - Hard to know the length of the next CPU burst. (Hard to know the smallest process.)
+
 Priority Scheduling
+
+- Advantage. 
+  - It can defined a priority for processes.
+- Disadvantage. 
+  - May lead to low priority process starvation.
 
 Round-Robin (RR) Scheduling
 
+- What. Allocating the CPU to each process for a time interval of up to 1 time quantum.
+- Performance depends on size of the time quantum. If time quantum is large, the RR is the same as the FCFS algorithm. If time quantum is small, there are too many context switching time to consume.
+
 Multilevel Queue Scheduling
+
+- Partitions the ready queue into several separate queues. Each queue has its own scheduling algorithm.
 
 Multilevel Feedback-Queue Scheduling
 
+- To separate process according to the characteristics of their CPU bursts. queues. allows a process to move between queues. If a process uses too much CPU time, it will be moved to lower-priority queue. If a process waits too long in a lower-priority queue may be moved to a higher-priority queue.
 
-
-#### Multiple-Processor Scheduling ~
+#### Multiple-Processor Scheduling 
 
 Approaches to Multiple-Processor Scheduling
 
