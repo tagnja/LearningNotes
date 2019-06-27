@@ -48,13 +48,13 @@
     - Operating System Examples
     - Algorithm Evaluation 
   - [6. Process Synchronization](#psyn)
-    - Background
-    - The Critical-Section Problem
-    - Peterson's Solution
-    - Synchronization Hardware
-    - Semaphores
-    - Classic Problems of Synchronizaiton
-    - Monitors
+    - Background *
+    - The Critical-Section Problem *
+    - Peterson's Solution *
+    - Synchronization Hardware *
+    - Semaphores *
+    - Classic Problems of Synchronization
+    - Monitors *
     - Synchronization Examples
     - Atomic Transaction
   - [7. Deadlocks](#dead)
@@ -827,27 +827,168 @@ Scheduling Policies in Solaris, Windows XP, and Linux.
 
 
 <h3 id="psyn">6. Process Synchronization</h3>
-#### Background ~ 
+
+#### Background *
+
+Data consistency
+
+- Concurrent access to shared data may result in data in consistency.
+
+- To ensure the orderly execution of cooperating process that share a logical address space, so that data consistency is maintained.
+
+Race Condition
+
+- Several processes access and manipulate the same data concurrently and the outcome the execution depends on the particular order in which the access takes place.
+
+Process Synchronization
+
+- To ensure only one process at a time can be manipulating shared data.
+
+#### The Critical-Section Problem *
+
+Critical section
+
+- A segment of code, in which changing common variables, updating a table, writing a file, and so on.
+
+- Solution to critical-section problem
+
+  - Mutual exclusion.
+  - Progress.
+  - Bounded waiting.
+
+- Structure of process 
+
+  ```
+  do {
+      // entry section...
+      	// critical section...
+      // exist section
+      	// remainder section
+  }while (TRUE);
+  ```
+
+  
+
+#### Peterson's Solution *
+
+- A classic software-based solution to the critical-section problem.
+
+- Data structure
+
+  ```
+  int turn;  // whose turn it is to enter its critcal section
+  booelan flag[2];   // a process is ready to enter its critical section.
+  ```
+
+- It satisfied mutual exclusion, progress, bounded-waiting. But it only support max two process synchronization.
 
 
 
-#### The Critical-Section Problem ~
+#### Synchronization Hardware *
+
+- Using a lock to solute critical-section problem. A process must acquire a lock before entering a critical section. It releases the lock when it exists the critical section.
+
+- Hardware Implementation
+
+  ```
+  do {
+  	while(TestAndSetLock(&lock))
+  	    // do nothing
+  	    
+      // critical section
+      
+      lock = FALSE;
+      
+      // remainder section
+  }While (TRUE);
+  
+  boolean TestAndSet(boolean *target){
+  	boolean rv = *target;
+  	*target = TRUE;
+  	return rv;
+  }
+  ```
+
+- The critical-section problem solved in **uniprocessor environment** by prevent interrupts from occurring while a shred variable was being modified. Unfortunately, this solution is not as feasible in a multiprocessor environment. Disabling interrupts on a multiprocessor can be time consuming, as the message is passed to all the processors.
 
 
 
-#### Peterson's Solution ~
+#### Semaphores *
+
+Semaphore
+
+- A synchronization tool.
+
+- A semaphore S is an integer variable is accessed only through two standard atomic operations: wait() and signal(). 
+
+- wait() and signal() are performed atomically.
+
+  ```
+  wait(S) {
+      while (S <= 0)
+         ; // do nothing
+      S--;
+  }
+  signal (S) {
+      S++;
+  }
+  ```
+
+- Semaphore Class
+
+  - Counting semaphore. It can be used to control access to a given resource consist of a finite number of instances. The semaphore is initialized to the number of resources available.
+  - Binary semaphore. It is as mutex lock. The n processes share a semaphore, mutex, initialized to 1.
+
+- Basic Implementation by Semaphore (spinlock, busy waiting)
+
+  - To ensures mutual exclusion by wait() and signal() is atomic operations. 
+  - To ensure progress by spinlock busy waiting. 
+  - Not ensures bounded waiting.
+
+  ```
+  do {
+      wait(S); // S is integer variable
+      
+      // critical section
+      
+      signal(S);
+      
+      // remainder section
+  }while (TRUE);
+  ```
+
+- Optimized Implementation by Semaphore (wait FIFO queue)
+
+  - To ensures mutual exclusion by wait() and signal() is atomic operations.
+  - To ensures progress and bounded waiting by using FIFO queue.
+
+  ```
+  typedef struct {
+      int value;
+      struct process *list;
+  }semaphore;
+  
+  wait(semaphore *S){
+      S->value--;
+      if (S->value < 0)
+      {
+          ..add this process to S->list
+          block();
+      }
+  }
+  signal(semaphore *S){
+      S->value++;
+      if (S->value <= 0)
+      {
+          ..remove a process P from S->list
+          wakeup(P);
+      }
+  }
+  ```
 
 
 
-#### Synchronization Hardware ~
-
-
-
-#### Semaphores ~
-
-
-
-#### Classic Problems of Synchronization ~
+#### Classic Problems of Synchronization
 
 The Bounded-Buffer Problem
 
@@ -857,9 +998,42 @@ The Dining-Philosophers Problem
 
 
 
-#### Monitors ~
+#### Monitors * ?
 
+- What
 
+  - Monitors are a synchronization construct that were created to overcome the problems caused by semaphores such as timing errors.
+  - Monitors are abstract data types and contain shared data variables and procedures. The shared data variables cannot be directly accessed by a process and procedures are required to allow a single process to access the shared data variables at a time.
+  - Only one process can be active in a monitor at a time. Other processes that need to access the shared variables in a monitor have to line up in a queue and are only provided access when the previous process release the shared variables.
+
+- Structure
+
+  ```
+  monitor monitorName
+  {
+      data variables;
+    
+      Procedure P1(....)
+      {
+      
+      }
+  
+       Procedure P2(....)
+      {
+      
+      }
+  
+       Procedure Pn(....)
+      {
+      
+      }
+   
+      Initialization Code(....)
+      {
+  
+      }
+  }
+  ```
 
 #### Synchronization Examples
 
@@ -867,7 +1041,7 @@ Synchronization mechanisms in Solaris, Windows XP, Linux operating system.
 
 
 
-#### Atomic Transaction ~
+#### Atomic Transaction
 
 System Model
 
