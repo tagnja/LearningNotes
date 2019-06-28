@@ -59,12 +59,12 @@
     - Atomic Transaction
   - [7. Deadlocks](#dead)
     - System Model
-    - Deadlock Characterization
-    - Methods for Handling Deadlocks
-    - Deadlock Prevention
-    - Deadlock Avoidance
+    - Deadlock Characterization *
+    - Methods for Handling Deadlocks *
+    - Deadlock Prevention *
+    - Deadlock Avoidance *
     - Deadlock Detection
-    - Recovery From Deadlock 
+    - Recovery From Deadlock *
 - III. Memory Management
   - [8. Main Memory](#mmem)
     - Background
@@ -1057,7 +1057,6 @@ Concurrent Atomic Transactions
 
 
 <h3 id="dead">7. Deadlocks</h3>
-
 #### Deadlock
 
 - Deadlock situation. A waiting process is never again able to change state, because the resources it has requested are held by other waiting processes.
@@ -1149,7 +1148,9 @@ Circular Wait
 
 
 <h3 id="mmem">8. Main Memory</h3>
-#### Background ~
+
+
+#### Background *
 
 Basic Hardware
 
@@ -1163,7 +1164,7 @@ Dynamic Linking and Shared Libraries
 
 
 
-#### Swapping ~
+#### Swapping *
 
 What is it?
 
@@ -1173,7 +1174,7 @@ How does it accomplish?
 
 
 
-#### Contiguous Memory Allocation ~
+#### Contiguous Memory Allocation *
 
 Memory Mapping and Protection
 
@@ -1183,7 +1184,7 @@ Fragmentation
 
 
 
-#### Paging  ~
+#### Paging  *
 
 What is it? (noncontiguous)
 
@@ -1197,7 +1198,7 @@ Shared Pages
 
 
 
-#### Structure of the Page Table ~
+#### Structure of the Page Table *
 
 Hierarchical Paging
 
@@ -1207,7 +1208,7 @@ Inverted Page Tables
 
 
 
-#### Segmentation ~
+#### Segmentation *
 
 Basic Method
 
