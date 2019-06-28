@@ -1149,28 +1149,61 @@ Circular Wait
 
 <h3 id="mmem">8. Main Memory</h3>
 
-
 #### Background *
+
+Memory
+
+- Memory consists of a large array of words or bytes, each with its own address.
+
+Instruction-execution cycle
+
+- Fetch an instruction from memory.
+- The instruction decoded and may cause operands to be fetched from memory.
+- After the instruction has been executed on the operands, results may be stored back in memory.
 
 Basic Hardware
 
+- Cache (or Cache memory, CPU memory). 
+  - A memory buffer used to add fast memory between the CPU and main memory.
+  - It is high-speed static random access memory (SRAM) that is faster than RAM. This memory is typically integrated directly into the CPU chip or placed on a separate chip.
+  - The purpose of cache memory is to store program instructions and data that are repeatedly in the operation of programs, or information that the CPU is likely to need next.
+- Base register and limit register
+  - To ensure the process can access only these legal address.
+
 Address Binding
+
+- Address may be represented in different ways.
+- Address Binding Process
+  - Addresses in the source program are generally symbolic.
+  - A compiler will typical bind these symbolic address to relocatable addresses (logical address).
+  - The loader will bind the relocatable addresses to absolute addresses.
+- Binding of instructions and data to memory address can be done at any steps of compile, load, or execution time.
 
 Logical Versus Physical Address Space
 
 Dynamic Loading
 
+- a routine is not loaded until it is called.
+- Process of Dynamic Loading
+  - Check whether routine has been loaded.
+  - If not, the loader to load the routine into memory. And update  program's address tables.
+  - Then control is passed to the newly loaded routine.
+- Advantage. an unused routine is never loaded.
+
 Dynamic Linking and Shared Libraries
 
-
+- Dynamic linking is similar to dynamic loading. The feature is usually used with system libraries.
+- Shared Libraries is linking before exist older library.
 
 #### Swapping *
 
-What is it?
+Swapping
 
-Why is it?
+- A process can be swapped temporarily out of memory to a backing store (disk space) and the brought back into memory for continued execution. It is for accomplish virtual memory.
 
-How does it accomplish?
+Backing Store
+
+- A fast disk.
 
 
 
@@ -1210,9 +1243,21 @@ Inverted Page Tables
 
 #### Segmentation *
 
-Basic Method
+Segmentation
+
+- Segmentation is a memory-management scheme that support user view of memory.
+- A logical address space is a collection of segments. Each segment has a name and a length.
+- A C compiler might create separate segments.
+  - The code.
+  - Global variables.
+  - The heap used by dynamic allocate for the process.
+  - The stack used by each thread.
+  - The standard C library.
 
 Hardware
+
+- Segmentation is come true by a segment table.
+- Each entry in the segment table has a segment base and segment limit.
 
 
 
