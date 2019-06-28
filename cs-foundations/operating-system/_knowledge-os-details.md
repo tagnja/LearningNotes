@@ -1148,7 +1148,6 @@ Circular Wait
 
 
 <h3 id="mmem">8. Main Memory</h3>
-
 #### Background *
 
 Memory
@@ -1195,19 +1194,18 @@ Dynamic Linking and Shared Libraries
 - Dynamic linking is similar to dynamic loading. The feature is usually used with system libraries.
 - Shared Libraries is linking before exist older library.
 
+
+
 #### Swapping *
 
 Swapping
 
-- A process can be swapped temporarily out of memory to a backing store (disk space) and the brought back into memory for continued execution. It is for accomplish virtual memory.
-
-Backing Store
-
-- A fast disk.
+- A process can be swapped temporarily out of memory to a backing store (A fast disk) and the brought back into memory for continued execution. 
+- It is a scheme for come true virtual memory.
 
 
 
-#### Contiguous Memory Allocation *
+#### Contiguous Memory Allocation * (TODO)
 
 Memory Mapping and Protection
 
