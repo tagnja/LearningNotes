@@ -827,7 +827,6 @@ Scheduling Policies in Solaris, Windows XP, and Linux.
 
 
 <h3 id="psyn">6. Process Synchronization</h3>
-
 #### Background *
 
 Data consistency
@@ -1059,7 +1058,6 @@ Concurrent Atomic Transactions
 
 <h3 id="dead">7. Deadlocks</h3>
 
-
 #### Deadlock
 
 - Deadlock situation. A waiting process is never again able to change state, because the resources it has requested are held by other waiting processes.
@@ -1105,17 +1103,25 @@ Mutual Exclusion
 
 Hold and Wait
 
-- 
+- To ensure this condition never occur
+  - A process to request and be allocated all its resources before it begins execution. 
+  - Allows a process to request resources only when it has none. Before get a new resource , the process need release all current hold resources.
 
 No Preemption
 
+- To ensure this condition never occur.
+  - If a process is holding some resources and requests another resource that cannot be immediately allocated to it, then all resources currently being held are preempted.
+  - If a process requests some resources, first check whether they are available. If so, we preempt the desired resources.
+
 Circular Wait
 
-
+- To ensure this condition never occur.
+  - Each process requests resources in an increasing order of enumeration.
 
 #### Deadlock Avoidance *
 
-
+- Deadlock avoidance is better than deadlock prevention. Because preventing deadlock are low device utilization and reduced system throughput. 
+- A deadlock-avoidance algorithm dynamically examines the resource-allocation state to ensure that a circular-wait condition can never exist.
 
 #### Deadlock Detection
 
