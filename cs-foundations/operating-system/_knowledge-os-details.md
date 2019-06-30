@@ -67,12 +67,12 @@
     - Recovery From Deadlock *
 - III. Memory Management
   - [8. Main Memory](#mmem)
-    - Background
-    - Swapping
-    - Contiguous Memory Allocation
-    - Paging
+    - Background *
+    - Swapping *
+    - Contiguous Memory Allocation *
+    - Paging *
     - Structure of the Page Table
-    - Segmentation
+    - Segmentation *
     - Example Memory Management
   - [9. Virtual Memory](#vmem)
     - Background
@@ -1205,31 +1205,82 @@ Swapping
 
 
 
-#### Contiguous Memory Allocation * (TODO)
+#### Contiguous Memory Allocation *
 
 Memory Mapping and Protection
 
 Memory Allocation
 
+- Contiguous memory allocation. 
+  - A process reside a contiguous memory space.
+- Fixed-partition scheme.
+  - Initially, all memory is available for user process and is considered one large block of available memory, a hole.
+  - When a process arrives and needs memory, then searching for a hole large enough for this process. 
+  - If find one, allocating only as much memory as is needed, keeping the rest available to satisfy future requests.
+- If the hole is too large, it is **split** into two parts. When a process terminates, and release its memory, these adjacent holes are **merged** to from one larger hole.
+- Allocation Strategies
+  - First fit. Allocate the first hole that is big enough. 
+  - Best fit. Allocate the smallest hole that is big enough.
+  - Worst fit. Allocate the largest hole. 
+  - Conclusion. both first fit and best fit are better than worst fit.
+
 Fragmentation
 
+- External fragmentation. Both the first-fit and best-fit strategies for memory allocation suffer from external fragmentation.
+- Solution to external fragmentation.
+  - compaction. shuffle the memory contents so as to place all free memory together in one large block. This scheme can be expensive.
+  - To permit the logical address space of the processes to be noncontiguous. Achieve this solution two virtual memory techniques they are paging and segmentation are required.
 
+#### Paging  * 
 
-#### Paging  *
+Paging
 
-What is it? (noncontiguous)
+- A memory-management scheme that permits the physical address space of a process to be noncontiguous.
 
 Basic Method of Accomplishment
 
+- frames. Dividing physical memory into fixed-sized blocks called frames.
+- pages. Breaking logical memory into blocks of the size called pages.
+- Hardware paging.
+  - page number is used as an index into a page table. 
+  - page table contains the base address of each page in physical memory.
+  - page offset is combine the base address to find the actual physical address.
+- Page size
+  - Paging scheme have no external fragmentation. But may have some internal fragmentation.
+  - Small page sizes are desirable to decrease internal fragmentation.
+  - Big page sizes are increase I/O efficiency.
+  - Today pages typically are between 4KB and 8KB.
+
 Hardware Support
+
+- Page tables
+  - Allocate a page table for each process.
+  - A pointer to the page table is stored with register in the process control block.
+  - Page-table base register (PTBR)  points to the page table.
+  - Get a location byte need two memory access. It's slowed.
+    - Get frame number by page number index page table.  
+    - Fetch actual address byte by frame number and page offset.
+- Translation look-aside buffer (TLB)
+  - As a page cache Improve page map efficiency.
+  - TLB is high-speed memory. 
+  - The number of entries in a TLB is small, often between 64 and 1024.
+  - If page number is presented to the TLB, its frame number is immediately available and is used to access memory.
 
 Protection
 
+- protection
+  - Memory protection in a paged environment is accomplished by protection bits associated with each frame.
+  - One bit can define a page to be read-write or read-only.
+  - A valid-invalid bit is define a page is legal page.
+  - page number = process space / page size. 
+  - valid page number in (0, page number -1)
+
 Shared Pages
 
+- In a time-sharing environment, multiple users run same program, the processes shared the same code. Each process page table, but maps same code by the same physical memory. 
+- Heavily used programs can also be shared - complier, run-time libraries, database system, and so on.
 
-
-#### Structure of the Page Table *
+#### Structure of the Page Table 
 
 Hierarchical Paging
 
