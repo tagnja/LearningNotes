@@ -1783,13 +1783,51 @@ I/O hardware
 - devices communicate with the computer via signals sent over wires or through the air.
 - Device connect with the computer via ports. eg a serial or parallel port.
 - A common set of wires connecting multiple device is termed a bus.
+- A general-purpose computer system consists of CPUs and multiple device controllers that are connected through a common bus that provides access to shared memory.
 
-Communication between Device and Computer.
+Basic Concept
 
-- One way of communicating with devices is through registers associated with each port. Register may be one of four bytes in size. An I/O port typically consist of  four registers, called (1)status, (2)control, (3)data-in, (4)data-out.
+- Device Controller
+  - Electronic component which control the device.
+  - Each device controller in charge of a specific types of devices. (1)Local Buffer Storage, (2)Set of special purpose registers.
+  - It may handle multiple devices.
+  - There may be more than one controller per mechanical component.
+  - Controller's tasks
+    - It converts serial bit stream to block of bytes.
+    - Perform error correction if necessary.
+    - Block of bytes is first assembled bit by bit in buffer inside the controller.
+      - After verification, the block has been declared to be error free, and then it can be copied to main memory.
+- Device driver
+  - Typically, operating systems have a device driver for each device controller.
+  - Device driver understands the device controller and presents a uniform interface to the device to the rest of the operating system.
 
-- Memory-Mapped I/O
-  - Another technique for communicating with device is memory-mapped I/O. 
+Communication between Device and CPU
+
+- An I/O port typically consist of  four registers, called (1)status, (2)control, (3)data-in, (4)data-out.
+- Each device controller has a few registers that are used for communicating with the CPU.
+- By writing into these registers, the OS can command the device to deliver data, accept data, switch its on or off, to perform some action.
+- By reading from these registers OS can know what the device's status is, whether it is prepared to accept a new command and so on.
+- There are two ways to communicate with control register  and device buffer.
+  - I/O port
+    - Using different address spaces for memory and I/O device.
+    - Using a special class of CPU instructions to access I/O devices.
+  - Memory mapper I/O
+    - Using same address space to address memory and I/O device.
+    - Access to the I/O device using regular instructions.
+
+Working of an I/O Operation
+
+- To start an I/O operation, the device driver loads the appropriate registers within then device controller.
+
+- The device controller, in turn, examines the contents of these registers to determine what action to take.
+
+- The controller starts the transfer of data from device to its local buffer.
+
+- Once the transfer of data is complete, the device controller informs the device driver via an interrupt that it has finished its operation.
+
+- The device driver then returns control to the operating system.
+
+- > This form of interrupt-driven I/O is fine for moving small amounts of data. For bulk data movement using Direct Memory Access (DMA).
 
 Polling
 
@@ -1799,7 +1837,7 @@ Interrupts
 
 - Interrupts allow devices to notify the CPU when they have data to transfer or when an operation is complete.
 
-Direct Memory Access
+Direct Memory Access (DMA)
 
 
 
