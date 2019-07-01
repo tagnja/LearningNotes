@@ -1331,31 +1331,80 @@ Linux on Pentium Systems
 <h3 id="vmem">9. Virtual Memory</h3>
 #### Background ~
 
-What is it
+Virtual memory
+
+- It's a technique that allows the execution of processes that are not completely in memory.
+- Major advantage. Programs can be lather than physical memory.
+- The entire program is not needed in memory. Some code may be used rarely, such as error handling code.
+- Benefits
+  - A program not be constrained by the amount of physical memory that is available.
+  - More programs could be run at the same time. Increasing CPU utilization and throughput.
 
 Virtual Address Space
+
+- Virtual memory involves segmentation of memory. a process refers to the logical view of how a process is stored in memory.
+
+  ```
+  ---------------
+  |    stack    |
+  ---------------
+  |      |      |
+  |      V      |
+  |
+  |      ^      |
+  |      |      |
+  ---------------
+  |    heap     |
+  ---------------
+  |    data     |
+  ---------------
+  |    code     |
+  ---------------
+  ```
 
 
 
 #### Demand Paging ~
 
+Demand Page. 
+
+- Implementation of virtual memory.
+- Pages are only loaded in memory when they are demanded during program execution.
+- Demand page using a lazy swapper.
+- Implement demand paging major problems: a frame-allocation algorithm and a page-replacement algorithm.
+
 Basic Concept
 
-- memory resident
+- memory resident. 
+  - All actual needed pages in memory. Access to a page marked valid. process execute proceeds normally.
 - page-fault trap
-- Implement demand paging major problems: a frame-allocation algorithm and a page-replacement algorithm.
+  - Access a page marked invalid cause a page-fault trap.
+  - Procedure for handling page fault
+    - check page table is a valid page.
+    - if reference was invalid, terminate the process by system trap.
+    - bring in massing page in memory from backing store.
+    - reset page table the page is valid now.
+    - restart instruction.
+- Pure Demand
+  - Never bring a page into memory until it is required.
+- Hardware support
+  - Page table. a valid-invalid bit.
+  - Secondary memory. a high-speed disk is swap device.
 
 Performance of Demand Paging
 
 - effective access time
+- Major component of the page fault service time
+  - Service the page-fault interrupt.
+  - Read in the page.
+  - Restart the process.
 - page fault rate
-
-
 
 #### Copy-on-Write ~
 
-What is it
+Copy-on-Write
 
+- Parent and child processes initially to share the same pages. If either process writes to a shared page, a copy of the page is created.
 - rapid process creation.
 - minimizes the number of new pages
 
@@ -1365,11 +1414,13 @@ What is it
 
 Basic Page Replacement
 
+- Swap out a process using page replacement, when a page fault occur but there are no free frames in memory. 
+
 FIFO Page Replacement Algorithm
 
 Optimal Page Replacement Algorithm
 
-LRU Page Replacement Algorithm
+LRU (least-recently-used) Page Replacement Algorithm
 
 LRU-Approximation page Replacement Algorithm
 
@@ -1387,11 +1438,19 @@ Minimum Number of Frames
 
 Allocation Algorithms
 
+- equal allocation
+- proportional allocation
+
 Global versus Local Allocation
 
-
+- Global replacement. Allows a process to select a replacement frame from all frames.
+- Local replacement. Each process select from only its own set of allocated frames.
 
 #### Thrashing
+
+Thrashing
+
+- High paging activity is called thrashing. A process is thrashing if it is spending more time paging than executing.
 
 Cause of Thrashing
 
