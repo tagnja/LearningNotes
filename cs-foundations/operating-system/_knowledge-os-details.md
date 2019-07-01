@@ -1402,8 +1402,9 @@ Performance of Demand Paging
 
 #### Copy-on-Write ~
 
-What is it
+Copy-on-Write
 
+- Parent and child processes initially to share the same pages. If either process writes to a shared page, a copy of the page is created.
 - rapid process creation.
 - minimizes the number of new pages
 
@@ -1413,11 +1414,13 @@ What is it
 
 Basic Page Replacement
 
+- Swap out a process using page replacement, when a page fault occur but there are no free frames in memory. 
+
 FIFO Page Replacement Algorithm
 
 Optimal Page Replacement Algorithm
 
-LRU Page Replacement Algorithm
+LRU (least-recently-used) Page Replacement Algorithm
 
 LRU-Approximation page Replacement Algorithm
 
@@ -1435,11 +1438,19 @@ Minimum Number of Frames
 
 Allocation Algorithms
 
+- equal allocation
+- proportional allocation
+
 Global versus Local Allocation
 
-
+- Global replacement. Allows a process to select a replacement frame from all frames.
+- Local replacement. Each process select from only its own set of allocated frames.
 
 #### Thrashing
+
+Thrashing
+
+- High paging activity is called thrashing. A process is thrashing if it is spending more time paging than executing.
 
 Cause of Thrashing
 
