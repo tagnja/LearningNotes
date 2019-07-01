@@ -1513,9 +1513,17 @@ I/O Interlock
 
 
 <h3 id="fsin">10. File-System Interface</h3>
+File System
+
+- File system consist of two parts: a collection of files each storing related data, and a directory structure, which organizes and provides information about all the files in the system.
+- File systems live on devices. 
+
 #### File Concept ~
 
-What is a File
+File
+
+- The operating system provides a uniform logical view of information storage. 
+- It abstracts from the physical properties of its storage devices to define a logical storage unit, the file.
 
 File Attributes
 
@@ -1578,6 +1586,8 @@ Consistency Semantics
 Types of Access
 
 Access Control
+
+- Access Control List (ACL). Owner, Group, Universe access control scheme.
 
 Other Protection Approaches
 
@@ -1770,11 +1780,24 @@ What is it
 
 I/O hardware
 
-Memory-Mapped I/O
+- devices communicate with the computer via signals sent over wires or through the air.
+- Device connect with the computer via ports. eg a serial or parallel port.
+- A common set of wires connecting multiple device is termed a bus.
+
+Communication between Device and Computer.
+
+- One way of communicating with devices is through registers associated with each port. Register may be one of four bytes in size. An I/O port typically consist of  four registers, called (1)status, (2)control, (3)data-in, (4)data-out.
+
+- Memory-Mapped I/O
+  - Another technique for communicating with device is memory-mapped I/O. 
 
 Polling
 
+- One simple means of device handshaking involves polling.
+
 Interrupts
+
+- Interrupts allow devices to notify the CPU when they have data to transfer or when an operation is complete.
 
 Direct Memory Access
 
