@@ -33,6 +33,7 @@ It's my learning notes.
   - Relational Databases
   - NoSQL Databases
 - Distributed System
+- AI
 - DevOps
   - [Linux](dev-ops/linux)
   - Docker
