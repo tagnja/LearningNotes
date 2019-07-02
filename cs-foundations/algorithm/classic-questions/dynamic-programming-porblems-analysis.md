@@ -11,7 +11,7 @@
   - [x] [Longest Increasing Subsequence(LIS)](#lisu)
   - [x] [The Levenshtein distance (Edit distance)](#tldi)
   - Matrix Chain Multiplication
-  - 0–1 Knapsack problem
+  - [0–1 Knapsack problem](#01kp)
   - Partition problem
   - Rod Cutting
   - Coin change problem
@@ -1037,7 +1037,50 @@ T(n) = O(mn), S(n) = O(mn)
 
 ---
 
+<h3 id="01kp"></h3>
 
+### 0–1 Knapsack problem
+
+#### Description
+
+In 0-1 Knapsack problem, we are given a set of items, each with a weight and a value and we need to determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.
+
+Please note that the items are indivisible; we can either take an item or not (0-1 property). For example,
+
+**Input:**
+value = [ 20, 5, 10, 40, 15, 25 ]
+weight = [ 1, 2, 3, 8, 7, 4 ]
+int W = 10
+
+**Output:** Knapsack value is 60
+
+value = 20 + 40 = 60
+weight = 1 + 8 = 9 < W 
+
+#### Solutions
+##### 1\. Find the Relation of Optimal Substructure
+Recursion Implementation (Top-down)
+##### 2\. Remove Overlapping subproblems by DP
+Dynamic Programming Implementation (Top-down Approach) 
+Dynamic Programming Implementation (Bottom-up Approach)
+
+
+
+#### Exercise
+Printing xxx
+Write space optimized code for iterative version
+
+
+
+#### References
+
+[0-1 Knapsack problem - Techie Delight](https://www.techiedelight.com/0-1-knapsack-problem/)
+
+
+
+[`back to content`](#content)
+
+---
 
 
 
