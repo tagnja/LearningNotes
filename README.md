@@ -8,11 +8,14 @@ It's my learning notes.
 - CS Foundations
   - [Algorithm](cs-foundations/algorithm)
   - [Operating System](cs-foundations/operating-system)
-- Java Web
-  - [JavaSE](java-web/basic)
+  - [Computer Networks](cs-foundations/network)
+- Java
+  - [Java SE](java/java-se)
+  - Java Web
 - Frontend
   - [JavaScript](front-end/javascript)
   - [jQuery](front-end/jquery)
+- Databases
 - DevOps
   - [Linux](dev-ops/linux)
 - Tools
