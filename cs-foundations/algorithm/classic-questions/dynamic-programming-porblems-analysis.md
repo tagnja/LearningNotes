@@ -1,7 +1,6 @@
 # Dynamic Programming Problems Analysis
 
 <h3 id="content">Content</h3>
-
 - [Introduction](#intr)
 - I. Classic Problems
   - [x] [Longest Common Subsequence (LCS)](#lcs)
@@ -106,7 +105,6 @@ Write space optimized code for iterative version
 
 
 <h3 id="intr">Introduction</h3>
-
 #### Dynamic Programming
 
 **Dynamic programming** is a method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just once, and storing their solutions using a memory-based data structure (array, map,etc). Each of the subproblem solutions is indexed in some way, typically based on the values of its input parameters, so as to facilitate its lookup. So the next time the same subproblem occurs, instead of recomputing its solution, one simply looks up the previously computed solution, thereby saving computation time. This technique of storing solutions to subproblems instead of recomputing them is called **memoization**.
@@ -227,7 +225,6 @@ References
 
 
 <h3 id="lcs">Longest Common Subsequence</h3>
-
 
 
 #### Description
@@ -387,7 +384,6 @@ Printing Longest Common Subsequence
 
 
 <h3 id="scsu">Shortest Common Supersequence</h3>
-
 
 
 #### Description
@@ -612,7 +608,6 @@ Write space optimized code for iterative version
 
 
 <h3 id="lisu">Longest Increasing Subsequence</h3>
-
 
 
 #### Description
@@ -842,24 +837,192 @@ References
 <h3 id="tldi">The Levenshtein distance (Edit distance)</h3>
 
 
-
 #### Description
+
+The Levenshtein distance between two words is the minimum number of single-character edits (i.e. insertions, deletions or substitutions) required to change one word into the other. Each of these operations has unit cost.
+ 
+
+For example, the Levenshtein distance between `kitten` and `sitting` is 3. A minimal edit script that transforms the former into the latter is:
+
+```
+kitten -> sitten (substitution of s for k)
+sitten -> sittin (substitution of i for e)
+sittin -> sitting (insertion of g at the end)
+```
 
 
 
 #### Solutions
 ##### 1\. Find the Relation of Optimal Substructure
+
+```
+             | max(i, j)                       when min(i, j) = 0
+             
+dist[i][j] = | dist[i - 1][j - 1]              when X[i-1] == Y[j-1]
+             
+             | 1 + minimum { dist[i - 1][j],   when X[i-1] != Y[j-1]
+             |               dist[i][j - 1],
+             |               dist[i - 1][j - 1] }
+```
+
 Recursion Implementation (Top-down)
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int min(int x, int y, int z)
+{
+	if (x < y)
+	{
+		return x < z ? x : z;
+	}
+	else
+	{
+		return y < z ? y : z;
+	}
+}
+
+int dist(string X, string Y, int m, int n)
+{
+	if (m == 0 || n == 0)
+	{
+		return m + n;
+	}
+	
+	if (X[m-1] == Y[n-1])
+	{
+		return dist(X, Y, m - 1, n -1);
+	}
+	else
+	{
+		return 1 + min(dist(X, Y, m, n - 1), dist(X, Y, m-1, n-1), dist(X, Y, m-1, n-1));
+	}
+}
+
+int main()
+{
+	string X = "kitten", Y = "sitting";  // result is 3
+	cout << "The Levenshtein distance is " << dist(X, Y, X.length(), Y.length());
+	return 0;
+}
+```
+
+T(n) = O(4^m+n), S(n) = O(1)
+
 ##### 2\. Remove Overlapping subproblems by DP
 Dynamic Programming Implementation (Top-down Approach) 
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int min(int x, int y, int z)
+{
+	if (x < y)
+	{
+		return x < z ? x : z;
+	}
+	else
+	{
+		return y < z ? y : z;
+	}
+}
+
+int dist(string X, string Y, int m, int n, auto &lookup)
+{
+	if (m == 0 || n == 0)
+	{
+		return m + n;
+	}
+	string key = m + "|" + n;
+	if (lookup.find(key) == lookup.end())
+	{
+		if (X[m-1] == Y[n-1])
+		{
+			lookup[key] = dist(X, Y, m - 1, n -1, lookup);
+		}
+		else
+		{
+			lookup[key] = 1 + min(dist(X, Y, m, n - 1, lookup), dist(X, Y, m-1, n-1, lookup), dist(X, Y, m-1, n-1, lookup));
+		}
+	}
+	return lookup[key];
+}
+
+int main()
+{
+	string X = "kitten", Y = "sitting";  // result is 3
+	unordered_map<string, int> lookup;
+	cout << "The Levenshtein distance is " << dist(X, Y, X.length(), Y.length(), lookup);
+	return 0;
+}
+```
+
+T(n) = O(mn), S(n) = O(mn)
+
 Dynamic Programming Implementation (Bottom-up Approach)
 
+```cpp
+#include <iostream>
+using namespace std;
 
+int min(int x, int y, int z)
+{
+	if (x < y)
+	{
+		return x < z ? x : z;
+	}
+	else
+	{
+		return y < z ? y : z;
+	}
+}
+
+int dist(string X, string Y)
+{
+	int m = X.length(), n = Y.length();
+	int dist[m+1][n+1] = {0};
+	
+	for (int i = 0; i < m+1; i++)
+	{
+		dist[i][0] = i;
+	}
+	
+	for (int j = 0; j < n+1; j++)
+	{
+		dist[0][j] = j;
+	}
+	
+	for (int i = 1; i < m+1; i++)
+	{
+		for (int j = 1; j < n+1; j++)
+		{
+			if (X[i - 1] == Y[j - 1])
+			{
+				dist[i][j] = dist[i-1][j-1];
+			}
+			else
+			{
+				dist[i][j] = 1 + min(dist[i-1][j], dist[i-1][j-1], dist[i][j-1]);
+			}
+		}
+	}
+	return dist[m][n];
+}
+
+int main()
+{
+	string X = "kitten", Y = "sitting";  // result is 3
+	cout << "The Levenshtein distance is " << dist(X, Y);
+	return 0;
+}
+```
+
+T(n) = O(mn), S(n) = O(mn)
 
 #### Exercise
-Printing xxx
-Write space optimized code for iterative version
-
 
 
 #### References
