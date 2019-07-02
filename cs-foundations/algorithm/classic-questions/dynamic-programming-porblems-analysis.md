@@ -1,12 +1,15 @@
 # Dynamic Programming Problems Analysis
 
-<h3 id="content">Content</h3>
+<h3 id="content"></h3>
+
+### Content
+
 - [Introduction](#intr)
 - I. Classic Problems
   - [x] [Longest Common Subsequence (LCS)](#lcs)
   - [x] [Shortest Common Supersequence(SCS)](#scsu)
   - [x] [Longest Increasing Subsequence(LIS)](#lisu)
-  - [The Levenshtein distance (Edit distance)](#tldi)
+  - [x] [The Levenshtein distance (Edit distance)](#tldi)
   - Matrix Chain Multiplication
   - 0–1 Knapsack problem
   - Partition problem
@@ -104,7 +107,10 @@ Write space optimized code for iterative version
 
 
 
-<h3 id="intr">Introduction</h3>
+<h3 id="intr"></h3>
+
+### Introduction
+
 #### Dynamic Programming
 
 **Dynamic programming** is a method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just once, and storing their solutions using a memory-based data structure (array, map,etc). Each of the subproblem solutions is indexed in some way, typically based on the values of its input parameters, so as to facilitate its lookup. So the next time the same subproblem occurs, instead of recomputing its solution, one simply looks up the previously computed solution, thereby saving computation time. This technique of storing solutions to subproblems instead of recomputing them is called **memoization**.
@@ -225,7 +231,6 @@ References
 
 
 <h3 id="lcs">Longest Common Subsequence</h3>
-
 
 #### Description
 
@@ -384,7 +389,6 @@ Printing Longest Common Subsequence
 
 
 <h3 id="scsu">Shortest Common Supersequence</h3>
-
 
 #### Description
 
@@ -608,7 +612,6 @@ Write space optimized code for iterative version
 
 
 <h3 id="lisu">Longest Increasing Subsequence</h3>
-
 
 #### Description
 
@@ -836,11 +839,10 @@ References
 
 <h3 id="tldi">The Levenshtein distance (Edit distance)</h3>
 
-
 #### Description
 
 The Levenshtein distance between two words is the minimum number of single-character edits (i.e. insertions, deletions or substitutions) required to change one word into the other. Each of these operations has unit cost.
- 
+
 
 For example, the Levenshtein distance between `kitten` and `sitting` is 3. A minimal edit script that transforms the former into the latter is:
 
@@ -908,7 +910,7 @@ int main()
 }
 ```
 
-T(n) = O(4^m+n), S(n) = O(1)
+T(n) = O(3^n), S(n) = O(1)
 
 ##### 2\. Remove Overlapping subproblems by DP
 Dynamic Programming Implementation (Top-down Approach) 
