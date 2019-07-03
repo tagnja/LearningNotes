@@ -12,7 +12,6 @@
 ### Main
 
 <h3 id="intr"></h3>
-
 ### Introduction
 
 #### Uses of Computer Networks
@@ -50,9 +49,13 @@ Scale
   - ISP network
   - wireless technology. Satellite system, cellular telephone network.
 
-#### Network Software // TODO
+#### Network Software
 
 - Protocol Hierarchies
 
 #### Reference Models
+
+- OSI (Open Systems Interconnection) Reference Model 
+- TCP/IP Reference Model
+- Five Layers Model
 
