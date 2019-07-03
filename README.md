@@ -12,17 +12,24 @@ It's my learning notes.
 - Languages 
   - [Java SE](languages/java-se)
 - Web Development
+  - Protocols
+    - HTTP, HTTPS, HTTP/2
+  - Servers
+    - Apache Tomcat
+    - Nginx
+  - Web Security
   - Web Frontend
+    - HTML
+    - CSS
     - [JavaScript](front-end/javascript)
+    - Bootstrap
     - [jQuery](front-end/jquery)
     - Vue.js
+    - Node.js
   - Java Web
     - Web Basic
       - Java Servlet
-      - JDBC
-      - HTTP, HTTPS, HTTP/2
-      - Apache Tomcat
-      - Nginx
+      - JDBC, Connection Pools
     - Web Frameworks
       - Spring Framework
       - Swagger
@@ -30,6 +37,7 @@ It's my learning notes.
     - Persistence Framework 
       - MyBatis
       - Hibernate
+    - Schedule
     - Workflow Engine
       - Activiti
     - Search Engine
@@ -39,12 +47,12 @@ It's my learning notes.
       - Apache Nutch
 - Network Programming
   - TCP/IP
+  - Socket
+  - Web Socket
+  - NIO & Netty
   - RPC
     - Web Service
     - Apache Thrift
-  - Socket
-  - Web Socket
-  - Netty
 - Database Programming
   - Cache
   - Relational Databases
@@ -57,7 +65,11 @@ It's my learning notes.
   - Kubernates
   - Jenkins
 - Test
+  - Unit test
+  - Mock
+  - Performance test
 - Tools
+  - version control, project build, IDE, Editor.
   - [maven](tools/maven)
   - [Git](tools/git)
 - Distributed System
@@ -86,11 +98,12 @@ It's my learning notes.
   	- HAProxy
   	- nginx
   	- squid 
-  - Centralized Service
+  - Distribute Collaboration (Centralized Service)
     - Apache Zookeeper
     - Apache Dubbo
   - Big Data
     - Apache Hadoop
+  - Microservice
   - Others
     - Elasticsearch
 - AI
