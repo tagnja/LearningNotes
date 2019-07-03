@@ -1,6 +1,9 @@
 # Backtracking Problems Analysis
 
-<h3 id="content">Content</h3>
+<h3 id="content"></h3>
+
+### Content
+
 - Convention
 - [Introduction to Backtracking Programming](#intr)
 - Top Problems

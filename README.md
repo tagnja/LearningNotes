@@ -6,8 +6,8 @@ It's my learning notes.
 ### My Learning Notes
 
 - CS Foundations
-  - [Algorithm](cs-foundations/algorithm)
-  - [Operating System](cs-foundations/operating-system)
+  - [Data Structure and Algorithms](cs-foundations/algorithm)
+  - [Operating System Concepts](cs-foundations/operating-system)
   - [Computer Networks](cs-foundations/network)
 - Languages 
   - [Java SE](languages/java-se)
