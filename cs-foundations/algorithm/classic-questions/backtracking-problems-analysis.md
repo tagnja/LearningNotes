@@ -1,7 +1,6 @@
 # Backtracking Problems Analysis
 
 <h3 id="content"> </h3>
-
 ### Content
 
 - Convention
@@ -61,7 +60,8 @@
 
 ### Main
 
-<h3 id="intr"></h3>
+<h3 id="intr"></h3><br>
+
 ### Introduction to Backtracking Programming
 
 **Backtracking** can be defined as a general algorithmic technique that considers searching every possible combination in order to solve a computational problem.
@@ -113,7 +113,6 @@ References
 ### Top Problems
 
 <h3 id="ktpr"> </h3><br>
-
 ### Knight’s Tour Problem
 
 #### Description
@@ -223,8 +222,11 @@ int main()
 #### References
 
 [1] [Knight's tour - wikipedia]([https://en.wikipedia.org/wiki/Knight%27s_tour](https://en.wikipedia.org/wiki/Knight's_tour))
+
 [2] [Print all Possible Knight’s Tours in a chessboard - Techie Delight](https://www.techiedelight.com/print-possible-knights-tours-chessboard/)
+
 [3] [Chess Knight Problem | Find Shortest path from source to destination - Techie Delight](https://www.techiedelight.com/chess-knight-problem-find-shortest-path-source-destination/)
+
 [4] [The Knight’s tour problem | Backtracking-1 - geeksforgeeks](https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/)
 
 [`back to content`](#content)
@@ -232,7 +234,6 @@ int main()
 ---
 
 <h3 id="nqpr"> </h3><br>
-
 ### N Queens Problem
 
 #### Description
@@ -352,7 +353,7 @@ int main()
 
 #### References
 
-[Print all possible solutions to N Queens problem - Techie Delight](https://www.techiedelight.com/print-possible-solutions-n-queens-problem/)
+[1] [Print all possible solutions to N Queens problem - Techie Delight](https://www.techiedelight.com/print-possible-solutions-n-queens-problem/)
 
 [`back to content`](#content)
 
@@ -365,6 +366,10 @@ int main()
 ### References
 
 [1] [Top 20 Backtracking Algorithm Interview Questions - geeksforgeeks](https://www.geeksforgeeks.org/top-20-backtracking-algorithm-interview-questions/)
+
 [2] [TOP 10 INTERVIEW PROBLEMS ON BACKTRACKING - algorithms](https://algorithms.tutorialhorizon.com/top-10-problems-on-backtracking/)
+
 [3] [backtracking problems - techiedelight](https://www.techiedelight.com/Category/backtracking/)
+
 [4] [Backtracking Algorithms - geeksforgeeks](https://www.geeksforgeeks.org/backtracking-algorithms/)
+
