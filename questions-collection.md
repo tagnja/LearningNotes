@@ -9,6 +9,7 @@
 ### Languages 
 
 - Java SE
+- [Java Code Questions](https://github.com/tagnja/code-questions/blob/master/README.md)
 
 ### Web Development
 
