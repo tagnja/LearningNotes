@@ -1,6 +1,7 @@
 # Backtracking Problems Analysis
 
-<h3 id="content"></h3>
+<h3 id="content"> </h3>
+
 ### Content
 
 - Convention
@@ -111,7 +112,8 @@ References
 
 ### Top Problems
 
-<h3 id="ktpr"></h3>
+<h3 id="ktpr"> </h3><br>
+
 ### Knight’s Tour Problem
 
 #### Description
@@ -126,8 +128,10 @@ Knight can move in 8 possible directions from a given square.
 
 Using arrays stores the relative position of Knight movement from any location. If current location is (x, y), Knight can move to (x+row[k], y+col[k]) for 0 <= k <= 7 using below array.
 
+```
 row[] = [ 2, 1, -1, -2, -2, -1, 1, 2, 2 ]
 col[] = [ 1, 2, 2, 1, -1, -2, -2, -1, 1 ]
+```
 
 Print all Possible Knight’s Tours in a chessboard
 
@@ -227,7 +231,8 @@ int main()
 
 ---
 
-<h3 id="nqpr"></h3>
+<h3 id="nqpr"> </h3><br>
+
 ### N Queens Problem
 
 #### Description
@@ -236,6 +241,7 @@ The N queens puzzle is the problem of placing N chess queens on an N × N chessb
 
 For example, for standard 8 × 8 chessboard below is one such configuration –
 
+```
 Q – – – – – – –
 – – – – Q – – –
 – – – – – – – Q
@@ -244,6 +250,7 @@ Q – – – – – – –
 – – – – – – Q –
 – Q – – – – – –
 – – – Q – – – –
+```
 
 Note that the solution exist for all natural numbers n with the exception of n = 2 and n = 3.
 
