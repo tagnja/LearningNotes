@@ -8,7 +8,7 @@
 - Top Problems
   - [Knight’s Tour Problem](#ktpr)
   - Rat In A Maze Puzzle
-  - N Queens Problem
+  - [N Queens Problem](#nqpr)
   - The Word Break Problem
   - Print All The Permutations Of a String
   - Search a Word In a Matrix
@@ -116,7 +116,9 @@ References
 
 #### Description
 
-A [knight's tour](https://en.wikipedia.org/wiki/Knight%27s_tour) is a sequence of moves of a knight on a chessboard such that the knight visits every square only once. If the knight ends on a square that is one knight's move from the beginning square (so that it could tour the board again immediately, following the same path), the tour is closed, otherwise it is open
+Given a chess board, print all sequences of moves of a knight on a chessboard such that the knight visits every square only once.
+
+> A [knight's tour](https://en.wikipedia.org/wiki/Knight%27s_tour) is a sequence of moves of a knight on a chessboard such that the knight visits every square only once. If the knight ends on a square that is one knight's move from the beginning square (so that it could tour the board again immediately, following the same path), the tour is closed, otherwise it is open.
 
 #### Solutions
 
@@ -127,9 +129,11 @@ Using arrays stores the relative position of Knight movement from any location. 
 row[] = [ 2, 1, -1, -2, -2, -1, 1, 2, 2 ]
 col[] = [ 1, 2, 2, 1, -1, -2, -2, -1, 1 ]
 
+Print all Possible Knight’s Tours in a chessboard
+
 ```cpp
 #include <iostream>
-#include <string>
+#include <cstring>
 using namespace std;
 
 // N*N chessboard
@@ -193,14 +197,19 @@ int main()
 	// visited[][] serves two purpose -
     // 1. It keep track of squares involved the Knight's tour.
     // 2. It stores the order in which the squares are visited
-	int visited[N][N] = {0};
-
+	int visited[N][N];
+	
+	// initialize visited[][] by 0 (unvisited)
+	memset(visited, 0, sizeof visited);
+	
 	int pos = 1;
 	
 	// start knight tour from corner square (0, 0)
 	KnightTour(visited, 0, 0, pos); // 5*5, has 304 knight's tour.
 	return 0;
 }
+
+// T(n) = O(8^(N^2)), S(n) = O(N^2)
 ```
 
 
@@ -213,6 +222,130 @@ int main()
 [2] [Print all Possible Knight’s Tours in a chessboard - Techie Delight](https://www.techiedelight.com/print-possible-knights-tours-chessboard/)
 [3] [Chess Knight Problem | Find Shortest path from source to destination - Techie Delight](https://www.techiedelight.com/chess-knight-problem-find-shortest-path-source-destination/)
 [4] [The Knight’s tour problem | Backtracking-1 - geeksforgeeks](https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/)
+
+[`back to content`](#content)
+
+---
+
+<h3 id="nqpr"></h3>
+### N Queens Problem
+
+#### Description
+
+The N queens puzzle is the problem of placing N chess queens on an N × N chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal.
+
+For example, for standard 8 × 8 chessboard below is one such configuration –
+
+Q – – – – – – –
+– – – – Q – – –
+– – – – – – – Q
+– – – – – Q – –
+– – Q – – – – –
+– – – – – – Q –
+– Q – – – – – –
+– – – Q – – – –
+
+Note that the solution exist for all natural numbers n with the exception of n = 2 and n = 3.
+
+#### Solutions
+
+Print all possible solutions to N Queens problem
+
+```cpp
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+#define N 8
+
+int count = 0;
+
+bool isSafe(char mat[][N], int row, int col)
+{
+	for (int i = 0; i < row; i++)
+	{
+		if (mat[i][col] == 'Q')
+		{
+			return false;
+		}
+	}
+	
+	for (int i = row, j = col; i >= 0 && j >= 0; i--, j--)
+	{
+		if (mat[i][j] == 'Q')
+		{
+			return false;
+		}
+	}
+	
+	for (int i = row, j = col; i >= 0 && j < N; i--, j++)
+	{
+		if (mat[i][j] == 'Q')
+		{
+			return false;
+		}
+	}
+	
+	return true;
+}
+
+void NQueen(char mat[][N], int row)
+{	
+	if (row == N)
+	{
+		cout << ++count << endl;
+		for (int i = 0; i < N; i++)
+		{
+			for (int j = 0; j < N; j++)
+			{
+				cout << mat[i][j] << " ";
+			}
+			cout << endl;
+		}
+		cout << endl;
+		return;
+	}
+	
+	// place Queen at every square in current row r
+    // and recur for each valid movement 
+	for (int k = 0; k < N; k++)
+	{
+		if (isSafe(mat, row, k))
+		{
+			// place queen on current square
+			mat[row][k] = 'Q';
+			// recur for next row
+			NQueen(mat, row+1);
+			// backtrack and remove queen from current square ??? TODO
+			mat[row][k] = '-';
+		}
+	}
+	return;
+}
+
+int main()
+{
+	// mat[][] keeps track of position of Queens in current configuration
+	char mat[N][N];
+	
+	// initalize mat[][] by '-'
+    memset(mat, '-', sizeof mat);
+	
+	int row = 0;
+	NQueen(mat, row); // N=8 has 92 possible N-Queen result 
+	return 0;
+}
+
+// T(n) = O(N^N), S(n) = O(N^2)
+```
+
+
+
+#### Exercise
+
+#### References
+
+[Print all possible solutions to N Queens problem - Techie Delight](https://www.techiedelight.com/print-possible-solutions-n-queens-problem/)
 
 [`back to content`](#content)
 
