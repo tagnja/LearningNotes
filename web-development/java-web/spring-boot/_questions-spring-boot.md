@@ -57,7 +57,7 @@ or
 
 References
 
-[What does spring-boot-starter-parent exactly do in pom file? - stack overflow](https://stackoverflow.com/questions/43305016/what-does-spring-boot-starter-parent-exactly-do-in-pom-file)]
+[What does spring-boot-starter-parent exactly do in pom file? - stack overflow](https://stackoverflow.com/questions/43305016/what-does-spring-boot-starter-parent-exactly-do-in-pom-file)
 
 [Spring-boot-starter-parent Example](https://howtodoinjava.com/spring-boot2/spring-boot-starter-parent-dependency/)
 

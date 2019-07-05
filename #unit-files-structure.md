@@ -7,6 +7,7 @@ Unit-x
 - _note-important-{unit}.md
 - _questions-{unit}.md
 - _summary-{unit}.md
+- README.md
 - /articles
   - My articles for Core Content Illustration
   - My articles for hard Content Illustration
