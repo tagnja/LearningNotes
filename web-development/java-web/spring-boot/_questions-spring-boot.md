@@ -3,6 +3,7 @@
 ### Content
 
 - What does spring-boot-starter-parent exactly do in pom file
+- What is the function of spring-boot-starter-web  dependency
 
 
 
@@ -46,3 +47,10 @@ References
 
 Spring boot reference documentation
 
+---
+
+### What is the function of spring-boot-starter-web  dependency
+
+It provides common configuration and dependencies for current project.
+
+complete configuration of spring-boot-starter-web  refer to [spring-boot-starter-web/pom.xml](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-starters/spring-boot-starter-web/pom.xml)
