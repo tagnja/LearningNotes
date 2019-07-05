@@ -5,12 +5,13 @@
 - What is spring boot? Why need to use spring boot? How to use? Its pros and cons?
 - What does spring-boot-starter-parent exactly do in pom file
 - What is the function of spring-boot-starter-web  dependency
+- Spring Boot Work Principles
 
 
 
 ### Main
 
-### What is spring boot?  Why need to use it?  How to use?  Its pros and cons?
+### What is spring boot?  
 
 **What is Spring Boot**
 
