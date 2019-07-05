@@ -3,7 +3,7 @@
 Unit-x
 
 - README.md
-- _note-{unit}.md
+- _note-important-{unit}.md
 - _questions-{unit}.md
 - _summary-{unit}.md
 - _knowledge-{unit}.md
