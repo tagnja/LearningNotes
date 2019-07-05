@@ -10,13 +10,13 @@
 
 ### Main
 
-### What is spring boot?  Why need to use spring boot?  How to use?  Its pros and cons?
+### What is spring boot?  Why need to use it?  How to use?  Its pros and cons?
 
 **What is Spring Boot**
 
 - It is a tool. It providing configurations in pom.xml (such as properties, dependencies, and plugins), some annotation, and some code library. It makes you less concerned about configuration and dependencies. Fastly developing Spring-based application.
 
-**Why need to use Spring Boot**
+**Why need to use it**
 
 **How to use**
 
