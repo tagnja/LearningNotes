@@ -1,8 +1,8 @@
 # Data Structure & Algorithms Notes
 
+### Content
 
-
-<h3 id="content">Content</h3>
+<h3 id="content"></h3>
 
 - Data Structure
   - [Efficiency and Application](#effi)
@@ -22,7 +22,6 @@
 ### Data Structure
 
 <h3 id="effi"># Efficiency and Application</h3>
-
 Random Access
 
 - Array List, T(n) = O(1)
@@ -51,7 +50,6 @@ LIFO
 <h3 id="gam"># Greedy Algorithm</h3>
 
 
-
 - Find a greedy principle.
 
 
@@ -65,7 +63,6 @@ LIFO
 
 
 <h3 id="dpg"># Dynamic Programming</h3>
-
 
 
 **Process**
@@ -155,7 +152,6 @@ View -> [Classic DP Questions Analysis](classic-questions/dp-questions-analysis.
 <h3 id="btg">Backtracking</h3>
 
 
-
 **Classic Questions**
 
 - N queens problem
@@ -171,7 +167,6 @@ View -> [Classic DP Questions Analysis](classic-questions/dp-questions-analysis.
 
 
 <h3 id="bac">Divide and Conquer</h3>
-
 `
 
 [back to content](#content)
@@ -286,7 +281,6 @@ T(n) = O(n^2)
 <h3 id="bsh"># Binary Searching</h3>
 
 
-
 [back to content](#content)
 
 ----
@@ -294,7 +288,6 @@ T(n) = O(n^2)
 ### Graph Algorithms
 
 <h3 id="dab"># DFS and BFS</h3>
-
 
 
 [back to content](#content)
