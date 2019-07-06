@@ -1,7 +1,8 @@
 # Backtracking Problems Analysis
 
-<h3 id="content"> </h3>
 ### Content
+
+<h3 id="content"> </h3>
 
 - Convention
 - [Introduction to Backtracking Programming](#intr)
@@ -60,8 +61,11 @@
 
 ### Main
 
-<h3 id="intr"></h3><br>
+
+
 ### Introduction to Backtracking Programming
+
+<h3 id="intr"></h3><br>
 
 What is it
 
@@ -113,8 +117,11 @@ References
 
 ### Top Problems
 
-<h3 id="ktpr"> </h3><br>
+
+
 ### Knight’s Tour Problem
+
+<h3 id="ktpr"> </h3><br>
 
 #### Description
 
@@ -234,8 +241,11 @@ int main()
 
 ---
 
-<h3 id="nqpr"> </h3><br>
+
+
 ### N Queens Problem
+
+<h3 id="nqpr"> </h3><br>
 
 #### Description
 

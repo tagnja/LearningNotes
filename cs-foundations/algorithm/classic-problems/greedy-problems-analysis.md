@@ -1,6 +1,9 @@
 # Greedy Algorithm Problems Analysis
 
-<h3 id="content">Content</h3>
+### Content
+
+<h3 id="content"></h3>
+
 - Convention
 - [Introduction to Greedy Algorithms](#intr)
 - Classic Problems
@@ -52,9 +55,11 @@
 
 ### Main
 
-<h3 id="intr"> </h3><br>
+
 
 ### Introduction to Greedy Algorithms
+
+<h3 id="intr"></h3>
 
 **What is it**
 
@@ -78,9 +83,11 @@ References
 
 ### Top Problems
 
-<h3 id="acpr"> </h3><br>
+
 
 ### Activity Selection Problem
+
+<h3 id="acpr"></h3>
 
 #### Description
 

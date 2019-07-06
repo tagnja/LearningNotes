@@ -1,7 +1,8 @@
 # Dynamic Programming Problems Analysis
 
-<h3 id="content"></h3>
 ### Content
+
+<h3 id="content"></h3>
 
 - [Introduction](#intr)
 - I. Classic Problems
@@ -104,10 +105,9 @@ Write space optimized code for iterative version
 
 
 
-
+### Introduction
 
 <h3 id="intr"></h3>
-### Introduction
 
 #### Dynamic Programming
 
@@ -226,9 +226,10 @@ References
 
 ### I. Classic Problems
 
+### Longest Common Subsequence
 
+<h3 id="lcs"></h3>
 
-<h3 id="lcs">Longest Common Subsequence</h3>
 #### Description
 
 The longest common subsequence (LCS) problem is the problem of finding the longest subsequence that is present in given two sequences in the same order. i.e. find a longest sequence which can be obtained from the first original sequence by deleting some items, and from the second original sequence by deleting other items.
@@ -385,7 +386,10 @@ Printing Longest Common Subsequence
 
 
 
-<h3 id="scsu">Shortest Common Supersequence</h3>
+### Shortest Common Supersequence
+
+<h3 id="scsu"></h3>
+
 #### Description
 
 The shortest common supersequence (SCS) is the problem of finding the shortest supersequence Z of given sequences X and Y such that both X & Y are subsequences of Z.
@@ -605,9 +609,10 @@ Write space optimized code for iterative version
 
 ---
 
+### Longest Increasing Subsequence
 
+<h3 id="lisu"></h3>
 
-<h3 id="lisu">Longest Increasing Subsequence</h3>
 #### Description
 
 The longest increasing subsequence problem is to find a subsequence of a given sequence in which the subsequence’s elements are in sorted order, lowest to highest, and in which the subsequence is as long as possible. This subsequence is not necessarily contiguous, or unique.
@@ -832,7 +837,10 @@ References
 
 
 
-<h3 id="tldi">The Levenshtein distance (Edit distance)</h3>
+### The Levenshtein distance (Edit distance)
+
+<h3 id="tldi"></h3>
+
 #### Description
 
 The Levenshtein distance between two words is the minimum number of single-character edits (i.e. insertions, deletions or substitutions) required to change one word into the other. Each of these operations has unit cost.
@@ -1031,8 +1039,11 @@ T(n) = O(mn), S(n) = O(mn)
 
 ---
 
-<h3 id="01kp"></h3>
+
+
 ### 0–1 Knapsack problem
+
+<h3 id="01kp"></h3>
 
 #### Description
 

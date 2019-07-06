@@ -1,6 +1,8 @@
 # Graph Problems Analysis
 
-<h3 id="content">Content</h3>
+### Content
+
+<h3 id="content"></h3>
 
 - Problems
   
