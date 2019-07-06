@@ -2,7 +2,7 @@
 
 ### Content
 
-<h3 id="content"> </h3>
+<h3 id="content"></h3>
 
 - Convention
 - [Introduction to Backtracking Programming](#intr)
@@ -65,7 +65,7 @@
 
 ### Introduction to Backtracking Programming
 
-<h3 id="intr"></h3><br>
+<h3 id="intr"></h3>
 
 What is it
 
@@ -121,7 +121,7 @@ References
 
 ### Knight’s Tour Problem
 
-<h3 id="ktpr"> </h3><br>
+<h3 id="ktpr"> </h3>
 
 #### Description
 
@@ -245,8 +245,7 @@ int main()
 
 ### N Queens Problem
 
-<h3 id="nqpr"> </h3><br>
-
+<h3 id="nqpr"> </h3>
 #### Description
 
 The N queens puzzle is the problem of placing N chess queens on an N × N chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal.
