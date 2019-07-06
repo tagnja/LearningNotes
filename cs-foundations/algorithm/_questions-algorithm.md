@@ -1,7 +1,6 @@
 # Algorithms Common Questions
 
 <h3 id="content">Content</h3>
-
 - Data Structure
   - Common
     - [What is Data Structure](#wds)
@@ -15,7 +14,7 @@
     - [DFS/BFS of Tree](dbt)
     - Nodes and Levels.
   - Graph
-    - vertex and edge.
+    - What differences between Adjacency Matrix and Adjacency List
 - Algorithms
   - [What is algorithm](#wia)
   - [Which Are Common Algorithms](#wca)
@@ -29,7 +28,6 @@
 ### Data Structure
 
 <h3 id="wds"># What is Data Structure</h3>
-
 > Data structure is a data organization, management and storage format that enables efficient access and modification. 
 > More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data
 > --by Wikipedia
@@ -53,7 +51,6 @@ References:
 ---
 
 <h3 id="adt"># Abstract Data Type</h3>
-
 Abstract Data type (ADT) is a type (or class) for objects whose behavior is defined by a set of value and a set of operations.
 
 **List ADT**
@@ -137,7 +134,6 @@ References:
 ---
 
 <h3 id="wcd"># Which are Common Data Structures</h3>
-
 - Array
 - Stack
 - Queue
@@ -271,7 +267,6 @@ References:
 ### Tree
 
 <h3 id="dbt"># DFS/BFS of Tree</h3>
-
 Binary  Tree Example:
 
 ```
@@ -299,7 +294,6 @@ levelTraverse: 1 2 3 4 5 6
 ### Algorithm
 
 <h3 id="wia"># What is algorithm</h3>
-
 > an algorithm is an unambiguous specification of how to solve a class of problem
 > --by Wikipedia
 
@@ -328,7 +322,6 @@ Algorithms is the step to solve the question.
 ---
 
 <h3 id="wca"># Which Are Common Algorithms</h3>
-
 Common Algorithms
 
 - Sorting

@@ -1,26 +1,37 @@
 # Algorithms Knowledge
 
 <h3 id="content">Content</h3>
-
-- Data Structure
+- DataStructure Basic
+  - Array
+  - LinkedList
+  - Stack
+  - Queue
+  - BinaryTree
+    - Levels, Nodes
+    - Traversal. (Inorder, Preorder, Postorder, Level Order)
   - Graph
-    - [Graph Implementation](#gin)
-    - Graph Traversal
+    - vertex and edge.
+    - Implementations. (Adjacency Matrix and Adjacency List)
+    - Traversal. (BFS, DFS)
+- DataStructure Advance
+  - BinarySearch Tree, AVL Tree
+  - B-Tree, Red–black Tree	
+  - Hashing
+  - Priority Queue
+  - String
+- Algorithm Analysis
+- Algorithm
+  - Sort
+  - Search
+  - Graph
+  - Bit Algorithms
+  - Mathematical Algorithms
+- Algorithm paradigm
+  - Greedy
+  - Dynamic programming
+  - Divide and Conquer
+  - Backtracking
 
 
 
-### Main
 
-<h3 id="gin">Graph Implementation</h3>
-
-What differences between Adjacency Matrix and Adjacency List
-
-Adjacency Matrix Implementation Example
-
-Adjacency List Implementation Example
-
-
-
-References:
-
-<https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/>
