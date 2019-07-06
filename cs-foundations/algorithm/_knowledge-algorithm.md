@@ -1,6 +1,7 @@
 # Algorithms Knowledge
 
-<h3 id="content">Content</h3>
+### Content
+
 - DataStructure Basic
   - Array
   - LinkedList
