@@ -73,7 +73,10 @@
   - The event listener model
   - Annotations
   - Concurrency
-    - `valotile`
+    - API, Thread Pool. Thread Communication. Synchronize, `volatile`.
+    - coroutine (协程)
+    - Data Structure. (拆分锁，读写锁，无锁/CAS)
+    - Thread-Safe Container.
   - The Stream API
   - File processing
   - Databases Programming
@@ -89,6 +92,12 @@
   - JavaFX
   - Native methods
   - JVM
+    - Specification, Implementation, GC
+    - Class Loading Mechanism. 
+    - Compile Mechanism.(C1/C2, AOT)
+    - Thread Mechanism.
+    - Memory Manage.(Parallel, CMS, G1, ZGC)
+    - memory Track, JVM/GC OPT. (常见问题：CPU Util高，内存OOM，没响应，Java进程退出，和常用工具)
 - Java 8 Features
 
   - forEach() method in Iterable interface
