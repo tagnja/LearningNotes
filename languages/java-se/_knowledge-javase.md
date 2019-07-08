@@ -1,79 +1,132 @@
 # Knowledge of Java SE
 
-- Basic Concepts
-- IO & NIO
-- Container
-- Concurrency
-- Network
-- JVM
-- [Utility Libraries](#ul)
-  - [Date Time](#dtim)
+- Introduction to Java
 
-### Main
+  - Java History
+  - Java Programming Environment
+    - Installing JDK
+    - Using an Integrated Development Environment (IDE). 
+  - First program Hello World
+  - Input and Output
+  - Comment
+- I. Basics
 
-### Aim
+  - Variable and Basic Types
+    - Primitive Build-in Types
+    - Type Conversions
+    - Literals
+    - Variable (Declaring, Initialization, Scope)
+    - Big Numbers
+  - Strings , Vectors, and Arrays
+    - String 
+    - Array
+  - Expressions
+    - Operators Priority
+    - Arithmetic Operators (+, -, *, /, %)
+    - Logical and Relational Operators 
+    - Assignment Operators (=)
+    - Increment and Decrement Operators (++, --)
+    - Member Access operators (.)
+    - Conditional Operators (x ? r1 : r2)
+    - Bitwise Operators (&, |, !, ^, <<)
+  - Statements
+    - Conditional Statements
+      - if else, switch
+    - Iterative Statements
+      - for, while
+    - (Jump Statements)
+    - (try Blocks and Exception Handling)
+  - Functions
+  - Objects and Classes
+    - Object-Oriented Programming
+      - Object-oriented Concepts
+      - Object-oriented Features
+  - Classes
+      - Construction, code block, variable, function.
+      - `static`, `final`
+    - Object
+      - Creation
+      - Life Cycle
+    - Packages
+      - Access Control `public`, `default`, `protected`, `private`
+    - JAR Files
+    - Documentation Comments
+  - Inheritance, Polymorphism
+    - Method override, overload.
+    - `this`, `super`
+  - Interface, Lambda and Inner classes
+  - Exceptions, Assertions, and Logging
+    - `try`, `catch`, `finally`, `throw`, `throws`
+    - Exception classes.
+  - Wrapper Classes
+  - Enum Types
+  - Generic Programming
+- II. Libraries
 
-- Knowing the syntax principle. Like extends, polymorphism.
-- Knowing the API methods accomplishment.
+  - IO library
+  - Container (Collections framework)
+  - Date and Time 
+  - Regular expressions
+- III. Advanced Topics
+
+  - Reflect and proxies
+  - The event listener model
+  - Annotations
+  - Concurrency
+    - `valotile`
+  - The Stream API
+  - File processing
+  - Databases Programming
+  - XML processing
+  - Internationalization
+  - Network Programming
+    - Socket
+    - Getting Web Data. URL
+    - Http Client
+    - E-Mail
+  - GUI
+  - Swing
+  - JavaFX
+  - Native methods
+  - JVM
+- Java 8 Features
+
+  - forEach() method in Iterable interface
+  - default and static methods in Interfaces
+  - Functional Interfaces and Lambda Expressions
+  - Java Stream API for Bulk Data Operations on Collections
+  - Java Time API
+  - Collection API improvements
+  - Concurrency API improvements
+  - Java IO improvements
+  - Miscellaneous Core API improvements
+- Java 9 Features
+  - Java 9 REPL (JShell)
+  - Factory Methods for Immutable List, Set, Map and Map.Entry
+  - Private methods in Interfaces
+  - Java 9 Module System
+  - Process API Improvements
+  - Try With Resources Improvement
+  - CompletableFuture API Improvements
+  - Reactive Streams
+  - Diamond Operator for Anonymous Inner Class
+  - Optional Class Improvements
+  - Stream API Improvements
+  - Enhanced @Deprecated annotation
+  - HTTP 2 Client
+  - Multi-Resolution Image API
+  - Miscellaneous Java 9 Features
 
 
 
----
+### References
 
+[1] Core java by Cay S. Horstmann
 
+[2] C++ Primer by Stanley B. Lippman
 
-### # Utility Libraries
+[3] [Java 8 Features with Examples](https://www.journaldev.com/2389/java-8-features-with-examples)
 
+[4] [Java 9 Features with Examples](https://www.journaldev.com/13121/java-9-features-with-examples#try-with-resources)
 
-
-<h3 id="dtim">Date Time</h3>
-
-- java.util 
-  - Date
-  - Calendar
-  - TimeZone
-  - SimpleDateFormat
-  - TimeUnit
-- java.time // Since Java 8
-  - LocalDate
-  - Period
-  - LocalDateTime
-  - Duration
-  - ChronoUnit
-  - ZonedDateTime
-  - Temporal
-- JodaTime
-  - LocalDate
-  - Period
-- Date4J
-  - DateTime
-
-**Java 8 Date Time API**
-
-- based on the popular Java library called JodaTime.
-- simplified date and time processing and fixed many shortcomings of the old date library.
-
-- **API Clarity**. New API is clear, concise and easy to understand. It does not have a lot of inconsistencies found in the old library such as the field numbering (in Calendar months are zero-based, but days of week are one-based).
-
-- **API Flexibility**. working with multiple representations of time.
-
-  ```
-  Instant – represents a point in time (timestamp)
-  LocalDate – represents a date (year, month, day)
-  LocalDateTime – same as LocalDate, but includes time with nanosecond precision
-  OffsetDateTime – same as LocalDateTime, but with time zone offset
-  LocalTime – time with nanosecond precision and without date information
-  ZonedDateTime – same as OffsetDateTime, but includes a time zone ID
-  OffsetLocalTime – same as LocalTime, but with time zone offset
-  MonthDay – month and day, without year or time
-  YearMonth – month and year, without day or time
-  Duration – amount of time represented in seconds, minutes and hours. Has nanosecond precision
-  Period – amount of time represented in days, months and years
-  ```
-
-- **Immutability and Thread-Safety**.
-
-- **Method Chaining**. Allowing to implement complex transformations in a single line of code.
-
-References
-[Migrating to the New Java 8 Date Time API](https://www.baeldung.com/migrating-to-java-8-date-time-api)
+-- END --
