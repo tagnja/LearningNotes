@@ -1,8 +1,9 @@
 # Backtracking Problems Analysis
 
+<div id="content"></div>
+
 ### Content
 
-<h3 id="content"></h3>
 - Convention
 - [Introduction to Backtracking Programming](#intr)
 - Top Problems
@@ -371,7 +372,6 @@ int main()
 ### Rat In A Maze Puzzle (Find Shortest Path in a Maze)
 
 <h3 id="riam"></h3>
-
 #### Description
 
 Given a maze in the form of the binary rectangular matrix, find length of the shortest path in maze from given source to given destination. The path can only be constructed out of cells having value 1 and at any given moment, we can only move one step in one of the four directions.
