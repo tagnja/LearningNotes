@@ -16,7 +16,7 @@
     - Type Conversions
     - Literals
     - Variable (Declaring, Initialization, Scope)
-    - Big Numbers
+    - **Big Numbers**
   - Strings , Vectors, and Arrays
     - String 
     - Array
@@ -41,9 +41,9 @@
     - Object-Oriented Programming
       - Object-oriented Concepts
       - Object-oriented Features
-  - Classes
-      - Construction, code block, variable, function.
-      - `static`, `final`
+    - Classes
+        - Construction, code block, variable, function.
+        - `static`, `final`
     - Object
       - Creation
       - Life Cycle
@@ -55,12 +55,17 @@
     - Method override, overload.
     - `this`, `super`
   - Interface, Lambda and Inner classes
+      - Interface
+          - **Default Methods**
+      - **Lambda**
+      - Inner classes
   - Exceptions, Assertions, and Logging
-    - `try`, `catch`, `finally`, `throw`, `throws`
+    - Exception handling `try`, `catch`, `finally`, `throw`, `throws`
+    - try with resources
     - Exception classes.
+  - Object the Superclass
   - Wrapper Classes
   - Enum Types
-  - Generic Programming
 - II. Libraries
 
   - IO library
@@ -68,21 +73,21 @@
   - Date and Time 
   - Regular expressions
 - III. Advanced Topics
-
-  - Reflect and proxies
+- **Generic Programming**
+  - **Reflect and proxies**
   - The event listener model
   - Annotations
-  - Concurrency
+  - **Concurrency**
     - API, Thread Pool. Thread Communication. Synchronize, `volatile`.
     - coroutine (协程)
     - Data Structure. (拆分锁，读写锁，无锁/CAS)
     - Thread-Safe Container.
-  - The Stream API
+  - **The Stream API**
   - File processing
   - Databases Programming
-  - XML processing
+  - **XML processing**
   - Internationalization
-  - Network Programming
+  - **Network Programming**
     - Socket
     - Getting Web Data. URL
     - Http Client
@@ -90,17 +95,16 @@
   - GUI
   - Swing
   - JavaFX
-  - Native methods
-  - JVM
+  - **Native methods**
+  - **JVM**
     - Specification, Implementation, GC
     - Class Loading Mechanism. 
     - Compile Mechanism.(C1/C2, AOT)
     - Thread Mechanism.
     - Memory Manage.(Parallel, CMS, G1, ZGC)
     - memory Track, JVM/GC OPT. (常见问题：CPU Util高，内存OOM，没响应，Java进程退出，和常用工具)
-- Java 8 Features
-
-  - forEach() method in Iterable interface
+- **Java 8 Features**
+- forEach() method in Iterable interface
   - default and static methods in Interfaces
   - Functional Interfaces and Lambda Expressions
   - Java Stream API for Bulk Data Operations on Collections
@@ -109,7 +113,7 @@
   - Concurrency API improvements
   - Java IO improvements
   - Miscellaneous Core API improvements
-- Java 9 Features
+- **Java 9 Features**
   - Java 9 REPL (JShell)
   - Factory Methods for Immutable List, Set, Map and Map.Entry
   - Private methods in Interfaces
