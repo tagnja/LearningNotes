@@ -1,8 +1,9 @@
 # Greedy Algorithm Problems Analysis
 
+<div id="content"></div>
+
 ### Content
 
-<div id="content"></div>
 - Convention
 - [Introduction to Greedy Algorithms](#intr)
 - Classic Problems
@@ -73,6 +74,8 @@ A problem must comprise these two components for a greedy algorithm to work:
 
 **How to use**
 
+Following your greedy scheme of problem to solve the problem.
+
 References
 
 [Greedy Algorithms - geeks for geeks](https://www.geeksforgeeks.org/greedy-algorithms/)
@@ -86,7 +89,6 @@ References
 ### Top Problems
 
 <div  id="acpr"></div>
-
 
 ### Activity Selection Problem
 
