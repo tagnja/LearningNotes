@@ -28,10 +28,7 @@ It's my learning notes.
   - [maven](tools/maven)
   - [Git](tools/git)
 
-### Others
+### Summary
 
-[Books and Courses of I have Studied](%23summary/read-list.md)
+- [Books and Courses of I have Studied](%23summary/read-list.md)
 
-### References
-
-[1] [A Thorough Introduction to Distributed Systems](https://www.freecodecamp.org/news/a-thorough-introduction-to-distributed-systems-3b91562c9b3c/)
