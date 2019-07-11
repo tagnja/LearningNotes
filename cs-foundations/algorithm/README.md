@@ -1,5 +1,5 @@
 # Algorithms
-Learning algorithms.
+Learning data structures and algorithms.
 
 ### Content
 
