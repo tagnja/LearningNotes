@@ -1,4 +1,9 @@
-# Network Note
+# Computer Network 
 
-- [Knowledge Point of Network](_knowledge-network.md)
+Learning computer network.
 
+### Content
+
+- [Knowledge Point of Computer Network](_knowledge-network.md)
+
+- [Leraning Note of Computer Network](_note-network.md)
