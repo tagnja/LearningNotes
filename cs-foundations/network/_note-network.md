@@ -113,11 +113,15 @@ Application-layer protocol defines:
 
 ##### Network Applications and Application-layer protocols
 
-- Web. Hyper Text Transfer Protocol (HTTP)
-- Electronic mail. Simple Mail Transfer Protocol (SMTP)
-- Directory Service. 
-- Video streaming. 
-- P2P applications.
+| Applications       | Protocols                                                    |
+| ------------------ | ------------------------------------------------------------ |
+| Web                | Hyper Text Transfer Protocol (HTTP)                          |
+| Electronic mail    | Simple Mail Transfer Protocol (SMTP)                         |
+| Directory Service. | DNS                                                          |
+| Video streaming.   | (not protocol) Dynamic Adaptive Streaming over HTTP (DASH),  CDN |
+| P2P applications.  | Bit Torrent Protocol                                         |
+
+
 
 #### The Web and HTTP
 
@@ -188,8 +192,53 @@ Alice's agent --(SMTP)-->Alice's mail server--(SMTP)-->Bob's mail server--(POP3,
 
 #### DNS - The Internet's Directory Service
 
+##### Services of Provided by DNS
+
+Domain name system (DNS) provide services.
+
+- Translate hostname to IP addresses.
+- Host aliasing.
+- Mail server aliasing.
+- Load distribution.
+
+##### Overview of How DNS Works
+
+A Distributed, Hierarchical Database
+
+- Root DNS servers
+- Top-level domain DNS servers. For example (com DNS servers)
+- Authoritative DNS servers. For example (facebook.com DNS servers)
+
+DNS Caching. Local DNS server.
+
+##### DNS Records and Messages
+
+(Name, Value, Type, TTL)
+
+- Type=A, a hostname to IP address mapping. For example (relay1.bar.foo.com, 145.37.93.126, A)
+- Type=NS, route DNS queries further. For example (foo.com, dns.foo.com, NS)
+- Type=CNAME, a canonical hostname for the alias hostname. For example (foo.com, relay1.bar.foo.com, CNAME)
+- Type=MX, the canonical name of a mail server. For example (foo.com, mail.bar.foo.com, MX)
+
+DNS Message
+
 #### Peer-to-peer Applications
 
+Bit Torrent Protocol
+
+- Request those rarest chunks first.
+- Feeding bits at the highest rate.
+
 #### Video Streaming and Content Distribution Networks
+
+##### DASH
+
+Dynamic Adaptive Streaming over HTTP (DASH). A new type of HTTP-based streaming. It allows the client to freely switch among different quality levels.
+
+##### Content Distribution Networks (CDN)
+
+A CDN manages servers in multiple geographically distributed locations, stores copies of the Web content in its servers, and attempts to direct each user request to a CDN location that provide the best user experience.
+
+CDN take advantage of DNS to intercept and redirect requests.
 
 #### Socket Programming: Creating Network Applications

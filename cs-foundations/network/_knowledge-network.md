@@ -59,3 +59,71 @@ Scale
 - TCP/IP Reference Model
 - Five Layers Model
 
+
+
+---
+
+
+
+### Application Layer
+
+
+
+#### Principles of Network Applications
+
+Application Architecture
+
+Processes Communicating
+
+Transport Services Available to Applications
+
+Transport Services Provided by Internet
+
+Application-Layer Protocols
+
+Network Applications and Application-layer protocols
+
+#### The Web and HTTP
+
+Overview of HTTP
+
+Non-persistent and Persistent Connections
+
+HTTP Message Format
+
+User-Server Interaction: Cookies
+
+Web Caching
+
+#### Electronic Mail 
+
+#### DNS - The Internet's Directory Service
+
+Services of Provided by DNS
+
+Overview of How DNS Works
+
+DNS Records and Messages
+
+#### Peer-to-peer Applications
+
+Bit Torrent Protocol
+
+#### Video Streaming and Content Distribution Networks
+
+Dynamic Adaptive Streaming over HTTP (DASH).
+
+Content Distribution Networks (CDN)
+
+#### Socket Programming: Creating Network Applications
+
+
+
+---
+
+### The Transport Layer
+
+
+
+
+
