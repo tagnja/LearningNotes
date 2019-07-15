@@ -4,7 +4,7 @@
 
 - Top Problems
   - Counting the number of connected components in an undirected graph
-  - [Find the number of islands (DFS)](#Find the number of islands (DFS))
+  - [Find the Number of  Islands](#Find the Number of  Islands)  (DFS)
 - Problems
   - 2-Edge Connectivity in the graph
   - 2-Vertex Connectivity in the graph
@@ -77,7 +77,7 @@
 
 ### Top Problems
 
-### Find the number of islands (DFS)
+### Find the Number of  Islands
 
 #### Description
 
