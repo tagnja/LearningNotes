@@ -3,9 +3,10 @@
 ### Content
 
 <h3 id="content"></h3>
-
+- Top Problems
+  - Counting the number of connected components in an undirected graph
+  - [Find the number of islands (DFS)](#Find the number of islands (DFS))
 - Problems
-  
   - 2-Edge Connectivity in the graph
   - 2-Vertex Connectivity in the graph
   - All-Pairs Shortest Paths – Floyd Warshall Algorithm
@@ -54,7 +55,118 @@
   - Types of edges involved in DFS and relation between them
   - Union-Find Algorithm for Cycle Detection in undirected graph
 
+### Before Start
 
+### Convention
+
+```
+#### Description
+
+#### Solutions
+
+#### Exercise
+
+#### References
+[`back to content`](#content)
+
+---
+```
+
+### Main
+
+### Introduction to Graph Algorithms
+
+### Top Problems
+
+### Find the number of islands (DFS)
+
+#### Description
+
+Given a boolean 2D matrix, find the number of islands. A group of connected 1s forms an island. For example, the below matrix contains 5 islands
+
+**Example:**
+
+```
+Input : mat[][] = {{1, 1, 0, 0, 0},
+                   {0, 1, 0, 0, 1},
+                   {1, 0, 0, 1, 1},
+                   {0, 0, 0, 0, 0},
+                   {1, 0, 1, 0, 1} 
+Output : 5
+```
+
+This is a variation of the standard problem: “Counting the number of connected components in an undirected graph”.
+
+#### Solutions
+
+```cpp
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+#define ROW 5
+#define COL 5
+
+void DFS(int mat[][COL], bool visited[][COL], int i, int j)
+{
+	if (i >= 0 && i < ROW && j >= 0 && j < COL && ! visited[i][j] && mat[i][j] == 1)
+	{
+		visited[i][j] = true;
+		DFS(mat, visited, i-1, j);
+		DFS(mat, visited, i+1, j);
+		DFS(mat, visited, i, j-1);
+		DFS(mat, visited, i, j+1);
+		DFS(mat, visited, i-1, j-1);
+		DFS(mat, visited, i-1, j+1);
+		DFS(mat, visited, i+1, j+1);
+		DFS(mat, visited, i+1, j-1);
+	}
+	
+	return;
+}
+
+int solution(int mat[][COL])
+{
+	bool visited[ROW][COL];
+	memset(visited, 0, sizeof visited);
+	
+	int count = 0;
+	for (int i = 0; i < ROW; i++)
+	{
+		for (int j = 0; j < COL; j++)
+		{
+			if (mat[i][j] && ! visited[i][j])
+			{
+				count++;
+				DFS(mat, visited, i, j);
+			}
+		}
+	}
+	return count;
+}
+
+int main()
+{
+	int mat[][COL] = { { 1, 1, 0, 0, 0 }, 
+                     { 0, 1, 0, 0, 1 }, 
+                     { 1, 0, 0, 1, 1 }, 
+                     { 0, 0, 0, 0, 0 }, 
+                     { 1, 0, 1, 0, 1 } };
+	
+	cout << "Number of islands is: " << solution(mat); // Number of islands is: 5 
+	return 0;
+}
+```
+
+
+
+#### Exercise
+
+#### References
+[`back to content`](#content)
+
+---
 
 ### References
 
