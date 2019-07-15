@@ -2,7 +2,6 @@
 
 ### Content
 
-<h3 id="content"></h3>
 - Top Problems
   - Counting the number of connected components in an undirected graph
   - [Find the number of islands (DFS)](#Find the number of islands (DFS))
@@ -164,6 +163,9 @@ int main()
 #### Exercise
 
 #### References
+
+[Find the number of islands | Set 1 (Using DFS) - geeksforgeeks](https://www.geeksforgeeks.org/find-number-of-islands/)
+
 [`back to content`](#content)
 
 ---
