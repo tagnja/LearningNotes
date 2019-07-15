@@ -2,8 +2,6 @@
 
 ### Content
 
-<h3 id="content"></h3>
-
 - Problems
   - Binary Search
   - Count occurrences of a number in a sorted array with duplicates
@@ -35,6 +33,12 @@
   - Search an element in a circular sorted array
   - Search in a nearly sorted array in O(log(n)) time
   - Ternary Search vs Binary search
+
+### Main
+
+### Introduction to Divide and Conquer
+
+### Top Problems
 
 
 
