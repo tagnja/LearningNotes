@@ -1,15 +1,13 @@
 # Greedy Algorithm Problems Analysis
 
-<div id="content"></div>
-
 ### Content
 
 - Convention
 - [Introduction to Greedy Algorithms](#intr)
 - Classic Problems
   - [Activity Selection Problem](#aspr)
-  - Greedy coloring of graph (Graph coloring)
-  - Job Sequencing Problem with Deadlines
+  - [Greedy coloring of graph](#gcog)(Graph coloring)
+  - [Job Sequencing Problem with Deadlines](#jspw)
   - Shortest Superstring Problem
   - Find minimum number of platforms needed in the station so to avoid any delay in arrival of any train
   - Huffman Coding
@@ -58,7 +56,6 @@
 
 ### Introduction to Greedy Algorithms
 
-<h3 id="intr"></h3>
 **What is it**
 
 Greedy is an algorithmic paradigm that builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate benefit. So the problems where choosing locally optimal also leads to global solution are best fit for Greedy.
@@ -84,11 +81,9 @@ References
 
 
 
-
-
 ### Top Problems
 
-<div  id="acpr"></div>
+
 
 ### Activity Selection Problem
 
@@ -195,6 +190,102 @@ Output
 
 ---
 
+
+
+### Job Sequencing Problem with Deadlines
+
+#### Description
+
+Given a set of tasks with deadlines and total profit earned on completion of a task, find maximum profit earned by executing the tasks within the specified deadlines. Assume any task will take one unit of time to execute and any task can’t execute beyond its deadline. Also, only one task can be executed at a time.
+
+For example, consider below set of tasks that have a deadline and profit associated with it. If we choose tasks 1, 3, 4, 5, 6, 7, 8 and 9, we can achieve maximum profit of 109. Note that task 2 and task 10 are left out.
+
+| **Tasks** | **Deadlines** | **Profit** |
+| --------- | ------------- | ---------- |
+| 1         | 9             | 15         |
+| 2         | 2             | 2          |
+| 3         | 5             | 18         |
+| 4         | 7             | 1          |
+| 5         | 4             | 25         |
+| 6         | 2             | 20         |
+| 7         | 5             | 8          |
+| 8         | 7             | 10         |
+| 9         | 4             | 12         |
+| 10        | 3             | 5          |
+
+#### Solutions
+
+Max profit task priority.
+
+Process:
+
+Sorting task by profit. Put into a vector<task> tasks.
+
+Create tasks array int task[], put task of maximum profit into the task[] in turn. And stat result the max_profit same time.
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+
+using namespace std;
+
+struct Job {
+	int taskId, deadline, profit;
+};
+
+int solution(vector<Job> jobs)
+{
+	int slot[jobs.size()];
+	memset(slot, 0, sizeof slot);
+	
+	int maxProfit = 0;
+	for (Job &job : jobs)
+	{
+		for (int i = job.deadline - 1; i >= 0; i--)
+		{
+			if (slot[i] == 0)
+			{
+				slot[i] = job.profit;
+				maxProfit += job.profit;
+				break;
+			}
+		}
+	}
+	return maxProfit;
+}
+
+int main()
+{
+	vector<Job> jobs = 
+	{
+		{ 1, 9, 15 }, { 2, 2, 2 }, { 3, 5, 18 }, { 4, 7, 1 }, { 5, 4, 25 },
+       	{ 6, 2, 20 }, { 7, 5, 8 }, { 8, 7, 10 }, { 9, 4, 12 }, { 10, 3, 5 }
+	};
+	sort(jobs.begin(), jobs.end(), [](Job &a, Job &b)
+	{
+		return a.profit > b.profit; // using C++11 lambda comparison
+	});
+	cout << "Total Profit is " << solution(jobs);
+	
+	return 0;
+}
+```
+
+
+
+#### Exercise
+
+#### References
+
+[Job Sequencing Problem with Deadlines - Techie Delight](https://www.techiedelight.com/job-sequencing-problem-deadlines/)
+
+[`back to content`](#content)
+
+---
+
+### 
 
 ### References
 
