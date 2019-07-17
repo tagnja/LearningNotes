@@ -2,7 +2,6 @@
 
 ### Content
 
-<h3 id="content"></h3>
 - Data Structure
   - Common
     - [What is Data Structure](#wds)
@@ -24,21 +23,3 @@
   - What are Common searching algorithms
 
 
-
-### Main
-
-### 
-
-
-
-
-
-
-
----
-
-
-
-
-
----
