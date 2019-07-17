@@ -12,5 +12,6 @@ Learning data structures and algorithms.
   - [Backtracking Problems](classic-problems/backtracking-problems-analysis.md)
   - [Divide and Conquer Problems](classic-problems/divide-and-conquer-problems-analysis.md)
   - [Greedy Problems](classic-problems/greedy-problems-analysis.md)
+  - [DFS/BFS Problems](classic-problems/graph-problems-analysis.md)
 
 
