@@ -272,7 +272,7 @@ int main()
 
 #### References
 
-[Transitive Closure of a Graph using DFS](https://www.geeksforgeeks.org/transitive-closure-of-a-graph-using-dfs/)
+[Transitive Closure of a Graph using DFS - geeksforgeeks](https://www.geeksforgeeks.org/transitive-closure-of-a-graph-using-dfs/)
 
 [`back to content`](#content)
 
