@@ -57,8 +57,8 @@ For Each Data Structure
 
 - Basic Concepts
 - Operations
+- Features
 - Applications
-- Common questions
 
 ### Tree
 

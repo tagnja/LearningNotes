@@ -4,7 +4,7 @@
 
 - Introduction to Data Structure
 - Basic Data Structure 
-  - Array
+  - Arrays
   - Linked List
   - Stack
   - Queue
@@ -71,15 +71,15 @@ References:
 
 ### Basic Data Structure 
 
+
+
 ### Array
 
-Description:
+**Description**
 
-- Array is a linear data structure consisting of a collection of *elements* each identified by array index.
+Array is a linear data structure, consisting of a collection of *elements* each identified by array index. In memory it is a continuous space.
 
-
-
-List ADT
+**List ADT**
 
 A list contains elements of same type arranged in sequential order and following operations can be performed on the list.
 
@@ -99,17 +99,43 @@ isEmpty() – Return true if the list is empty, otherwise return false.
 
 isFull() – Return true if the list is full, otherwise return false.
 
+**Features**
 
+- Random access. T(n) = O(1)
+- Random insert/remove. T(n) = O(n)
+- Searching. T(n) = O(n), sorted array T(n) = O(log n)
 
-Applications:
+**Applications**
 
 - Sorting elements
 - Matrix operation
 - CPU scheduling
 
+<br>
+
+### Linked List
+
+Description
+
+ADT
+
+(Same with Arrays)
+
+**Features**
+
+- Random access. T(n) = O(n)
+- Random insert/remove. T(n) = O(1)
+- Searching. T(n) = O(n)
+
+**Applications**
+
+It is used to implement file systems, hash tables, and adjacency lists.
+
+<br>
+
 ### Stack 
 
-Description:
+Description
 
 - Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be *LIFO(Last In First Out).* Insertion in a stack is called *PUSH* while deletion from stack is called *POP*.
 
