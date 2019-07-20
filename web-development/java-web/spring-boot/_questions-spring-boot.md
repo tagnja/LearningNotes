@@ -7,7 +7,9 @@
 - What is the function of spring-boot-starter-web  dependency
 - Spring Boot Work Principles
 
+### Good Questions Post Need Arrange
 
+https://www.java67.com/2018/05/difference-between-springbootapplication-vs-EnableAutoConfiguration-annotations-Spring-Boot.html
 
 ### Main
 
@@ -70,3 +72,10 @@ Spring boot reference documentation
 It provides common configuration and dependencies for current project.
 
 complete configuration of spring-boot-starter-web  refer to [spring-boot-starter-web/pom.xml](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-starters/spring-boot-starter-web/pom.xml)
+
+
+
+
+
+### References
+
