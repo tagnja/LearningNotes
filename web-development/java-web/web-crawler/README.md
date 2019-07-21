@@ -9,6 +9,8 @@ A typical crawler process is a loop consisting of fetching, parsing, link extrac
 ### Java-based HTML Parser
 
 - [Jsoup](http://jsoup.org/)
+  - Jsoup-html标签解析
+  - JsonPath-json数据解析
 - [Jaunt API](http://jaunt-api.com/)
 - [HtmlCleaner](http://htmlcleaner.sourceforge.net/)
 - [JTidy](http://jtidy.sourceforge.net/)
@@ -17,12 +19,15 @@ A typical crawler process is a loop consisting of fetching, parsing, link extrac
 
 ### web crawler Framework
 
-- [Apache Nutch](https://wiki.apache.org/nutch/FrontPage#What_is_Apache_Nutch.3F)
-- [crawler4j](https://github.com/yasserg/crawler4j)
+- Large Weight
+  - [Apache Nutch](https://wiki.apache.org/nutch/FrontPage#What_is_Apache_Nutch.3F). 适合做搜索引擎，分布式爬虫是其中一个功能。
+  - Heritrix. 比较成熟的爬虫。
+- Light Weight
+  - [crawler4j](https://github.com/yasserg/crawler4j). 简单的轻量级网络爬虫。
+  - [webmagic](https://github.com/code4craft/webmagic). 国人作品，推荐
 - [gecco](https://github.com/xtuhcy/gecco)
 - [Norconex HTTP Collector](https://www.norconex.com/collectors/collector-http/flow)
 - [vidageek crawler](https://github.com/vidageek/crawler)
-- [webmagic](https://github.com/code4craft/webmagic)
 - [Webmuncher](https://github.com/dadepo/Webmuncher)
 
 ### Jsoup VS Crawler4J
@@ -61,3 +66,5 @@ Using crawler framework, you don't to implements a lot of function by yourself. 
 [Java Web Crawler Libraries](https://stackoverflow.com/questions/11282503/java-web-crawler-libraries)
 
 [Crawler4j vs. Jsoup for the pages crawling and parsing in Java](https://stackoverflow.com/questions/34888510/crawler4j-vs-jsoup-for-the-pages-crawling-and-parsing-in-java)
+
+[开发网络爬虫应该选择 Nutch、Crawler4j、WebMagic、scrapy、WebCollector 还是其他的？这里按照我的经验随便扯淡一下：上面说的爬虫，基本可以分 3 类](https://hacpai.com/article/1496842430974)
