@@ -1,8 +1,45 @@
 # Knowledge of Java SE
 
-- Introduction to Java
+### Content
 
-  - Java History
+- Basic Concepts
+  - Variable and Basic Types
+  - Strings , Vectors, and Arrays
+  - Expressions
+  - Statements
+  - Functions
+- Object
+  - Objects and Classes
+  - Inheritance, Polymorphism
+  - Interface and Inner classes
+  - Wrapper Classes
+  - Enum Types
+  - Reflect and proxy
+- Exception
+- Functional Programming
+  - Lambda
+  - The Stream API
+- IO Stream
+- Container
+- Concurrency
+- Socket
+- NIO
+- JVM
+- Utilities
+  - Date and Time 
+  - Regular expressions
+  - XML/JSON
+  - Email
+  - HTTP Client/Server
+  - Internationalization
+  - JDBC
+
+### Main
+
+
+
+- Introduction to Java
+- Java History
   - Java Programming Environment
     - Installing JDK
     - Using an Integrated Development Environment (IDE). 
