@@ -1,5 +1,11 @@
 # Knowledge of Network
 
+
+
+### Content
+
+
+
 - [Introduction](#intr)
 - The Application Layer
   - Principles of Network Applications
@@ -18,6 +24,10 @@
   - Principles of Congestion Control
   - TCP Congestion Control
 - The Network Layer: Data Plane
+  - Basic
+  - Inside a  Router
+  - The Internet Protocol: IPv4, Addressing, IPv6, and More
+  - Generalized Forwarding and SDN
 - The Network Layer: Control Plane
 - The Data Link Layer
 - The Physical Layer
@@ -152,12 +162,12 @@ Relationship Between Transport and Network Layers
 Overview of the Transport Layer
 
 - UDP
-- Best-effort delivery service
-- Unreliable service
+  - Best-effort delivery service
+  - Unreliable service
 - TCP
-- transport-layer multiplexing and demultiplexing
-- Reliable data transfer
-- Congestion control
+  - transport-layer multiplexing and demultiplexing
+  - Reliable data transfer
+  - Congestion control
 
 #### Multiplexing and Demultiplexing
 
@@ -281,6 +291,82 @@ Explicit Congestion Notification (ECN) Network-assisted Congestion Control
 
 
 ### The Network Layer: Data Plane
+
+#### Basic
+
+##### Forwarding and Routing
+
+Forwarding Table
+
+Routing Algorithms
+
+Control Plane: The Traditional Approach. (Destination-based forwarding)
+
+Control Plane: The SDN (software-defined networking) Approach (Generalized forwarding)
+
+#### Network Service Model
+
+A single service: best-effort service.
+
+#### Inside a  Router
+
+Four router components: Input ports, Switching fabric, Output ports, Routing processor
+
+##### Input Port Processing and Destination-Based Forwarding
+
+##### Switching
+
+##### Output Port Processing
+
+##### Input and Output Queue
+
+##### Packet Scheduling
+
+First-in-First-Out (FIFO)
+
+Priority Queuing
+
+Round Robin and Weighted Fair Queuing (WFQ)
+
+#### The Internet Protocol: IPv4, Addressing, IPv6, and More
+
+##### IPv4 Datagram Format 
+
+##### IPv4 Datagram Fragmentation
+
+Maximum transmission unit (MTU)
+
+##### IPv4 Addressing
+
+subnet
+
+subnet mask
+
+Classless Interdomain Routing
+
+IP broadcast address
+
+Obtaining a block of address
+
+Obtaining a host address: Dynamic host configuration protocol (DHCP)
+
+Network Address Translation (NAT)
+
+##### IPv6
+
+IPv6 Datagram Format. (40 bytes)
+
+Transitioning from IPv4 to IPv6
+
+Tunnel
+
+#### Generalized Forwarding and SDN
+
+Flow table
+
+Match
+
+Action
 
 
 
