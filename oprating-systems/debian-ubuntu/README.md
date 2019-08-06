@@ -1,1 +1,0 @@
-# Debian and Ubuntu Operating System
