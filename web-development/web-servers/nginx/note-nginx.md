@@ -24,7 +24,7 @@ OR
 
 
 
-### Configuration
+### Configuration Reverse Proxy
 
 80. reverse_proxy.conf
 
@@ -40,7 +40,7 @@ server
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_pass http://104.225.148.90:8080;
 	}
-	access_log /var/log/nginx/hot.const520.com/access.log;
+	access_log /var/log/nginx/hot.const520.com/http_access.log;
 }
 ```
 
@@ -59,7 +59,7 @@ server {
 	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 	ssl_ciphers HIGH:!aNULL:!eNULL:!EXPORT:!CAMELLIA:!DES:!MD5:!PSK:!RC4;
 	ssl_prefer_server_ciphers on;
-	access_log /var/log/nginx/access.log;
+	access_log /var/log/nginx/example.com/https_access.log;
 	location / {
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
@@ -72,6 +72,107 @@ server {
 }
 ```
 
-Reference
 
-[Simple guide to configure Nginx reverse proxy with SSL](https://linuxtechlab.com/simple-guide-to-configure-nginx-reverse-proxy-with-ssl/)
+
+### Using nginx as HTTP Load Balancer
+
+The simplest configuration for load balancing, /etc/nginx/conf.d/load-balancer.conf
+
+```shell
+http {
+    upstream myapp1 {
+        server srv1.example.com;
+        server srv2.example.com;
+        server srv3.example.com;
+    }
+
+    server {
+        listen 80;
+
+        location / {
+            proxy_pass http://myapp1;
+        }
+    }
+}
+```
+
+Directives
+
+- Weight 
+- Hash (respond to clients same VPS each time)
+- Max Fails (Health checks)
+
+
+
+HTTP Load Balancing
+
+/etc/nginx/conf.d/load-balancer.conf
+
+```shell
+upstream myapp1 {
+    server srv1.example.com max_fails=1 fail_timeout=10s;
+    server srv2.example.com;
+    server srv3.example.com;
+}
+server {
+    listen 80;
+
+    location / {
+    proxy_pass http://myapp1;
+    }
+}
+```
+
+
+
+My HTTPS Load Balancing Example
+
+/etc/nginx/conf.d/load-balancer.conf
+
+```shell
+upstream backend {
+	server localhost:8080 weight=1 max_fails=2 fail_timeout=15s;
+    server xxx.xxx.xxx.xxx:8080 weight=1 max_fails=2 fail_timeout=15s;
+}
+
+# This server accepts all traffic to port 80 and passes it to the upstream.
+# Notice that the upstream name and the proxy_pass need to match.
+server {
+    listen 80;
+    server_name hot.const520.com;
+    access_log /var/log/nginx/hot.const520.com/http_access.log;
+
+    location / {
+    	proxy_pass http://backend;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name hot.const520.com;
+    ssl_certificate /etc/letsencrypt/live/const520.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/const520.com/privkey.pem;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    access_log /var/log/nginx/hot.const520.com/https_access.log;
+
+    location / {
+    	proxy_pass http://backend;
+    }
+}
+```
+
+
+
+### Reference
+
+Reverse Proxy
+
+- [Simple guide to configure Nginx reverse proxy with SSL](https://linuxtechlab.com/simple-guide-to-configure-nginx-reverse-proxy-with-ssl/)
+
+Load Balancing
+
+- [Using nginx as HTTP load balancer - nginx doc](http://nginx.org/en/docs/http/load_balancing.html)
+
+- [How To Set Up Nginx Load Balancing](https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-load-balancing)
+
+- [How to configure load balancing using Nginx](https://upcloud.com/community/tutorials/configure-load-balancing-nginx/)
