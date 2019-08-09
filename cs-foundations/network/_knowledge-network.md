@@ -29,6 +29,15 @@
   - The Internet Protocol: IPv4, Addressing, IPv6, and More
   - Generalized Forwarding and SDN
 - The Network Layer: Control Plane
+  - Introduction
+  - Routing Algorithms
+  - Internet Routing Protocols
+  	- Intra-AS Routing in the Internet: OSPF
+  	- Routing Among the ISPs: BGP
+  - The SDN Control Plane
+  - Managing an IP network
+  	- ICMP: The Internet Control Message Protocol
+  	- Network Manage and SNMP
 - The Data Link Layer
 - The Physical Layer
 - Network Security
@@ -371,6 +380,134 @@ Action
 
 
 ### The Network Layer: Control Plane
+
+How Network -layer components and services are configured and managed.
+
+#### Introduction
+
+per-router control
+
+software-defined networking (**SDN**) control (Logically centralized control)
+
+
+
+#### Routing Algorithms
+
+least-cost path
+
+link-state (LS) routing (centralized routing algorithm)
+
+distance-vector routing (decentralized routing algorithm)
+
+
+
+#### Internet Routing Protocols
+
+
+
+##### Intra-AS Routing in the Internet: OSPF
+
+interconnected routers
+
+autonomous systems (**ASs**)
+
+autonomous system number (**ASN**)
+
+Intra-autonomous system routing protocol
+
+Open Shortest Path First (**OSPF**) is a link-state protocol
+
+
+
+##### Routing Among the ISPs: BGP
+
+Inter-autonomous system routing protocol
+
+Border Gateway Protocol (**BGP**)
+
+CIDRized prefixes, a subnet
+
+The Role of BGP
+
+- Obtain prefix reachability information from neighboring ASs.
+- Determine the "best" routes to the prefixes.
+
+Advertising BGP Route Information
+
+- Gateway router, internal router
+- BGP connection, external BGP (eBGP), internal BGP (iBGP)
+
+Determining the Best Routes
+
+- one of the simplest routing algorithms: Hot Potato Routing
+- Route-Selection Algorithm
+
+IP-Anycast
+
+- How a CDN use IP-anycast.
+
+Routing Policy
+
+- Not advertised to a ISP.
+
+Putting the Pieces Together: Obtaining Internet Presenece
+
+
+
+#### The SDN Control Plane
+
+Characters of an SDN architecture
+
+
+
+The SDN Control Plane: SDN Controller and SDN Network-control Applications
+
+The SDN Control Plane Layers
+
+- A Communication Layer
+  - OpenFlow
+- A network-wide state-management layer
+  - State of the networks hosts, links, switches, and other SDN-controlled devices.
+- The interface to the network-control application layer
+  - Routing
+  - Access Control
+  - Load Balancer
+
+OpenFlow Protocol
+
+- Operates between an SDN controller and an SDN-controlled switch.
+
+Data and Control Plane Interaction
+
+
+
+#### Managing an IP network
+
+##### ICMP: The Internet Control Message Protocol
+
+It is used by hosts and routers to communicate network-layer information.
+
+ICMP messages are carried as IP payload
+
+ICMP messages types and code fields.
+
+
+
+##### Network Manage and SNMP
+
+To keep the network "up and running"
+
+Network Management Framework
+
+- Managing server
+- Managed device
+- Management Information Base (**MIB**)
+- Network management agent
+- Network management protocol
+
+The Simple Network Management Protocol (SNMP)
+
+- Carried in the payload of a UDP datagram
 
 
 
