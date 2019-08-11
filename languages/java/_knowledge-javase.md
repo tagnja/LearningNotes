@@ -14,8 +14,7 @@
   - Interface and Inner classes
   - Wrapper Classes
   - Enum Types
-  - Reflect and proxy
-- Exception
+- Exception, Reflect and proxy, Annotation, Generics
 - Functional Programming
   - Lambda
   - The Stream API
