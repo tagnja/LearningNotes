@@ -15,13 +15,13 @@
 
 #### Web Protocols
 
-- HTTP
-- HTTPS
+- [ ] HTTP
+- [ ] HTTPS
 
 #### Web Servers
 
-- Apache Tomcat
-- Nginx
+- [ ] Apache Tomcat
+- [ ] Nginx
 
 #### Web Frontend
 
@@ -33,20 +33,19 @@
 
 Basic
 
-- Java Servlet
-- JDBC, Connection Pools
+- [ ] Java Servlet
+- [ ] JDBC, Connection Pools
 
 Web Frameworks
 
-- Spring Framework
-- Spring Boot
+- [ ] Spring Framework
+- [ ] Spring Boot
 - Spring Cloud
-- Swagger
 
 Persistence Framework 
 
-- MyBatis
-- Hibernate
+- [ ] MyBatis
+- [ ] Hibernate
 
 Security Framwork
 
@@ -103,7 +102,7 @@ Single Sign-on
 
 Utility
 
-- Apache Commons
+- [ ] Apache Commons
 
 ### Network Programming
 
@@ -122,10 +121,10 @@ Utility
 
 - Cache
   - Ehcache
-  - Redis
+  - [ ] **Redis**
   - Memcached
 - Relational Databases
-  - MySQL
+  - [ ] **MySQL**
   - SQL Server
   - Oracle
 - NoSQL Databases
@@ -134,7 +133,7 @@ Utility
 
 ### System Programming
 
-- Linux
+- [ ] **Linux**
 
 ### DevOps
 
