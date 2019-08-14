@@ -2,6 +2,7 @@
 
 ### Content
 
+- Introduction to Java
 - Basic Concepts
   - Variable and Basic Types
   - Strings , Vectors, and Arrays
@@ -9,21 +10,44 @@
   - Statements
   - Functions
 - Object
-  - Objects and Classes
-  - Inheritance, Polymorphism
+  - Object-oriented Programming
+  - Objects
+  - Classes
+  - Packages
+  - Inheritance and Polymorphism
   - Interface and Inner classes
   - Wrapper Classes
   - Enum Types
-- Exception, Reflect and proxy, Annotation, Generics
+  - Keywords
+    - Native methods
+    - Annotation
+- Exception, Reflect and proxy, Generics
 - Functional Programming
   - Lambda
   - The Stream API
 - IO Stream
+  - InputStream and OutputStream
+  - Reader and Writer
+  - File
+  - Serializable
 - Container
+  - List
+  - Stack
+  - Queue
+  - Set and Map
+  - String, StringBuffer, StringBuider
+  - Thread-safe
+  - Utilities class of collection
 - Concurrency
+  - Thread and Runnable
+  - Thread Pool
+  - Concurrency Programming
 - Socket
 - NIO
 - JVM
+- GUI
+  - Swing
+  - JavaFX
 - Utilities
   - Date and Time 
   - Regular expressions
@@ -33,114 +57,226 @@
   - Internationalization
   - JDBC
 
+- Java New Features
+
+
+
+---
+
+
+
 ### Main
 
 
 
-- Introduction to Java
-- Java History
-  - Java Programming Environment
-    - Installing JDK
-    - Using an Integrated Development Environment (IDE). 
-  - First program Hello World
-  - Input and Output
-  - Comment
-- I. Basics
+### Introduction to Java
 
-  - Variable and Basic Types
-    - Primitive Build-in Types
-    - Type Conversions
-    - Literals
-    - Variable (Declaring, Initialization, Scope)
-    - **Big Numbers**
-  - Strings , Vectors, and Arrays
-    - String 
-    - Array
-  - Expressions
-    - Operators Priority
-    - Arithmetic Operators (+, -, *, /, %)
-    - Logical and Relational Operators 
-    - Assignment Operators (=)
-    - Increment and Decrement Operators (++, --)
-    - Member Access operators (.)
-    - Conditional Operators (x ? r1 : r2)
-    - Bitwise Operators (&, |, !, ^, <<)
-  - Statements
-    - Conditional Statements
-      - if else, switch
-    - Iterative Statements
-      - for, while
-    - (Jump Statements)
-    - (try Blocks and Exception Handling)
-  - Functions
-  - Objects and Classes
-    - Object-Oriented Programming
-      - Object-oriented Concepts
-      - Object-oriented Features
-    - Classes
-        - Construction, code block, variable, function.
-        - `static`, `final`
-    - Object
-      - Creation
-      - Life Cycle
-    - Packages
-      - Access Control `public`, `default`, `protected`, `private`
-    - JAR Files
-    - Documentation Comments
-  - Inheritance, Polymorphism
-    - Method override, overload.
-    - `this`, `super`
-  - Interface, Lambda and Inner classes
-      - Interface
-          - **Default Methods**
-      - **Lambda**
-      - Inner classes
-  - Exceptions, Assertions, and Logging
-    - Exception handling `try`, `catch`, `finally`, `throw`, `throws`
-    - try with resources
-    - Exception classes.
-  - Object the Superclass
-  - Wrapper Classes
-  - Enum Types
-- II. Libraries
+Java History
 
-  - IO library
-  - Container (Collections framework)
-  - Date and Time 
-  - Regular expressions
-- III. Advanced Topics
-- **Generic Programming**
-  - **Reflect and proxies**
-  - The event listener model
-  - Annotations
-  - **Concurrency**
-    - API, Thread Pool. Thread Communication. Synchronize, `volatile`.
-    - coroutine (协程)
-    - Data Structure. (拆分锁，读写锁，无锁/CAS)
-    - Thread-Safe Container.
-  - **The Stream API**
-  - File processing
-  - Databases Programming
-  - **XML processing**
-  - Internationalization
-  - **Network Programming**
-    - Socket
-    - Getting Web Data. URL
-    - Http Client
-    - E-Mail
-  - GUI
-  - Swing
-  - JavaFX
-  - **Native methods**
-  - **JVM**
-    - Specification, Implementation, GC
-    - Class Loading Mechanism. 
-    - Compile Mechanism.(C1/C2, AOT)
-    - Thread Mechanism.
-    - Memory Manage.(Parallel, CMS, G1, ZGC)
-    - memory Track, JVM/GC OPT. (常见问题：CPU Util高，内存OOM，没响应，Java进程退出，和常用工具)
+Java Programming Environment
+- Installing JDK
+- Using an Integrated Development Environment (IDE). 
+
+First program Hello World
+
+Input and Output
+
+Comment
+
+
+
+### I. Basics
+
+Variable and Basic Types
+- Primitive Build-in Types
+- Type Conversions
+- Literals
+- Variable (Declaring, Initialization, Scope)
+- **Big Numbers**
+
+Strings , Vectors, and Arrays
+- String 
+- Array
+
+Expressions
+- Operators Priority
+- Arithmetic Operators (+, -, *, /, %)
+- Logical and Relational Operators 
+- Assignment Operators (=)
+- Increment and Decrement Operators (++, --)
+- Member Access operators (.)
+- Conditional Operators (x ? r1 : r2)
+- Bitwise Operators (&, |, !, ^, <<)
+
+Statements
+- Conditional Statements
+  - if else, switch
+- Iterative Statements
+  - for, while
+- (Jump Statements)
+- (try Blocks and Exception Handling)
+
+Functions
+
+
+
+### Objects and Classes
+
+- Object-Oriented Programming
+  - Object-oriented Concepts
+  - Object-oriented Features
+- Classes
+    - Construction, code block, variable, function.
+    - `static`, `final`
+- Object
+  - Creation
+  - Life Cycle
+- Packages
+  - Access Control `public`, `default`, `protected`, `private`
+  - JAR Files
+
+- Inheritance, Polymorphism
+  - Method override, overload.
+  - `this`, `super`
+- Interface and Inner classes
+    - Interface
+        - Default Methods
+    - Inner classes
+- Wrapper Classes
+- Enum Types
+- Keywords
+- Native methods
+- Documentation Comments
+- Annotations
+
+
+
+### Exception, Reflect and proxy, Generics
+
+Exceptions, Assertions, and Logging
+
+- Exception handling `try`, `catch`, `finally`, `throw`, `throws`
+- try with resources
+- Exception classes.
+
+Reflect and proxies
+
+Generic Programming
+
+
+
+
+
+### Functional Programming
+
+Lambda
+
+The Stream API
+
+
+
+### IO Stream
+
+InputStream and OutputStream
+
+Reader and Writer
+
+File
+
+Serializable
+
+
+
+### Container
+
+List
+
+Stack
+
+Queue
+
+Set and Map
+
+String, StringBuffer, StringBuider
+
+Thread-safe
+
+Utilities class of collection
+
+
+
+### Concurrency
+
+Thread and Runnable
+
+Thread Pool
+
+Concurrency Programming
+
+- API, Thread Pool. Thread Communication. Synchronize, `volatile`.
+- coroutine (协程)
+- Data Structure. (拆分锁，读写锁，无锁/CAS)
+- Thread-Safe Container.
+
+
+
+### Socket
+
+
+
+### NIO
+
+
+
+### JVM
+
+JVM
+
+- Specification, Implementation, GC
+- Class Loading Mechanism. 
+- Compile Mechanism.(C1/C2, AOT)
+- Thread Mechanism.
+- Memory Manage.(Parallel, CMS, G1, ZGC)
+- memory Track, JVM/GC OPT. (常见问题：CPU Util高，内存OOM，没响应，Java进程退出，和常用工具)
+
+
+
+### Reactive Programming
+
+
+
+### GUI
+
+Swing
+
+JavaFX
+
+
+
+### Utilities
+
+Date and Time 
+
+Regular expressions
+
+XML processing
+
+Databases Programming
+
+Internationalization
+
+E-Mail
+
+Http Client
+
+Getting Web Data. URL
+
+
+
+### Java New Features
+
 - **Java 8 Features**
-- forEach() method in Iterable interface
+  - forEach() method in Iterable interface
   - default and static methods in Interfaces
   - Functional Interfaces and Lambda Expressions
   - Java Stream API for Bulk Data Operations on Collections
