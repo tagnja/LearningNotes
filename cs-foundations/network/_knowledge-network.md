@@ -513,6 +513,132 @@ The Simple Network Management Protocol (SNMP)
 
 ### The Link Layer and LANs
 
+#### Introduction to the Link Layer
+
+Basic
+
+- a Node: hosts, routers, switches, and WiFi access points.
+
+- links
+
+- link-layer frame
+
+The services provided by the Link Layer
+
+- Framing
+- Link access
+- Reliable delivery
+- Error detection and correction
+
+Where is the Link Layer Implemented
+
+- network adapter (as a network interface card (NIC))
+- Link-layer controller in adapter
+
+
+
+#### Error-Detection and -Correction Techniques
+
+(**TODO**)
+
+
+
+#### Multiple Access Link and Protocols
+
+(**TODO**)
+
+
+
+#### Switched Local Area Networks
+
+##### Link-layer Addressing and ARP
+
+MAC address
+
+- MAC Address (LAN address, physical address)
+
+- MAC address its function, format and features
+
+ARP
+
+- Address Resolution Protocol (ARP)
+- ARP module
+- ARP table
+- ARP packet
+- MAC broadcast address
+
+Sending a Datagram off the Subnet
+
+##### Ethernet
+
+Ethernet is the most prevalent wired LAN technology.
+
+Ethernet Frame Structure
+
+Ethernet technologies
+
+##### Link-layer Switches
+
+Forwarding and Filtering
+
+- Forwarding
+- Filtering
+- Switch table
+
+Self-Learning
+
+Properties of Link-Layer Switching
+
+- Elimination of collisions
+- Heterogeneous links
+- Management
+
+Switch Versus Routers
+
+- store-and-forward packet
+- Switch pros and cons
+- Router pros and cons
+- Typical features
+  - Traffic isolation
+  - plug and play
+  - Optimal routing
+
+##### Virtual Local Area Networks (VLANs)
+
+A single switch configured VLANs
+
+
+
+#### Link Virtualization: A Network as a Link Layer
+
+Multiprotocol Label Switching (MPLS)
+
+Label-switched router
+
+MPLS label in forwarding table
+
+
+
+#### Data Center Networking
+
+A data center network with a hierarchical topology
+
+Hierarchical Architecture
+
+Trends in Data Center Networking
+
+
+
+#### Retrospective: A Day in the Life of a Web Page Request
+
+Get Basic IP - DHCP, UDP, IP, and Ethernet
+
+Get Website IP -  DNS and ARP
+
+Get Website IP - Intra-Domain Routing to DNS Server
+
+Get Website Page - Web Client-Server Interaction: TCP and HTTP
+
 
 
 ### Security in Computer Networks
