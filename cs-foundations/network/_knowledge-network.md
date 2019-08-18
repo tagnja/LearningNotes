@@ -7,6 +7,7 @@
 
 
 - [Introduction](#intr)
+- Computer Networks and the Internet
 - The Application Layer
   - Principles of Network Applications
   - The Web and HTTP
@@ -91,6 +92,131 @@ Scale
 - OSI (Open Systems Interconnection) Reference Model 
 - TCP/IP Reference Model
 - Five Layers Model
+
+
+
+---
+
+
+
+### Computer Network and the Internet
+
+
+
+#### What is the Internet
+
+A Nuts-and-Bolts Description
+
+- hosts, end systems
+- communication links, packet switches
+- routers, link-layer switches
+- Internet Service Providers (ISPs)
+- protocols
+
+A Service Description
+
+- Distributed Applications
+- Socket interfaces
+
+What is a Protocol
+
+
+
+#### The Network Edge
+
+Access Networks
+
+- Home Access: DSL, FTTH, Dial-Up, and Satelllite
+- Access in the Enterprise (and home): Ethernet and WiFi
+- Wide-Area Wireless Access: 3G and LTE
+
+Physical Media
+
+- Twisted-Pair Copper Wire
+- Coaxial Cable
+- Fiber Optics
+- Terrestrial Radio Channels
+- Satellite Radio Channels
+
+
+
+#### The Network Core
+
+Packet Switching
+
+- Store-and-forward transmission
+- Queuing Delays and Packet loss
+- Forwarding Tables and Routing Protocols
+
+Circuit Switching
+
+
+
+#### A Network of Networks
+
+ISP
+
+Points of presence (PoPs)
+
+Internet Exchange Point (IXP)
+
+Content-provider networks
+
+
+
+#### Delay, Loss, and Throughput in Packet-Switched Network
+
+Delay
+
+- Processing Delay
+- Queuing delay
+- Transmission delay
+- propagation delay
+
+Queuing Delay and Packet Loss
+
+End-to-End Delay
+
+Throughput in Computer Network
+
+
+
+#### Protocol Layers and Their Service Models
+
+Layered Architecture
+
+- Protocol Layering
+- Application layer
+- Transport Layer
+- Network Layer
+- Link Layer
+- Physical Layer
+- The OSI model
+
+Encapsulation
+
+
+
+#### Network Under Attack
+
+Malware. Put Malware into your host via the Internet
+
+- Viruses
+- Worms
+
+Denial-of-service (DoS) Attack, Distributed DoS (DDoS)
+
+- Vulnerability attack
+- Bandwidth flooding
+- connection flooding
+
+Packet Sniffer
+
+IP Spoofing
+
+
+
+![](mind-map/Network-Introduction.png)
 
 
 
