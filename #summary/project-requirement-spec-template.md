@@ -67,18 +67,18 @@ Frontend --> Backend Controller --> Cache <--> Crawler
 
 t_info_type
 
-| Name | Type    | Length | NULL     | Key  | Description |
-| ---- | ------- | ------ | -------- | ---- | ----------- |
-| id   | varchar | 64     | not null | P    |             |
-| name | varchar | 64     | not null |      |             |
+| Name | Type    | Length | NULL     | Default | Key  | Description |
+| ---- | ------- | ------ | -------- | ------- | ---- | ----------- |
+| id   | varchar | 64     | not null |         | P    |             |
+| name | varchar | 64     | not null |         |      |             |
 
 t_info
 
-| Name  | Type    | Length | NULL     | Key  | Description |
-| ----- | ------- | ------ | -------- | ---- | ----------- |
-| id    | varchar | 64     | not null | P    |             |
-| title | varchar | 128    | not null |      |             |
-| url   | varchar | 255    | not null |      |             |
+| Name  | Type    | Length | NULL     | Default | Key  | Description |
+| ----- | ------- | ------ | -------- | ------- | ---- | ----------- |
+| id    | varchar | 64     | not null |         | P    |             |
+| title | varchar | 128    | not null |         |      |             |
+| url   | varchar | 255    | not null |         |      |             |
 
 
 
