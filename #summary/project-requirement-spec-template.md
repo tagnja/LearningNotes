@@ -84,59 +84,61 @@ t_info
 
 #### 2.3 Interfaces Design
 
-1\. v1/types
+Info Module
 
-Method: GET
+- **v1/types**
+  
+- Method: GET
+  
+- Data Type: JSON
+  
+- Parameters: 
+  
+    | Name | Required | Data Type | Description |
+    | ---- | -------- | --------- | ----------- |
+  |      |          |           |             |
+  
+- Result:
+  
+    ```json
+    {
+        ret_code: 0,
+        ret_msg: "success",
+        data: [
+            {
+                id: 1
+                name: "v2ex"
+            },
+            ...
+        ]
+    }
+  ```
+  
+- **v1/types/{id}/infos**
+  - Method: GET
+  - Data Type: JSON
+  - Parameters:
 
-Data Type: JSON
+    | Name | Required | Data Type | Description |
+    | ---- | -------- | --------- | ----------- |
+    | type | not      | int       | info type   |
 
-Parameters: null
+  - Result:
 
-Result:
-
-```json
-{
-    ret_code: 0,
-    ret_msg: "success",
-    data: [
-        {
-            id: 1
-            name: "v2ex"
-        },
-        ...
-    ]
-}
-
-```
-
-2\. v1/types/{id}/infos
-
-Method: GET
-
-Data Type: JSON
-
-Parameters:
-
-| Name | Required | Data Type | Description |
-| ---- | -------- | --------- | ----------- |
-| type | not      | int       | info type   |
-
-Result:
-
-```json
-{
-    ret_code: 0,
-    ret_msg: "success",
-    data: [
-        {
-            id: 1,
-            title: "",
-            url: ""
-        },
-        ...
-    ]
-}
-```
+    ```json
+    {
+        ret_code: 0,
+        ret_msg: "success",
+        data: [
+            {
+                id: 1,
+                title: "",
+                url: ""
+            },
+            ...
+        ]
+    }
+    ```
 
 ### 3. Code Implementation
 
