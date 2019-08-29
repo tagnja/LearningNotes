@@ -421,6 +421,8 @@ Fairness
 
 Explicit Congestion Notification (ECN) Network-assisted Congestion Control
 
+![transport-layer](mind-map/Network-Transport-Layer.png)
+
 ---
 
 
