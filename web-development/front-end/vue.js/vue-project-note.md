@@ -152,11 +152,16 @@ vue ui
 
 Common Plugins
 
-- eslint. `@vue/cli-plugin-eslint`
 - router. `@vue/cli-plugin-router`
 - vuex. `@vue/cli-plugin-vuex`
-- jest. `@vue/cli-plugin-jest`
 - axios. `vue-cli-plugin-axios`
+- jest. `@vue/cli-plugin-jest`, `@vue/cli-plugin-unit-jest`
+- Other
+  - eslint. `@vue/cli-plugin-eslint`
+  - babel. `@vue/cli-plugin-babel`
+  - apollo. GraphQL. `vue-cli-pugin-apollo`
+  - e2e
+  - i18n
 
 
 
