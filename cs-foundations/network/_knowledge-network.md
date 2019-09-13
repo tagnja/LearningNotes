@@ -45,6 +45,8 @@
 
 ### Main
 
+![computer-network](mind-map/computer-network.png)
+
 <h3 id="intr"></h3>
 ### Introduction
 
@@ -215,8 +217,6 @@ Packet Sniffer
 IP Spoofing
 
 
-
-![](mind-map/Network-Introduction.png)
 
 
 
@@ -421,7 +421,7 @@ Fairness
 
 Explicit Congestion Notification (ECN) Network-assisted Congestion Control
 
-![transport-layer](mind-map/Network-Transport-Layer.png)
+
 
 ---
 
