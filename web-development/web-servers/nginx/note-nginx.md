@@ -4,23 +4,44 @@ conf
 
 /etc/nginx/conf.d
 
+### Start or Stop Nginx
+
 The same commands can be used to start / stop / restart the nginx server on a Ubuntu Linux:
 
 ```shell
-`sudo systemctl start nginx  sudo systemctl stop nginx  sudo systemctl restart nginx`
+sudo systemctl start nginx  
+sudo systemctl stop nginx  
+sudo systemctl restart nginx
 ```
 
 OR
 
 ```shell
-`sudo service nginx start sudo service nginx stop sudo service nginx restart`
+sudo service nginx start 
+sudo service nginx stop 
+sudo service nginx restart
 ```
 
 OR
 
 ```shell
-`sudo /etc/init.d/nginx start sudo /etc/init.d/nginx stop sudo /etc/init.d/nginx restart`
+sudo /etc/init.d/nginx start 
+sudo /etc/init.d/nginx stop 
+sudo /etc/init.d/nginx restart
 ```
+
+### Nginx Command
+
+```
+nginx -s <SIGNAL>
+```
+
+`<SIGNAL>` can be one of the following:
+
+- `quit` – Shut down gracefully
+- `reload` – Reload the configuration file
+- `reopen` – Reopen log files
+- `stop` – Shut down immediately (fast shutdown)
 
 
 
