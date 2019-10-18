@@ -48,3 +48,8 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
 ```
 
+
+
+References
+
+[1] [Travis Documentation](https://docs.travis-ci.com/)
