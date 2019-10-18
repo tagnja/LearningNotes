@@ -52,9 +52,9 @@
 
 3. Generating password
 
-   ```
-   java -cp jasypt-1.9.2.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="Jack" password="supersecretz" algorithm=PBEWITHMD5ANDDES
-   java -cp jasypt-1.9.2.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="Beijing" password="supersecretz" algorithm=PBEWITHMD5ANDDES
+   ```shell
+   $ java -cp jasypt-1.9.2.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="Jack" password="supersecretz" algorithm=PBEWITHMD5ANDDES
+   $ java -cp jasypt-1.9.2.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="Beijing" password="supersecretz" algorithm=PBEWITHMD5ANDDES
    ```
 
 4. Writing configuration file `application.yml`
@@ -109,21 +109,19 @@
 
 6. Package to Spring Boot runnable jar
 
-   ```
-   mvn -Djasypt.encryptor.password=<your_password> package spring-boot:repackage
-   eg: my password is supersecretz
-   mvn -Djasypt.encryptor.password=supersecretz package spring-boot:repackage
+   ```shell
+   $ mvn -Djasypt.encryptor.password=<your_password> package spring-boot:repackage
+   # eg: my password is supersecretz
+   $ mvn -Djasypt.encryptor.password=supersecretz package spring-boot:repackage
    ```
 
 7. Running jar
 
+   ```shell
+   $ java -jar target/<project_name.jar> --jasypt.encryptor.password=<your_password>
+   # eg: my project name is jasypt, my password is supersecretz
+   $ java -jar target/jasypt-1.0-SNAPSHOT.jar --jasypt.encryptor.password=supersecretz
    ```
-   java -jar target/<project_name.jar> --jasypt.encryptor.password=<your_password>
-   eg: my project name is jasypt, my password is supersecretz
-   java -jar target/jasypt-1.0-SNAPSHOT.jar --jasypt.encryptor.password=supersecretz
-   ```
-
-> **Notice**: `mvn -Djasypt.encryptor.password=<your_password>  spring-boot:run` don't work.
 
 ## Command Lines
 
@@ -131,9 +129,13 @@
 
 ```
 # Generate password
-java -cp jasypt-1.9.2.jar input="<your_text>" password="<your_password>" algorithm=PBEWITHMD5ANDDES
-# Pakcage
+java -cp jasypt-1.9.2.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="<your_text>" password="<your_password>" algorithm=PBEWITHMD5ANDDES
+
+# Maven test/pakcage/run
+mvn -Djasypt.encryptor.password=<your_password> test
 mvn -Djasypt.encryptor.password=<your_password> package spring-boot:repackage
-# run with spring-boot jar
+mvn -Djasypt.encryptor.password=<your_password> spring-boot:run
+
+# Running with spring-boot jar
 java -jar target/<project_name.jar> --jasypt.encryptor.password=<your_password>
 ```

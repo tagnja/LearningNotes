@@ -2,11 +2,19 @@
 
 ## Starting Redis Server
 
-```
-redis-server /etc/redis.conf
+```shell
+$ redis-server /etc/redis.conf
 ```
 
-## Enable Connect by IP
+Or
+
+```shell
+$ systemctl start redis
+```
+
+
+
+## Enable Connect by Remote IP
 
 There are a few settings that would affect this: **bind** and **protected-mode**. They work together to provide a baseline of security with new installs.
 
@@ -46,7 +54,7 @@ protected-mode no
 
 ## Set Password
 
-### using redis-cli set template password
+### set template password by Redis-cli
 
 ```shell
 # set password
@@ -57,18 +65,11 @@ $ 127.0.0.1:6379> CONFIG SET requirepass "<your_password>"
 OK
 $ 127.0.0.1:6379> AUTH <your_password>
 Ok
-
-# restart redis-server
-# shutdown
-$ ./redis-cli 
-$ 127.0.0.1:6379> shutdown
-# start 
-$ systemctl start redis
-# or
-$ redis-server &
 ```
 
-### redis configuration file
+### Set Password by Update configuration file
+
+#### 1. Update Configuration
 
 ```
 sudo nano /etc/redis/redis.conf 
@@ -86,13 +87,26 @@ with
 requirepass YOURPASSPHRASE
 ```
 
-restart redis-server
+#### 2. restart redis-server
 
 ```shell
 $ redis-server restart
 ```
 
-Verify
+Shutdown by redis-cli, and start it
+
+```
+# shutdown
+$ ./redis-cli 
+$ 127.0.0.1:6379> shutdown
+
+# start
+$ systemctl start redis
+# or
+$ redis-server /etc/redis.conf
+```
+
+#### 3. Verify
 
 ```shell
 $ ./redis-cli
@@ -106,11 +120,26 @@ OK
 
 ## Remove Password
 
-### using redis-cli
+### using redis-cli temporarily Remove 
 
 ```shell
 $ ./redis-cli
 $ 127.0.0.1:6379> CONFIG SET requirepass ""
 ```
 
- 
+###  Update Redis Configuration
+
+Remove Password
+
+```
+# requirepass foobared
+```
+
+Verify
+
+```
+$ ./redis-cli
+$ 127.0.0.1:6379> AUTH PASSWORD
+(error) ERR Client sent AUTH, but no password is set
+```
+
