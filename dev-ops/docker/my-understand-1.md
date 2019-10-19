@@ -1,5 +1,11 @@
 # My Understand of Docker 
 
+### Content
+
+- Basic Concepts
+- Dockerfile
+- Docker Commands
+
 
 
 ## I. Basic Concepts
@@ -16,7 +22,44 @@
 
 
 
-## II. Docker Commands
+## II. Learning Dockerfile
+
+```
+FROM java:8
+VOLUME /tmp
+ADD build/libs/spring-redis-docker-example.jar spring-redis-docker-example.jar
+RUN bash -c 'touch /spring-redis-docker-example.jar'
+EXPOSE 8080
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/spring-redis-docker-example.jar"]
+```
+
+
+
+## III. Docker Commands
+
+Common Commands
+
+```
+docker -v
+
+# build image
+docker build -t <your_image_name> .
+docker image ls
+docker image rm <your_image_name/image_id>
+docker images purge
+
+# run with container
+docker run -p 8080:8080 <your_image_name/image_id>
+docker container ls
+docker container stop/kill/rm <container_id>
+docker ps -a -f status=exited
+docker rm $(docker ps -a -f status=exited -q)
+
+# clean up any resources — images, containers, volumes, and networks
+docker system prune
+```
+
+
 
 ### Basic Docker Commands
 
@@ -129,8 +172,6 @@ docker container rm $(docker container ls -a -q)         # Remove all containers
 ```
 
 
-
-## Learning Dockerfile
 
 
 
