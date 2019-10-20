@@ -4,6 +4,7 @@
 
 - Basic Concepts
 - Dockerfile
+- Docker Compose
 - Docker Commands
 
 
@@ -22,7 +23,7 @@
 
 
 
-## II. Learning Dockerfile
+## II. Dockerfile
 
 ```
 FROM java:8
@@ -35,7 +36,49 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/spring-red
 
 
 
-## III. Docker Commands
+## III. Docker Compose
+
+Commands
+
+```
+# built and run the container in one command
+docker-compose up
+
+# build all the services but not run them.
+docker-compose build
+# build all the services and then run them
+docker-compose up --build
+
+# Listing the multiple Docker instances
+docker-compose ps
+
+# stop and remove
+docker-compose stop && docker-compose rm -f
+```
+
+docker-compose.yml
+
+```
+version: '2'
+services:
+  app:
+    build: .
+    ports:
+     - "8080:8080"
+    links:
+      - "db:redis"
+  db:
+    image: "redis:alpine"
+    hostname: redis
+    ports:
+     - "6379:6379"
+```
+
+
+
+
+
+## IV. Docker Commands
 
 Common Commands
 
@@ -53,7 +96,10 @@ docker run -p 8080:8080 <your_image_name/image_id>
 docker container ls
 docker container stop/kill/rm <container_id>
 docker ps -a -f status=exited
-docker rm $(docker ps -a -f status=exited -q)
+
+# stop/remove all containers
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
 
 # clean up any resources — images, containers, volumes, and networks
 docker system prune
