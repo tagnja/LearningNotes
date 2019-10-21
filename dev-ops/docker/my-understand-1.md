@@ -3,6 +3,7 @@
 ### Content
 
 - Basic Concepts
+- Config
 - Dockerfile
 - Docker Compose
 - Docker Commands
@@ -20,6 +21,15 @@
 **Docker Host**: A machine running the Docker engine. Images are cached and containers are run by Docker host.
 
 **Registry**: Image are stored in a registry. like a repository for package managers such as `apt`, `npm`. Docker official offers a public registry that anyone can use to store images.
+
+## Config
+
+Registry mirrors
+
+```
+https://dockerhub.azk8s.cn
+https://reg-mirror.qiniu.com
+```
 
 
 
@@ -43,6 +53,9 @@ Commands
 ```
 # built and run the container in one command
 docker-compose up
+
+# stop all the services
+docker-compose down
 
 # build all the services but not run them.
 docker-compose build
@@ -94,7 +107,9 @@ docker images purge
 # run with container
 docker run -p 8080:8080 <your_image_name/image_id>
 docker container ls
-docker container stop/kill/rm <container_id>
+docker container stop <container_id>
+docker container kill <container_id>
+docker container rm <container_id>
 docker ps -a -f status=exited
 
 # stop/remove all containers
