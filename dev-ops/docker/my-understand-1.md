@@ -53,14 +53,14 @@ Commands
 ```
 # built and run the container in one command
 docker-compose up
+# build all the services and then run them
+docker-compose up --build
 
 # stop all the services
 docker-compose down
 
 # build all the services but not run them.
 docker-compose build
-# build all the services and then run them
-docker-compose up --build
 
 # Listing the multiple Docker instances
 docker-compose ps
