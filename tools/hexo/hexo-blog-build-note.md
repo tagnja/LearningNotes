@@ -44,10 +44,8 @@ $ sudo yum install git-core
 
 **Install Hexo**
 
-```
+```shell
 $ npm install -g hexo-cli
-$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-$ nvm install stable
 ```
 
 **Init Hexo**
