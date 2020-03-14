@@ -1,6 +1,16 @@
 # Note of Jacman Theme of Hexo
 
+Content
 
+- Official Docs
+- Add RSS
+
+
+
+## Official Docs
+
+- [如何使用 Jacman 主题](http://jacman.wuchong.me/2014/11/20/how-to-use-jacman/)
+- [jacman - GitHub](https://github.com/wuchong/jacman)
 
 ## Add RSS
 
