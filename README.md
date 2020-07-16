@@ -1,5 +1,5 @@
 # Learning Notes
-It's my learning notes.
+My CS fundamentals theory note.
 
 
 
